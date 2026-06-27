@@ -884,6 +884,7 @@ section {
 
 .footer-wordmark__links {
   display: flex;
+  justify-content: space-between;
   gap: clamp(2.5rem, 8vw, 7rem);
   margin-bottom: clamp(2rem, 5vw, 4rem);
 }
