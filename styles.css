@@ -1812,6 +1812,116 @@ section {
   opacity: 0.85;
 }
 
+/* ============================================================
+   YHTEISÖ-sivu
+   ============================================================ */
+
+/* ---------- 217 · Brand-statement (pystyraitatausta + kortti) ---------- */
+.brand-statement {
+  padding: clamp(3rem, 7vw, 6rem) clamp(1.2rem, 5vw, 4rem);
+  background-color: #efe7d5;
+  background-image: repeating-linear-gradient(
+    90deg,
+    #ded2bb 0 10px,
+    #efe7d5 10px 20px
+  );
+}
+
+.brand-statement__card {
+  max-width: 640px;
+  margin: 0 auto;
+  text-align: center;
+  background: #fbf6ea;
+  border: 1px solid color-mix(in srgb, #3d322c 12%, transparent);
+  padding: clamp(2.5rem, 6vw, 5rem) clamp(1.8rem, 5vw, 4rem);
+}
+
+.brand-statement__label {
+  display: block;
+  margin-bottom: 1.4rem;
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  opacity: 0.7;
+}
+
+.brand-statement__title {
+  margin-bottom: 1.6rem;
+  font-family: "EB Garamond", Georgia, serif;
+  font-style: italic;
+  font-size: clamp(2rem, 4.5vw, 3.2rem);
+  line-height: 1.1;
+}
+
+.brand-statement__body {
+  max-width: 46ch;
+  margin: 0 auto;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  opacity: 0.9;
+}
+
+/* ---------- 219 · Jäsenedut (otsikko-pilleri + 3 korttia) ---------- */
+.benefits {
+  position: relative;
+  background: #bfb5a4;
+  padding: clamp(3.5rem, 6vw, 5rem) clamp(1.2rem, 5vw, 4rem) clamp(3rem, 6vw, 5rem);
+}
+
+.benefits__badge {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fbf6ea;
+  color: #3d322c;
+  font-family: "Nourd", "Montserrat", sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: clamp(1rem, 2vw, 1.4rem);
+  padding: 0.7em 1.6em;
+  border-radius: 14px;
+  white-space: nowrap;
+}
+
+.benefits__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(1rem, 2vw, 1.6rem);
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+.benefit-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  text-align: center;
+  background: #fbf6ea;
+  border-radius: 18px;
+  padding: clamp(2rem, 3vw, 2.8rem);
+}
+
+.benefit-card__icon {
+  font-size: 1.8rem;
+  line-height: 1;
+  color: #a9856b;
+}
+
+.benefit-card h3 {
+  font-size: clamp(1.1rem, 1.8vw, 1.35rem);
+  line-height: 1.2;
+}
+
+.benefit-card p {
+  max-width: 30ch;
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
 /* ---------- Responsiivisuus ---------- */
 
 @media (max-width: 820px) {
@@ -1919,5 +2029,17 @@ section {
   .values__grid {
     grid-template-columns: 1fr;
     gap: 2.5rem;
+  }
+
+  /* Yhteisö */
+  .benefits__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .benefits__badge {
+    white-space: normal;
+    text-align: center;
+    width: max-content;
+    max-width: 90%;
   }
 }
