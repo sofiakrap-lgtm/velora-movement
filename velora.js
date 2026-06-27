@@ -165,6 +165,42 @@
       "100 % naturlig. Inte testad på djur. Tillverkad i Finland.",
     "Lisää koriin": "Lägg i varukorgen",
     "Tallenna suosikki": "Spara favorit",
+    // Kauppa · tuotteet
+    "Hyvinvointia kotiin": "Välmående hemma",
+    "Pieni valikoima rauhoittavaa itsehoitoa ja studiotarvikkeita, jotka tuovat Veloran tunnelman myös maton ulkopuolelle.":
+      "Ett litet urval av lugnande egenvård och studiotillbehör som tar med sig Veloras stämning även utanför mattan.",
+    "Joogasetti kotiin": "Yogaset för hemmet",
+    "Joogamatto ja faskiapallo pehmeään kotiharjoitteluun.":
+      "Yogamatta och fasciaboll för mjuk träning hemma.",
+    "Pilatessetti kotiin": "Pilatesset för hemmet",
+    "Matto ja käsipainot keskivartalon vahvistukseen kotona.":
+      "Matta och handvikter för att stärka bålen hemma.",
+    "Pyyhesetti, kolme kpl": "Handduksset, tre st.",
+    "Kolme pehmeää puuvillapyyhettä lämpimissä sävyissä.":
+      "Tre mjuka bomullshanddukar i varma toner.",
+    Kylpytossut: "Badtofflor",
+    "Pehmeät tossut rauhalliseen iltahetkeen.":
+      "Mjuka tofflor för en lugn kvällsstund.",
+    Kylpysetti: "Badset",
+    "Kylpysuola, vaahto ja scrub rentouttavaan kylpyyn.":
+      "Badsalt, skum och scrub för ett avkopplande bad.",
+    "Kylpytakki, vaalea": "Badrock, ljus",
+    "Kevyt ja pehmeä puuvillakylpytakki.": "Lätt och mjuk badrock i bomull.",
+    Luonnonsaippua: "Naturtvål",
+    "Käsintehty palasaippua luonnon raaka-aineista.":
+      "Handgjord tvål av naturliga råvaror.",
+    "Teräksinen juomapullo": "Vattenflaska i stål",
+    "Pitää veden viileänä matolla ja sen ulkopuolella.":
+      "Håller vattnet svalt på mattan och utanför.",
+    "Ekologinen kylpysetti": "Ekologiskt badset",
+    "Luonnonkuituharja ja merisieni hellävaraiseen ihonhoitoon.":
+      "Naturfiberborste och havssvamp för skonsam hudvård.",
+    "Käsi- & jalkavoide": "Hand- & fotkräm",
+    "Kosteuttava voidepari käsille ja jaloille.":
+      "Återfuktande krämpar för händer och fötter.",
+    "Pään hierontasetti": "Huvudmassageset",
+    "Gua sha -kampa ja hierontaöljy rentoutukseen.":
+      "Gua sha-kam och massageolja för avslappning.",
     "Ilmainen toimitus yli 60 €": "Fri frakt över 60 €",
     "Toimitus 2–4 arkipäivää": "Leverans 2–4 vardagar",
     Ainesosat: "Ingredienser",
@@ -368,7 +404,7 @@
     dialog.innerHTML =
       '<button class="join-modal__close" type="button" aria-label="Sulje">×</button>' +
       '<div class="join-modal__inner">' +
-      '<div class="join-modal__media" aria-hidden="true"></div>' +
+      '<div class="join-modal__media" aria-hidden="true" style="--img:url(assets/images/kuva-2.jpg)"></div>' +
       '<div class="join-modal__body">' +
       '<span class="eyebrow">Kanta-asiakkuus</span>' +
       "<h2>Tervetuloa Veloran kanta-asiakkaaksi</h2>" +

@@ -29,101 +29,212 @@
     </header>
 
     <main>
-      <!-- ============ 503 · VERKKOKAUPPA / Tuotesivu (PDP) ============ -->
-      <section class="pdp">
-        <div class="pdp__gallery">
-          <div class="pdp__image" aria-hidden="true"></div>
+      <!-- ============ Kauppa · tuoteruudukko ============ -->
+      <section class="shop">
+        <div class="shop__head">
+          <span class="eyebrow">Kauppa</span>
+          <h1 class="shop__title">Hyvinvointia kotiin</h1>
+          <p class="shop__lead">
+            Pieni valikoima rauhoittavaa itsehoitoa ja studiotarvikkeita, jotka
+            tuovat Veloran tunnelman myös maton ulkopuolelle.
+          </p>
         </div>
 
-        <div class="pdp__buy">
-          <div class="pdp__head">
-            <h1 class="pdp__name">Lepo · rauhoittava eteerinen öljy</h1>
-            <span class="pdp__price">28&nbsp;€</span>
-          </div>
-          <div class="pdp__rating">
-            <span class="stars" aria-hidden="true">★★★★★</span>
-            <a href="#">24 arvostelua</a>
-          </div>
-
-          <hr class="pdp__rule" />
-
-          <h2 class="pdp__subtitle">Kuvaus</h2>
-          <p>
-            Rauhoittava eteerinen öljyseos laventelia ja setripuuta. Hetki
-            itselle keskellä kiireistä arkea.
-          </p>
-          <p>
-            Muutama tippa ranteisiin tai matolle ennen harjoitusta, hengitä
-            syvään ja anna kiireen laskeutua.
-          </p>
-          <p>100 % luonnollinen. Eläinkokeeton. Valmistettu Suomessa.</p>
-
-          <div class="pdp__variants" role="radiogroup" aria-label="Koko">
-            <label><input type="radio" name="koko" checked /> 10 ml</label>
-            <label><input type="radio" name="koko" /> 30 ml</label>
-            <label><input type="radio" name="koko" /> 50 ml</label>
-          </div>
-
-          <div class="pdp__actions">
-            <a class="btn pdp__add" href="#">Lisää koriin</a>
-            <a class="btn pdp__fav" href="#">Tallenna suosikki</a>
-          </div>
-
-          <div class="pdp__ship">
-            <span>Ilmainen toimitus yli 60 €</span>
-            <span>Toimitus 2–4 arkipäivää</span>
-          </div>
-        </div>
-      </section>
-
-      <!-- Alaosa: ainesosat + käyttö -->
-      <section class="pdp-info">
-        <div class="pdp-info__col">
-          <h2>Ainesosat</h2>
-          <p>
-            Laventeliöljy, setripuuöljy, bergamotti ja jojobaöljy. Ei
-            keinotekoisia tuoksuja, väriaineita tai säilöntäaineita.
-          </p>
-          <a href="#">Lue lisää</a>
-          <div class="pdp-info__thumbs" aria-hidden="true">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-          </div>
-        </div>
-        <div class="pdp-info__col">
-          <h2>Käyttö</h2>
-          <p>
-            Tiputa muutama pisara ranteisiin, niskaan tai joogamatolle. Hengitä
-            rauhassa sisään ennen harjoitusta tai illan rauhoittuessa.
-          </p>
-          <p>
-            Vältä suoraa kosketusta silmiin. Säilytä viileässä ja valolta
-            suojattuna.
-          </p>
-          <div class="pdp-info__image" aria-hidden="true"></div>
-        </div>
-      </section>
-
-      <!-- ============ 502 · VERKKOKAUPPA / "Saatat pitää myös" ============ -->
-      <section class="related">
-        <h2 class="related__title">Saatat pitää myös näistä</h2>
-        <div class="related__grid">
-          <article class="rel-card">
-            <div class="rel-card__img" aria-hidden="true"></div>
-            <span class="rel-card__name">Hiljaisuus · tuoksukynttilä</span>
-            <span class="rel-card__price">24&nbsp;€</span>
+        <div class="shop__grid">
+          <article class="shop-card">
+            <div class="shop-card__img">
+              <img
+                src="assets/images/tuote-joogasetti.jpg"
+                alt="Joogasetti kotiin"
+                loading="lazy"
+              />
+            </div>
+            <h3 class="shop-card__name">Joogasetti kotiin</h3>
+            <p class="shop-card__desc">
+              Joogamatto ja faskiapallo pehmeään kotiharjoitteluun.
+            </p>
+            <div class="shop-card__foot">
+              <span class="shop-card__price">89&nbsp;€</span>
+              <a class="btn" href="#">Lisää koriin</a>
+            </div>
           </article>
-          <article class="rel-card">
-            <div class="rel-card__img" aria-hidden="true"></div>
-            <span class="rel-card__name">Juuri · villaiset grip-sukat</span>
-            <span class="rel-card__price">19&nbsp;€</span>
+
+          <article class="shop-card">
+            <div class="shop-card__img">
+              <img
+                src="assets/images/tuote-pilatessetti.jpg"
+                alt="Pilatessetti kotiin"
+                loading="lazy"
+              />
+            </div>
+            <h3 class="shop-card__name">Pilatessetti kotiin</h3>
+            <p class="shop-card__desc">
+              Matto ja käsipainot keskivartalon vahvistukseen kotona.
+            </p>
+            <div class="shop-card__foot">
+              <span class="shop-card__price">79&nbsp;€</span>
+              <a class="btn" href="#">Lisää koriin</a>
+            </div>
           </article>
-          <article class="rel-card">
-            <div class="rel-card__img" aria-hidden="true"></div>
-            <span class="rel-card__name">Faskiapallo</span>
-            <span class="rel-card__price">16&nbsp;€</span>
+
+          <article class="shop-card">
+            <div class="shop-card__img">
+              <img
+                src="assets/images/tuote-pyyhesetti.jpg"
+                alt="Kolmen pyyhkeen setti"
+                loading="lazy"
+              />
+            </div>
+            <h3 class="shop-card__name">Pyyhesetti, kolme kpl</h3>
+            <p class="shop-card__desc">
+              Kolme pehmeää puuvillapyyhettä lämpimissä sävyissä.
+            </p>
+            <div class="shop-card__foot">
+              <span class="shop-card__price">45&nbsp;€</span>
+              <a class="btn" href="#">Lisää koriin</a>
+            </div>
+          </article>
+
+          <article class="shop-card">
+            <div class="shop-card__img">
+              <img
+                src="assets/images/tuote-kylpytossut.jpg"
+                alt="Kylpytossut"
+                loading="lazy"
+              />
+            </div>
+            <h3 class="shop-card__name">Kylpytossut</h3>
+            <p class="shop-card__desc">
+              Pehmeät tossut rauhalliseen iltahetkeen.
+            </p>
+            <div class="shop-card__foot">
+              <span class="shop-card__price">29&nbsp;€</span>
+              <a class="btn" href="#">Lisää koriin</a>
+            </div>
+          </article>
+
+          <article class="shop-card">
+            <div class="shop-card__img">
+              <img
+                src="assets/images/tuote-kylpysetti.jpg"
+                alt="Kylpysetti"
+                loading="lazy"
+              />
+            </div>
+            <h3 class="shop-card__name">Kylpysetti</h3>
+            <p class="shop-card__desc">
+              Kylpysuola, vaahto ja scrub rentouttavaan kylpyyn.
+            </p>
+            <div class="shop-card__foot">
+              <span class="shop-card__price">49&nbsp;€</span>
+              <a class="btn" href="#">Lisää koriin</a>
+            </div>
+          </article>
+
+          <article class="shop-card">
+            <div class="shop-card__img">
+              <img
+                src="assets/images/tuote-kylpytakki.jpg"
+                alt="Vaalea kylpytakki"
+                loading="lazy"
+              />
+            </div>
+            <h3 class="shop-card__name">Kylpytakki, vaalea</h3>
+            <p class="shop-card__desc">Kevyt ja pehmeä puuvillakylpytakki.</p>
+            <div class="shop-card__foot">
+              <span class="shop-card__price">95&nbsp;€</span>
+              <a class="btn" href="#">Lisää koriin</a>
+            </div>
+          </article>
+
+          <article class="shop-card">
+            <div class="shop-card__img">
+              <img
+                src="assets/images/tuote-saippua.jpg"
+                alt="Luonnonsaippua"
+                loading="lazy"
+              />
+            </div>
+            <h3 class="shop-card__name">Luonnonsaippua</h3>
+            <p class="shop-card__desc">
+              Käsintehty palasaippua luonnon raaka-aineista.
+            </p>
+            <div class="shop-card__foot">
+              <span class="shop-card__price">12&nbsp;€</span>
+              <a class="btn" href="#">Lisää koriin</a>
+            </div>
+          </article>
+
+          <article class="shop-card">
+            <div class="shop-card__img">
+              <img
+                src="assets/images/tuote-juomapullo.jpg"
+                alt="Teräksinen juomapullo"
+                loading="lazy"
+              />
+            </div>
+            <h3 class="shop-card__name">Teräksinen juomapullo</h3>
+            <p class="shop-card__desc">
+              Pitää veden viileänä matolla ja sen ulkopuolella.
+            </p>
+            <div class="shop-card__foot">
+              <span class="shop-card__price">32&nbsp;€</span>
+              <a class="btn" href="#">Lisää koriin</a>
+            </div>
+          </article>
+
+          <article class="shop-card">
+            <div class="shop-card__img">
+              <img
+                src="assets/images/tuote-harjasetti.jpg"
+                alt="Ekologinen kylpysetti"
+                loading="lazy"
+              />
+            </div>
+            <h3 class="shop-card__name">Ekologinen kylpysetti</h3>
+            <p class="shop-card__desc">
+              Luonnonkuituharja ja merisieni hellävaraiseen ihonhoitoon.
+            </p>
+            <div class="shop-card__foot">
+              <span class="shop-card__price">39&nbsp;€</span>
+              <a class="btn" href="#">Lisää koriin</a>
+            </div>
+          </article>
+
+          <article class="shop-card">
+            <div class="shop-card__img">
+              <img
+                src="assets/images/tuote-voide.jpg"
+                alt="Käsi- ja jalkavoide"
+                loading="lazy"
+              />
+            </div>
+            <h3 class="shop-card__name">Käsi- &amp; jalkavoide</h3>
+            <p class="shop-card__desc">
+              Kosteuttava voidepari käsille ja jaloille.
+            </p>
+            <div class="shop-card__foot">
+              <span class="shop-card__price">24&nbsp;€</span>
+              <a class="btn" href="#">Lisää koriin</a>
+            </div>
+          </article>
+
+          <article class="shop-card">
+            <div class="shop-card__img">
+              <img
+                src="assets/images/tuote-hierontasetti.jpg"
+                alt="Pään hierontasetti"
+                loading="lazy"
+              />
+            </div>
+            <h3 class="shop-card__name">Pään hierontasetti</h3>
+            <p class="shop-card__desc">
+              Gua sha -kampa ja hierontaöljy rentoutukseen.
+            </p>
+            <div class="shop-card__foot">
+              <span class="shop-card__price">34&nbsp;€</span>
+              <a class="btn" href="#">Lisää koriin</a>
+            </div>
           </article>
         </div>
       </section>
