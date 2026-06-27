@@ -1926,6 +1926,12 @@ section {
   border: 1px solid color-mix(in srgb, #e9e3d6 45%, transparent);
 }
 
+.value__icon img {
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+
 .value__title {
   font-family: "Montserrat", sans-serif;
   font-size: 0.78rem;
@@ -2037,6 +2043,12 @@ section {
   font-size: 1.8rem;
   line-height: 1;
   color: #a9856b;
+}
+
+.benefit-card__icon img {
+  width: 40px;
+  height: 40px;
+  display: block;
 }
 
 .benefit-card h3 {
