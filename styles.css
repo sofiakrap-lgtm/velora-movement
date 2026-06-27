@@ -553,6 +553,33 @@ section {
   color: #3d322c;
 }
 
+/* Etusivun vaalean heron päällä: tumma teksti, tumma logo, tumma nappi */
+.hero-full .topbar:not(.is-scrolled) {
+  color: #3d322c;
+}
+
+.hero-full .topbar:not(.is-scrolled) .topbar__nav a {
+  color: #3d322c;
+}
+
+.hero-full .topbar:not(.is-scrolled) .topbar__logo-img--light {
+  display: none;
+}
+
+.hero-full .topbar:not(.is-scrolled) .topbar__logo-img--dark {
+  display: block;
+}
+
+.hero-full .topbar .btn--member {
+  background: #3d322c;
+  color: #f6f1e6;
+}
+
+.hero-full .topbar .btn--member:hover {
+  background: #2a221d;
+  color: #f6f1e6;
+}
+
 .topbar--page .topbar__right {
   margin-left: auto;
 }
@@ -579,9 +606,59 @@ section {
 
 .hero-full__inner {
   flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(2rem, 6vw, 5rem);
+}
+
+.hero-full__center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: clamp(1.4rem, 3vw, 2.2rem);
+}
+
+.hero-full__logo {
+  width: min(440px, 72vw);
+  height: auto;
+  display: block;
+}
+
+.hero-full__tagline {
+  color: #3d322c;
+  font-size: clamp(1.8rem, 4.5vw, 3.4rem);
+  line-height: 1.05;
+  max-width: 16ch;
+}
+
+.home .btn--solid {
+  background: #3d322c;
+  color: #f6f1e6;
+}
+
+.home .btn--solid:hover {
+  background: #2a221d;
+  color: #f6f1e6;
+}
+
+.hero-full__cta {
+  padding: 0.95em 2em;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
 }
 
 /* ---------- 204 · Statement (kuvalohko + iso otsikko) ---------- */
+/* Täysleveät jaetut osiot: ei osion pystypaddingia (kuva reunasta reunaan) */
+.statement,
+.services,
+.cta-split,
+.two-images {
+  padding-block: 0;
+}
+
 .statement {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -595,26 +672,27 @@ section {
 .statement__copy {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   justify-content: center;
-  gap: 1.6rem;
-  padding: clamp(2rem, 6vw, 6rem);
+  text-align: center;
+  gap: 1.4rem;
+  padding: clamp(2rem, 6vw, 5rem);
 }
 
 .statement__title {
-  font-size: clamp(2.6rem, 7vw, 5.5rem);
-  line-height: 1.02;
+  font-size: clamp(1.9rem, 4vw, 3.2rem);
+  line-height: 1.05;
 }
 
 .statement__lead {
-  max-width: 42ch;
-  font-size: 1rem;
+  max-width: 40ch;
+  font-size: 0.95rem;
   line-height: 1.7;
   opacity: 0.85;
 }
 
 .statement__cta {
-  align-self: flex-start;
+  align-self: center;
   padding: 0.9em 1.8em;
   font-size: 0.78rem;
   text-transform: uppercase;
@@ -1557,9 +1635,10 @@ section {
 .marquee {
   overflow: hidden;
   white-space: nowrap;
+  line-height: 0;
   background: var(--cream);
   color: #3d322c;
-  padding: 1.1rem 0;
+  padding: 0.65rem 0;
   border-top: 1px solid #3d322c;
   border-bottom: 1px solid #3d322c;
 }
@@ -1584,14 +1663,15 @@ section {
 
 .marquee__item {
   display: block;
-  height: 24px;
+  height: 17px;
   width: auto;
   flex: none;
 }
 
 .marquee__dot {
   opacity: 0.55;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
+  line-height: 1;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -2320,10 +2400,22 @@ section {
 }
 
 /* ---------- Oikeat kuvat placeholderien tilalle (--img) ---------- */
-.hero-full[style*="--img"],
 .hero-page[style*="--img"] {
   background-image:
     linear-gradient(180deg, rgba(46, 33, 28, 0.28), rgba(46, 33, 28, 0.55)),
+    var(--img) !important;
+  background-size: cover !important;
+  background-position: center !important;
+}
+
+/* Etusivun hero: vaalea cream-kalvo, jotta tumma sisältö erottuu */
+.hero-full[style*="--img"] {
+  background-image:
+    linear-gradient(
+      180deg,
+      rgba(249, 244, 232, 0.6),
+      rgba(249, 244, 232, 0.42)
+    ),
     var(--img) !important;
   background-size: cover !important;
   background-position: center !important;
