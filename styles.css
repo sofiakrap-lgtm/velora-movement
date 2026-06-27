@@ -2103,6 +2103,105 @@ section {
   white-space: nowrap;
 }
 
+/* ============================================================
+   Liity-modaali (kanta-asiakkuus)
+   ============================================================ */
+.join-modal {
+  position: relative;
+  width: 92vw;
+  max-width: 880px;
+  padding: 0;
+  border: none;
+  border-radius: 20px;
+  overflow: hidden;
+  background: #fbf6ea;
+  color: #3d322c;
+}
+
+.join-modal::backdrop {
+  background: rgba(46, 33, 28, 0.55);
+  backdrop-filter: blur(2px);
+}
+
+.join-modal[open] {
+  animation: modal-in 0.25s ease;
+}
+
+@keyframes modal-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.join-modal__inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.join-modal__media {
+  min-height: 380px;
+  background-image: linear-gradient(135deg, #cdbfb0, #9a8979);
+}
+
+.join-modal__body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+  padding: clamp(1.8rem, 3vw, 2.8rem);
+}
+
+.join-modal__body h2 {
+  font-size: clamp(1.5rem, 3vw, 2.1rem);
+  line-height: 1.12;
+}
+
+.join-modal__body p {
+  font-size: 0.95rem;
+  opacity: 0.88;
+}
+
+.join-modal__cta {
+  align-self: flex-start;
+  margin-top: 0.5rem;
+  padding: 0.9em 1.8em;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.join-modal__close {
+  position: absolute;
+  top: 0.6rem;
+  right: 0.9rem;
+  z-index: 2;
+  background: none;
+  border: none;
+  font-size: 1.9rem;
+  line-height: 1;
+  cursor: pointer;
+  color: #3d322c;
+  opacity: 0.6;
+}
+
+.join-modal__close:hover {
+  opacity: 1;
+}
+
+@media (max-width: 640px) {
+  .join-modal__inner {
+    grid-template-columns: 1fr;
+  }
+  .join-modal__media {
+    min-height: 170px;
+  }
+}
+
 /* ---------- Responsiivisuus ---------- */
 
 @media (max-width: 820px) {
