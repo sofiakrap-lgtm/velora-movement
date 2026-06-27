@@ -3,7 +3,19 @@
    Demobrändi · premium jooga- ja pilatesstudio
    ============================================================ */
 
-@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500&family=Jost:wght@300;400;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500&family=Jost:wght@300;400;500&family=Montserrat:wght@400;500;600;700&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap");
+
+/* HEADING-fontti: Nourd Bold.
+   Kaupallinen fontti — lataa tiedosto assets/fonts/-kansioon, niin tämä aktivoituu.
+   Ilman tiedostoa selain putoaa Montserratiin (geometrinen sans). */
+@font-face {
+  font-family: "Nourd";
+  src: url("assets/fonts/nourd-bold.woff2") format("woff2"),
+       url("assets/fonts/nourd-bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
 
 :root {
   /* Värit (brändin kovat arvot) */
@@ -287,6 +299,54 @@ section {
   margin-top: 1.5rem;
 }
 
+/* ---------- Väripaletti: sivukohtaiset värit + fontit ---------- */
+
+/* Värit: tausta = vaalea (#E9E3D6), teksti = tummanruskea (#3D322C) */
+.palette-page {
+  background: #e9e3d6;
+  color: #3d322c;
+  /* BODY-fontti: serif (Lancelot) → väliaikaisesti EB Garamond */
+  font-family: "EB Garamond", Georgia, serif;
+}
+
+.palette-page .site-header {
+  background: color-mix(in srgb, #e9e3d6 88%, transparent);
+}
+
+/* HEADING-fontti: Nourd Bold (fallback Montserrat) — otsikot + isot numerot */
+.palette-page h1,
+.palette-page .swatch__num {
+  font-family: "Nourd", "Montserrat", sans-serif;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+/* SUB-HEADING-fontti: Montserrat — väliotsikot + caps-pikkutekstit */
+.palette-page h2,
+.palette-page h3,
+.palette-page .label,
+.palette-page .swatch__hex {
+  font-family: "Montserrat", sans-serif;
+}
+
+.palette-page h3 {
+  font-weight: 600;
+}
+
+/* Napit: Warm Taupe -täyttö, pyöristetyt kulmat, Montserrat */
+.palette-page .btn {
+  font-family: "Montserrat", sans-serif;
+  background: #bfb5a4;
+  color: #3d322c;
+  border: none;
+  border-radius: 14px;
+}
+
+.palette-page .btn:hover {
+  background: #a99e8c;
+  color: #3d322c;
+}
+
 /* ---------- Väripaletti ---------- */
 
 .palette-intro {
@@ -358,6 +418,10 @@ section {
 .swatch__meta p {
   font-size: 0.95rem;
   opacity: 0.85;
+}
+
+.palette-actions {
+  margin-top: clamp(3rem, 6vw, 5rem);
 }
 
 /* ---------- Responsiivisuus ---------- */
