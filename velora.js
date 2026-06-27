@@ -368,7 +368,7 @@
     dialog.innerHTML =
       '<button class="join-modal__close" type="button" aria-label="Sulje">×</button>' +
       '<div class="join-modal__inner">' +
-      '<div class="join-modal__media" aria-hidden="true" style="--img:url(assets/images/kuva-2.jpg)"></div>' +
+      '<div class="join-modal__media" aria-hidden="true"></div>' +
       '<div class="join-modal__body">' +
       '<span class="eyebrow">Kanta-asiakkuus</span>' +
       "<h2>Tervetuloa Veloran kanta-asiakkaaksi</h2>" +
