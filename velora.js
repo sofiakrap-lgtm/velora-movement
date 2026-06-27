@@ -1,52 +1,469 @@
-// Velora Movement · "Liity asiakkaaksi" -modaali.
-// Rakentaa modaalin ja kytkee sen kaikkiin "Liity asiakkaaksi" -painikkeisiin.
-document.addEventListener("DOMContentLoaded", function () {
-  var dialog = document.createElement("dialog");
-  dialog.className = "join-modal";
-  dialog.innerHTML =
-    '<button class="join-modal__close" type="button" aria-label="Sulje">×</button>' +
-    '<div class="join-modal__inner">' +
-    '<div class="join-modal__media" aria-hidden="true"></div>' +
-    '<div class="join-modal__body">' +
-    '<span class="eyebrow">Kanta-asiakkuus</span>' +
-    "<h2>Tervetuloa Veloran kanta-asiakkaaksi</h2>" +
-    "<p>Kanta-asiakkuutemme hoituu [järjestelmä]-palvelussa, joka pitää huolta jäsenyydestäsi, varauksistasi ja eduistasi, kaikki helposti yhdessä paikassa.</p>" +
-    "<p>Jäsenenä saat joustavat tunnit, jäsenhinnat ja ennakkovaraukset sekä kutsut workshoppeihin ja tapahtumiin.</p>" +
-    '<a class="btn join-modal__cta" href="index.html#liity">Siirry liittymään →</a>' +
-    "</div>" +
-    "</div>";
-  document.body.appendChild(dialog);
+// Velora Movement · modaali + kielenvaihto (FI/SV).
+(function () {
+  "use strict";
 
-  function open(e) {
-    e.preventDefault();
-    if (typeof dialog.showModal === "function") {
-      dialog.showModal();
-    } else {
-      dialog.setAttribute("open", "");
-    }
+  // ---------- Käännökset: suomi (avain) -> ruotsi (arvo) ----------
+  // T = pelkkä teksti, H = sisältää inline-tageja (<em>/<br>), TITLES = sivun otsikot.
+  var T = {
+    // Navigaatio & yleiset
+    Etusivu: "Hem",
+    Palvelut: "Tjänster",
+    Kauppa: "Butik",
+    Meistä: "Om oss",
+    Yhteisö: "Gemenskap",
+    Yhteystiedot: "Kontakt",
+    "Liity asiakkaaksi": "Bli medlem",
+    "Löydä oma rytmisi →": "Hitta din rytm →",
+    "Liity →": "Gå med →",
+    "Katso paketit →": "Se paketen →",
+    "Varaa aikasi →": "Boka din tid →",
+    "Tutustu tunteihin →": "Utforska passen →",
+    "Ilmoittaudu →": "Anmäl dig →",
+    "Tule mukaan →": "Kom med →",
+    "Liity seuraan →": "Slut dig till oss →",
+    "Varaa tunti →": "Boka pass →",
+    "Siirry liittymään →": "Gå vidare till anmälan →",
+    "Katso asiakastarinat →": "Se kundberättelser →",
+    "Liity jäseneksi →": "Bli medlem →",
+    // Etusivu
+    "Mistä meidät tunnistaa": "Där du känner igen oss",
+    "Paketit & hinnat": "Paket & priser",
+    "Kolme tasoa, oma rytmisi. Valitse paketti, joka sopii viikkoosi, vaihda tasoa milloin tahansa, ilman kiirettä.":
+      "Tre nivåer, din egen rytm. Välj det paket som passar din vecka, byt nivå när du vill, utan brådska.",
+    Aloittelija: "Nybörjare",
+    Keskitaso: "Mellannivå",
+    Edistynyt: "Avancerad",
+    Suosituin: "Populärast",
+    "/ kk": "/ mån",
+    "1 joogatunti / vko": "1 yogapass / vecka",
+    "1 stretching / vko": "1 stretching / vecka",
+    "Online-jäsenyys": "Onlinemedlemskap",
+    "2 joogatuntia / vko": "2 yogapass / vecka",
+    "1 pilates / vko": "1 pilates / vecka",
+    "1 core / vko": "1 core / vecka",
+    "Rajattomat tunnit / vko": "Obegränsade pass / vecka",
+    "Kaikki lajit": "Alla grenar",
+    Prioriteettivaraus: "Prioriterad bokning",
+    Tutkittua: "Forskning visar",
+    "Pieni liike, iso vaikutus.": "Liten rörelse, stor effekt.",
+    "Päivittäistä liikettä riittää kohottamaan vireystilaa ja keskittymistä läpi päivän.":
+      "Daglig rörelse räcker för att höja energinivån och koncentrationen genom hela dagen.",
+    "Parempi keskittymiskyky jo lyhyen, kevyen liikuntahetken jälkeen.":
+      "Bättre koncentrationsförmåga redan efter en kort, lätt rörelsestund.",
+    "Suurempi osuus syvää, palauttavaa unta säännöllisellä liikkeellä.":
+      "Större andel djup, återhämtande sömn med regelbunden rörelse.",
+    "Nopeampi palautuminen, kun keho saa liikkua omaan tahtiinsa.":
+      "Snabbare återhämtning när kroppen får röra sig i sin egen takt.",
+    "Mitä yksi treeni viikossa voi muuttaa elämässäsi":
+      "Vad ett pass i veckan kan förändra i ditt liv",
+    "Parempi mieliala": "Bättre humör",
+    "Enemmän unta viikossa": "Mer sömn i veckan",
+    "Enemmän energiaa arkeen": "Mer energi i vardagen",
+    "Jo yksi tunti viikossa riittää käynnistämään muutoksen. Aloita pienestä, keho ja mieli seuraavat perässä.":
+      "Redan en timme i veckan räcker för att sätta igång förändringen. Börja smått, kropp och sinne följer efter.",
+    "Velora-jäsenyys": "Velora-medlemskap",
+    "Liity asiakkaaksemme": "Bli vår medlem",
+    "Saat ensimmäisenä tiedon palveluistamme, tarjouksista, yksityistapahtumista ja kampanjoista.":
+      "Du får först veta om våra tjänster, erbjudanden, privata evenemang och kampanjer.",
+    // Testimonialit
+    "Löysin oman rytmini, vihdoin.": "Jag hittade min egen rytm, äntligen.",
+    "Velorassa sain luvan hidastaa. Enää en suorita, vaan nautin liikkeestä ja hengityksestä. Olo on kevyempi niin matolla kuin sen ulkopuolella.":
+      "På Velora fick jag lov att sakta ner. Jag presterar inte längre, utan njuter av rörelsen och andningen. Jag känner mig lättare både på mattan och utanför den.",
+    "Pieni studio, iso ero arkeen.": "Liten studio, stor skillnad i vardagen.",
+    "Lämmin ja kiireetön tunnelma sai minut palaamaan viikoittain. Uni on syventynyt ja stressi helpottanut huomattavasti, ilman suorittamisen tunnetta.":
+      "Den varma och lugna stämningen fick mig att återvända varje vecka. Sömnen har blivit djupare och stressen lättat betydligt, utan prestationskänsla.",
+    "Tänne on helppo tulla omana itsenään.":
+      "Här är det lätt att komma som sig själv.",
+    "Ei peilejä, ei kilpailua, vain kannustava yhteisö. Tunnen kuuluvani joukkoon ensimmäistä kertaa vuosiin, ja se näkyy koko viikossani.":
+      "Inga speglar, ingen tävling, bara en uppmuntrande gemenskap. Jag känner mig hemma för första gången på flera år, och det märks i hela min vecka.",
+    "Sanna R. · jäsen 1 v": "Sanna R. · medlem 1 år",
+    "Hanna T. · jäsen 6 kk": "Hanna T. · medlem 6 mån",
+    "Leila P. · jäsen 2 v": "Leila P. · medlem 2 år",
+    "Anni M. · jäsen": "Anni M. · medlem",
+    "Maria K. · jäsen": "Maria K. · medlem",
+    // Palvelut / lajisivut
+    "Säännöllinen liike on helpompaa, kun se kuuluu viikkoosi. Kokoa itsellesi sopiva kokonaisuus, kolme tasoa, oma rytmisi, ilman kiirettä.":
+      "Regelbunden rörelse är lättare när den hör till din vecka. Sätt ihop en helhet som passar dig, tre nivåer, din egen rytm, utan brådska.",
+    Joogatunnit: "Yogapass",
+    "Laji 01": "Gren 01",
+    "Laji 02": "Gren 02",
+    "Laji 03": "Gren 03",
+    "Laji 04": "Gren 04",
+    "Pehmeää, hengityksen tahdittamaa liikettä, joka avaa kehon ja rauhoittaa mielen. Tunneilla on tilaa hidastaa, ei suorittamista, vain läsnäoloa.":
+      "Mjuk rörelse i andningens takt som öppnar kroppen och lugnar sinnet. På passen finns utrymme att sakta ner, ingen prestation, bara närvaro.",
+    "Hallittua, syvää keskivartalon työtä, joka rakentaa ryhtiä ja voimaa. Pienissä ryhmissä jokainen liike ohjataan tarkasti ja kiireettä.":
+      "Kontrollerat, djupt bålarbete som bygger hållning och styrka. I små grupper instrueras varje rörelse noggrant och utan brådska.",
+    "Rauhallista, syvää venyttelyä, joka avaa jännitykset ja palauttaa liikkuvuuden. Täydellinen vastapaino kiireiselle viikolle.":
+      "Lugn, djup stretching som löser upp spänningar och återställer rörligheten. Den perfekta motvikten till en hektisk vecka.",
+    "Tehokasta mutta hallittua keskivartalon harjoittelua, joka tukee koko kehon voimaa ja ryhtiä. Lyhyt, tiivis ja energinen.":
+      "Effektiv men kontrollerad bålträning som stöder hela kroppens styrka och hållning. Kort, koncentrerad och energisk.",
+    "Mikä kunto pitää olla?": "Vilken kondition krävs?",
+    "Mitä otan mukaan?": "Vad tar jag med mig?",
+    "Kenelle tunti sopii?": "Vem passar passet för?",
+    "Kuinka kauan tunti kestää?": "Hur länge varar passet?",
+    "Tarvitseeko varata etukäteen?": "Måste man boka i förväg?",
+    "Voinko tulla rajoitteiden kanssa?": "Kan jag komma med begränsningar?",
+    "Ei ennakkovaatimuksia. Tunnit sopivat kaikentasoisille, ja liikkeet sovitetaan omaan kehoosi.":
+      "Inga förkunskaper krävs. Passen passar alla nivåer, och rörelserna anpassas till din kropp.",
+    "Mukavat vaatteet ja oma juomapullo riittävät. Joogamatot ja apuvälineet löytyvät studiolta.":
+      "Bekväma kläder och en egen vattenflaska räcker. Yogamattor och redskap finns i studion.",
+    "Niin aloittelijalle kuin kokeneellekin, jokainen liikkuu omassa tahdissaan.":
+      "Både för nybörjare och erfarna, var och en rör sig i sin egen takt.",
+    "Tunti kestää noin 60 minuuttia.": "Passet varar cirka 60 minuter.",
+    "Suosittelemme varaamaan paikan etukäteen, sillä ryhmät ovat pieniä.":
+      "Vi rekommenderar att du bokar plats i förväg, eftersom grupperna är små.",
+    "Kyllä. Kerro ohjaajalle ennen tuntia, niin sovitamme liikkeet sinulle turvallisiksi.":
+      "Ja. Berätta för instruktören före passet, så anpassar vi rörelserna så att de är trygga för dig.",
+    "Pilates sopii kaikille kuntotasoille; liikkeitä kevennetään tai haastetaan tarpeen mukaan.":
+      "Pilates passar alla konditionsnivåer; rörelserna förenklas eller utmanas efter behov.",
+    "Joustavat vaatteet ja liukuestesukat. Välineet ovat valmiina studiolla.":
+      "Töjbara kläder och halkfria strumpor. Redskapen finns färdiga i studion.",
+    "Onko reformer- vai mattopilatesta?": "Är det reformer- eller mattpilates?",
+    "Tarjoamme molempia. Aloittelijalle suosittelemme aloittamaan mattotunnilla.":
+      "Vi erbjuder båda. För nybörjare rekommenderar vi att börja med ett mattpass.",
+    "Tunti kestää noin 50 minuuttia.": "Passet varar cirka 50 minuter.",
+    "Sopiiko selkä- tai niskavaivoihin?":
+      "Passar det vid rygg- eller nackbesvär?",
+    "Usein kyllä, ja se voi jopa helpottaa oireita. Kerro vaivoistasi ohjaajalle etukäteen.":
+      "Ofta ja, och det kan till och med lindra symtom. Berätta om dina besvär för instruktören i förväg.",
+    "Kyllä, paikkoja on rajoitetusti pienen ryhmäkoon vuoksi.":
+      "Ja, antalet platser är begränsat på grund av den lilla gruppstorleken.",
+    "Ei mitään, stretching sopii kaikille ja on hellävarainen keholle.":
+      "Ingenting, stretching passar alla och är skonsam mot kroppen.",
+    "Mukavat, joustavat vaatteet ja oma juomapullo. Matot löytyvät studiolta.":
+      "Bekväma, töjbara kläder och en egen vattenflaska. Mattorna finns i studion.",
+    "Erityisesti heille, jotka istuvat paljon tai kaipaavat palautumista.":
+      "Särskilt för dem som sitter mycket eller behöver återhämtning.",
+    "Tunti kestää noin 45 minuuttia.": "Passet varar cirka 45 minuter.",
+    "Voiko tulla jäykkänä?": "Kan man komma stel?",
+    "Juuri silloin kannattaa tulla, liikkuvuus paranee vähitellen, omaan tahtiin.":
+      "Just då lönar det sig att komma, rörligheten förbättras gradvis, i din egen takt.",
+    "Suosittelemme varausta, mutta paikkoja on usein myös ovelta.":
+      "Vi rekommenderar bokning, men det finns ofta platser även vid dörren.",
+    "Peruskunto riittää; liikkeet on helppo skaalata omalle tasolle.":
+      "Grundkondition räcker; rörelserna är lätta att anpassa till din egen nivå.",
+    "Treenivaatteet, juomapullo ja pyyhe. Välineet ovat paikalla.":
+      "Träningskläder, vattenflaska och handduk. Redskapen finns på plats.",
+    "Heille, jotka haluavat vahvistaa keskivartaloa ja lisätä liikkeen tehoa.":
+      "För dem som vill stärka bålen och öka rörelsens effekt.",
+    "Tunti kestää noin 30 minuuttia tiivistä työtä.":
+      "Passet varar cirka 30 minuter koncentrerat arbete.",
+    "Onko tunti rankka?": "Är passet hårt?",
+    "Tehokas mutta hallittu, pidät itse tahdin ja lepäät tarvittaessa.":
+      "Effektivt men kontrollerat, du bestämmer takten själv och vilar vid behov.",
+    "Kyllä, varaa paikkasi etukäteen ryhmäkoon vuoksi.":
+      "Ja, boka din plats i förväg på grund av gruppstorleken.",
+    // Kauppa
+    "Lepo · rauhoittava eteerinen öljy": "Lepo · lugnande eterisk olja",
+    "24 arvostelua": "24 recensioner",
+    Kuvaus: "Beskrivning",
+    "Rauhoittava eteerinen öljyseos laventelia ja setripuuta. Hetki itselle keskellä kiireistä arkea.":
+      "En lugnande eterisk oljeblandning av lavendel och cederträ. En stund för dig själv mitt i en hektisk vardag.",
+    "Muutama tippa ranteisiin tai matolle ennen harjoitusta, hengitä syvään ja anna kiireen laskeutua.":
+      "Några droppar på handlederna eller mattan före passet, andas djupt och låt brådskan lägga sig.",
+    "100 % luonnollinen. Eläinkokeeton. Valmistettu Suomessa.":
+      "100 % naturlig. Inte testad på djur. Tillverkad i Finland.",
+    "Lisää koriin": "Lägg i varukorgen",
+    "Tallenna suosikki": "Spara favorit",
+    "Ilmainen toimitus yli 60 €": "Fri frakt över 60 €",
+    "Toimitus 2–4 arkipäivää": "Leverans 2–4 vardagar",
+    Ainesosat: "Ingredienser",
+    "Laventeliöljy, setripuuöljy, bergamotti ja jojobaöljy. Ei keinotekoisia tuoksuja, väriaineita tai säilöntäaineita.":
+      "Lavendelolja, cederträolja, bergamott och jojobaolja. Inga konstgjorda dofter, färgämnen eller konserveringsmedel.",
+    "Lue lisää": "Läs mer",
+    Käyttö: "Användning",
+    "Tiputa muutama pisara ranteisiin, niskaan tai joogamatolle. Hengitä rauhassa sisään ennen harjoitusta tai illan rauhoittuessa.":
+      "Droppa några droppar på handlederna, nacken eller yogamattan. Andas lugnt in före passet eller när kvällen lugnar ner sig.",
+    "Vältä suoraa kosketusta silmiin. Säilytä viileässä ja valolta suojattuna.":
+      "Undvik direkt kontakt med ögonen. Förvara svalt och skyddat från ljus.",
+    "Saatat pitää myös näistä": "Du kanske också gillar dessa",
+    "Hiljaisuus · tuoksukynttilä": "Tystnad · doftljus",
+    "Juuri · villaiset grip-sukat": "Juuri · greppstrumpor i ull",
+    Faskiapallo: "Fasciaboll",
+    // Meistä
+    "2021 · Idea syntyi": "2021 · Idén föddes",
+    "2022 · Ensimmäinen studio": "2022 · Första studion",
+    "2024 · Kasvava yhteisö": "2024 · Växande gemenskap",
+    "Tänään · Sinä mukaan": "Idag · Du med",
+    Tarinamme: "Vår historia",
+    "Velora syntyi kahden siskon unelmasta: luoda tila, jonne jokainen voi tulla tukemaan omaa hyvinvointiaan kiireisen arjen keskellä. Ei suorittamista, ei vaatimuksia, vain lämmin paikka hidastaa ja hengittää.":
+      "Velora föddes ur två systrars dröm: att skapa ett rum dit alla kan komma för att stödja sitt eget välmående mitt i en hektisk vardag. Ingen prestation, inga krav, bara en varm plats att sakta ner och andas.",
+    "Mihin uskomme": "Vad vi tror på",
+    Läsnäolo: "Närvaro",
+    "Jokainen hetki matolla on tilaisuus pysähtyä. Harjoittelemme läsnäoloa, emme suorittamista.":
+      "Varje stund på mattan är ett tillfälle att stanna upp. Vi övar närvaro, inte prestation.",
+    "Pieni studio, tutut kasvot. Täällä jokainen kuuluu joukkoon omana itsenään, ilman vertailua.":
+      "Liten studio, bekanta ansikten. Här hör var och en hemma som sig själv, utan jämförelse.",
+    Hellävaraisuus: "Skonsamhet",
+    "Kuuntelemme kehoa ja kunnioitamme sen rajoja. Liikkeen kuuluu tuntua hyvältä.":
+      "Vi lyssnar på kroppen och respekterar dess gränser. Rörelse ska kännas bra.",
+    // Yhteisö
+    Tervetuloa: "Välkommen",
+    "Tule osaksi yhteisöä": "Bli en del av gemenskapen",
+    "Velora on enemmän kuin studio, se on yhteisö. Workshopit, tapahtumat, yhteislenkit ja kahvittelut tuovat yhteen naisia, jotka kaipaavat hetkeä irti arjen pyörityksestä. Sillä kun pidät huolta itsestäsi, siitä hyötyvät myös läheisesi. Tervetuloa juuri sellaisena kuin olet.":
+      "Velora är mer än en studio, det är en gemenskap. Workshops, evenemang, gemensamma promenader och kaffestunder för samman kvinnor som längtar efter en stund bort från vardagens snurr. För när du tar hand om dig själv, gynnas även dina nära. Välkommen precis som du är.",
+    "Mitä saat jäsenenä": "Vad du får som medlem",
+    "Workshopit & tapahtumat": "Workshops & evenemang",
+    "Jäsenille suunnatut workshopit ja tapahtumat läpi vuoden, oppia, inspiraatiota ja uusia tuttavuuksia.":
+      "Workshops och evenemang för medlemmar året runt, lärdomar, inspiration och nya bekantskaper.",
+    "Yhteislenkit & kahvittelut": "Gemensamma promenader & kaffestunder",
+    "Rento yhteisö, joka kokoontuu liikkumaan ja jakamaan hetkiä myös maton ulkopuolella.":
+      "En avslappnad gemenskap som samlas för att röra på sig och dela stunder även utanför mattan.",
+    Jäsenedut: "Medlemsförmåner",
+    "Jäsenhinnat tunneista, ennakkovaraukset ja vain jäsenille räätälöidyt tarjoukset.":
+      "Medlemspriser på pass, förhandsbokningar och erbjudanden skräddarsydda enbart för medlemmar.",
+    "Tulevat tapahtumat": "Kommande evenemang",
+    "Aamujooga & smoothie": "Morgonyoga & smoothie",
+    "Sunnuntain yhteislenkki": "Söndagens gemensamma promenad",
+    "Kahvit & keskustelu": "Kaffe & samtal",
+    "Hengitys-workshop": "Andningsworkshop",
+    "Aamujoogan rauhaa": "Morgonyogans lugn",
+    "Yhteinen hetki ennen arjen kiireen alkua.":
+      "En gemensam stund innan vardagens brådska börjar.",
+    Yhteislenkillä: "På gemensam promenad",
+    "Liikettä ja raitista ilmaa luonnossa, hyvässä seurassa.":
+      "Rörelse och frisk luft i naturen, i gott sällskap.",
+    "Lämpöä, hyviä juttuja ja kiireettömiä hetkiä.":
+      "Värme, goda samtal och stunder utan brådska.",
+    "Workshop-tunnelmaa": "Workshopstämning",
+    "Yhdessä oppimista ja pieniä oivalluksia.":
+      "Lärande tillsammans och små insikter.",
+    // Tapahtumasivut
+    Tapahtuma: "Evenemang",
+    "Aloita viikonloppu rauhallisella aamujoogalla ja yhteisellä smoothie-hetkellä. Pehmeää liikettä, hyvää seuraa ja raikas alku päivään.":
+      "Inled helgen med en lugn morgonyoga och en gemensam smoothiestund. Mjuk rörelse, gott sällskap och en fräsch start på dagen.",
+    "Milloin?": "När?",
+    "Missä?": "Var?",
+    "Kenelle?": "För vem?",
+    "Paljonko maksaa?": "Vad kostar det?",
+    "Miten ilmoittaudun?": "Hur anmäler jag mig?",
+    "Pitääkö ilmoittautua?": "Måste man anmäla sig?",
+    "Lauantaisin klo 9.00–10.30.": "Lördagar kl. 9.00–10.30.",
+    "Velora-studiolla, Helsingissä.": "I Velora-studion, Helsingfors.",
+    "Kaikentasoisille, myös aloittelijoille.":
+      "För alla nivåer, även nybörjare.",
+    "Mukavat vaatteet ja oma juomapullo. Matot löytyvät studiolta.":
+      "Bekväma kläder och en egen vattenflaska. Mattorna finns i studion.",
+    "Jäsenille maksuton, muille 15 €.": "Gratis för medlemmar, annars 15 €.",
+    "Varaa paikkasi etukäteen, paikkoja on rajoitetusti.":
+      "Boka din plats i förväg, antalet platser är begränsat.",
+    "Rento yhteislenkki luonnossa, liikettä, raitista ilmaa ja hyvää seuraa. Jokainen kulkee omaan tahtiinsa, kiireettä.":
+      "En avslappnad gemensam promenad i naturen, rörelse, frisk luft och gott sällskap. Var och en går i sin egen takt, utan brådska.",
+    "Sunnuntaisin klo 10.00.": "Söndagar kl. 10.00.",
+    "Lähtö Velora-studiolta, reitti luonnossa.":
+      "Start från Velora-studion, rutten går i naturen.",
+    "Kaikille, kulkutahdin valitset itse.": "För alla, du väljer själv takten.",
+    "Säänmukaiset vaatteet ja juomapullo.":
+      "Väderanpassade kläder och en vattenflaska.",
+    "Maksuton kaikille.": "Gratis för alla.",
+    "Ei pakollista, tule paikalle sellaisena kuin olet.":
+      "Inte obligatoriskt, kom precis som du är.",
+    "Lämmin hetki kahvikupin äärellä, jaamme ajatuksia hyvinvoinnista ja arjesta kiireettömästi, hyvässä seurassa.":
+      "En varm stund vid en kopp kaffe, vi delar tankar om välmående och vardag i lugn och ro, i gott sällskap.",
+    "Kerran kuussa, lauantai-iltapäivisin.":
+      "En gång i månaden, lördagseftermiddagar.",
+    "Velora-studion loungessa.": "I Velora-studions lounge.",
+    "Jäsenille ja vieraille, kaikki tervetulleita.":
+      "För medlemmar och gäster, alla är välkomna.",
+    "Vain itsesi. Kahvit ja pienet purtavat tarjotaan.":
+      "Bara dig själv. Kaffe och lite tilltugg bjuds.",
+    "Maksuton.": "Gratis.",
+    "Ilmoittautuminen on vapaaehtoista mutta auttaa meitä varautumaan.":
+      "Anmälan är frivillig men hjälper oss att förbereda.",
+    "Syvenny hengityksen voimaan ohjatussa workshopissa. Opit yksinkertaisia harjoituksia rauhoittumiseen ja palautumiseen arjen keskellä.":
+      "Fördjupa dig i andningens kraft i en ledd workshop. Du lär dig enkla övningar för att lugna ner och återhämta dig mitt i vardagen.",
+    "Kerran kaudessa, sunnuntai-iltapäivisin.":
+      "En gång per säsong, söndagseftermiddagar.",
+    "Kaikille, aiempaa kokemusta ei tarvita.":
+      "För alla, ingen tidigare erfarenhet behövs.",
+    "Mukavat vaatteet ja oma huopa tai viltti.":
+      "Bekväma kläder och en egen filt.",
+    "29 €, jäsenille 19 €.": "29 €, för medlemmar 19 €.",
+    "Varaa paikkasi etukäteen, ryhmä on pieni.":
+      "Boka din plats i förväg, gruppen är liten.",
+    // Yhteystiedot
+    "Tule käymään Punavuoressa.": "Kom och hälsa på i Rödbergen.",
+    Osoite: "Adress",
+    Sähköposti: "E-post",
+    Puhelin: "Telefon",
+    Avoinna: "Öppet",
+    "Velora · Punavuori": "Velora · Rödbergen",
+    Studiosali: "Studiosal",
+    "Lämmin, luonnonvaloa tulviva tila liikkeelle.":
+      "Ett varmt utrymme för rörelse, fyllt av naturligt ljus.",
+    Loungetila: "Loungeutrymme",
+    "Hetki hengähtää ennen tai jälkeen tunnin.":
+      "En stund att pusta ut före eller efter passet.",
+    Pukuhuone: "Omklädningsrum",
+    "Rauhallinen, huoliteltu ja kodikas.": "Lugnt, välskött och hemtrevligt.",
+    "Punavuoren kulma": "Hörnet i Rödbergen",
+    "Studio sydämessä kaupunkia, omassa rauhassaan.":
+      "En studio i hjärtat av staden, i sitt eget lugn.",
+    // Modaali
+    "Kanta-asiakkuus": "Stamkundskap",
+    "Tervetuloa Veloran kanta-asiakkaaksi": "Välkommen som stamkund hos Velora",
+    "Kanta-asiakkuutemme hoituu [järjestelmä]-palvelussa, joka pitää huolta jäsenyydestäsi, varauksistasi ja eduistasi, kaikki helposti yhdessä paikassa.":
+      "Vårt stamkundskap sköts i tjänsten [järjestelmä], som tar hand om ditt medlemskap, dina bokningar och förmåner, allt enkelt på ett ställe.",
+    "Jäsenenä saat joustavat tunnit, jäsenhinnat ja ennakkovaraukset sekä kutsut workshoppeihin ja tapahtumiin.":
+      "Som medlem får du flexibla pass, medlemspriser och förhandsbokningar samt inbjudningar till workshops och evenemang.",
+  };
+
+  var H = {
+    "Hyvinvointi<br>kuuluu<br>kaikille.": "Välmående<br>tillhör<br>alla.",
+    "Kahden siskon <em>turvallinen</em> paikka.":
+      "Två systrars <em>trygga</em> plats.",
+    "Löysin vihdoin paikan, jossa saan sekä <em>rentoutua</em> että jakaa <em>liikkumisen ilon</em> toisten kanssa. Velora tuntuu kodilta.":
+      "Jag hittade äntligen en plats där jag både får <em>koppla av</em> och dela <em>glädjen i rörelse</em> med andra. Velora känns som hemma.",
+    "Ma–Pe 7–21<br>La–Su 9–17": "Mån–Fre 7–21<br>Lör–Sön 9–17",
+    "Meille ei tarvitse tulla valmiina. Tule sellaisena kuin <em>olet</em>, omaan tahtiisi, <em>omaan kehoosi</em> luottaen.":
+      "Du behöver inte komma färdig. Kom precis som du <em>är</em>, i din egen takt, med tillit till <em>din egen kropp</em>.",
+    "Punavuorenkatu 12<br>00150 Helsinki":
+      "Punavuorenkatu 12<br>00150 Helsingfors",
+    "Velora on paikka, jossa saan vihdoin hengittää. En tullut tänne <em>muuttumaan</em>, vaan löytämään takaisin <em>itseeni</em>.":
+      "Velora är en plats där jag äntligen får andas. Jag kom inte hit för att <em>förändras</em>, utan för att hitta tillbaka till <em>mig själv</em>.",
+    "Yksittäistuntien lisäksi,<br><em>paketit</em>.":
+      "Utöver enstaka pass,<br><em>paketen</em>.",
+  };
+
+  var TITLES = {
+    "Velora Movement · Aamujooga & smoothie":
+      "Velora Movement · Morgonyoga & smoothie",
+    "Velora Movement · Hengitys-workshop": "Velora Movement · Andningsworkshop",
+    "Velora Movement · Joogatunnit": "Velora Movement · Yogapass",
+    "Velora Movement · Kahvit & keskustelu": "Velora Movement · Kaffe & samtal",
+    "Velora Movement · Kauppa": "Velora Movement · Butik",
+    "Velora Movement · Meistä": "Velora Movement · Om oss",
+    "Velora Movement · Palvelut": "Velora Movement · Tjänster",
+    "Velora Movement · Sunnuntain yhteislenkki":
+      "Velora Movement · Söndagens gemensamma promenad",
+    "Velora Movement · Yhteisö": "Velora Movement · Gemenskap",
+    "Velora Movement · Yhteystiedot": "Velora Movement · Kontakt",
+    "Velora Movement · liike · hengitys · läsnäolo":
+      "Velora Movement · rörelse · andning · närvaro",
+  };
+
+  // ---------- Apurit ----------
+  function norm(s) {
+    return s
+      .replace(/<br\s*\/?>/gi, "<br>")
+      .replace(/\s+/g, " ")
+      .trim();
   }
+  var INLINE = {
+    EM: 1,
+    BR: 1,
+    STRONG: 1,
+    I: 1,
+    B: 1,
+    U: 1,
+    SMALL: 1,
+    SUP: 1,
+    SUB: 1,
+  };
 
-  // Kytke: yläpalkin jäsennappi + kaikki "Liity asiakkaaksi" -linkit
-  var triggers = [];
-  document.querySelectorAll(".btn--member").forEach(function (b) {
-    if (triggers.indexOf(b) === -1) triggers.push(b);
-  });
-  document.querySelectorAll("a.btn").forEach(function (a) {
-    if (a.textContent.trim().toLowerCase().indexOf("liity asiakkaaksi") === 0) {
-      if (triggers.indexOf(a) === -1) triggers.push(a);
+  document.addEventListener("DOMContentLoaded", function () {
+    // ----- Liity-modaali -----
+    var dialog = document.createElement("dialog");
+    dialog.className = "join-modal";
+    dialog.innerHTML =
+      '<button class="join-modal__close" type="button" aria-label="Sulje">×</button>' +
+      '<div class="join-modal__inner">' +
+      '<div class="join-modal__media" aria-hidden="true"></div>' +
+      '<div class="join-modal__body">' +
+      '<span class="eyebrow">Kanta-asiakkuus</span>' +
+      "<h2>Tervetuloa Veloran kanta-asiakkaaksi</h2>" +
+      "<p>Kanta-asiakkuutemme hoituu [järjestelmä]-palvelussa, joka pitää huolta jäsenyydestäsi, varauksistasi ja eduistasi, kaikki helposti yhdessä paikassa.</p>" +
+      "<p>Jäsenenä saat joustavat tunnit, jäsenhinnat ja ennakkovaraukset sekä kutsut workshoppeihin ja tapahtumiin.</p>" +
+      '<a class="btn join-modal__cta" href="index.html#liity">Siirry liittymään →</a>' +
+      "</div>" +
+      "</div>";
+    document.body.appendChild(dialog);
+
+    function openModal(e) {
+      e.preventDefault();
+      if (typeof dialog.showModal === "function") dialog.showModal();
+      else dialog.setAttribute("open", "");
     }
-  });
-  triggers.forEach(function (t) {
-    t.addEventListener("click", open);
-  });
-
-  // Sulkeminen: rasti + taustaklikkaus (Esc toimii natiivisti)
-  dialog
-    .querySelector(".join-modal__close")
-    .addEventListener("click", function () {
-      dialog.close();
+    document.querySelectorAll(".btn--member").forEach(function (b) {
+      b.addEventListener("click", openModal);
     });
-  dialog.addEventListener("click", function (e) {
-    if (e.target === dialog) dialog.close();
+    document.querySelectorAll("a.btn").forEach(function (a) {
+      if (a.textContent.trim().toLowerCase().indexOf("liity asiakkaaksi") === 0)
+        a.addEventListener("click", openModal);
+    });
+    dialog
+      .querySelector(".join-modal__close")
+      .addEventListener("click", function () {
+        dialog.close();
+      });
+    dialog.addEventListener("click", function (e) {
+      if (e.target === dialog) dialog.close();
+    });
+
+    // ----- Kielenvaihto -----
+    var leaves = [];
+    var SEL =
+      "h1,h2,h3,h4,p,span,a,li,dt,dd,summary,blockquote,div.benefits__badge";
+    document.querySelectorAll(SEL).forEach(function (el) {
+      if (el.closest('[aria-hidden="true"]')) return;
+      if (el.closest(".lang-toggle")) return;
+      var kids = el.children;
+      for (var i = 0; i < kids.length; i++)
+        if (!INLINE[kids[i].tagName]) return;
+      var mode = kids.length > 0 ? "html" : "text";
+      el.__fiMode = mode;
+      el.__fi = mode === "html" ? el.innerHTML : el.textContent;
+      leaves.push(el);
+    });
+    var htmlEl = document.documentElement;
+    htmlEl.__fiTitle = document.title;
+
+    function setLang(lang) {
+      htmlEl.lang = lang;
+      try {
+        localStorage.setItem("velora-lang", lang);
+      } catch (e) {}
+      for (var i = 0; i < leaves.length; i++) {
+        var el = leaves[i];
+        var fi = el.__fi;
+        if (el.__fiMode === "html") {
+          var svh = lang === "sv" ? H[norm(fi)] : null;
+          el.innerHTML = svh != null ? svh : fi;
+        } else {
+          var svt = lang === "sv" ? T[norm(fi)] : null;
+          el.textContent = svt != null ? svt : fi;
+        }
+      }
+      var t = htmlEl.__fiTitle;
+      document.title = lang === "sv" && TITLES[norm(t)] ? TITLES[norm(t)] : t;
+      document.querySelectorAll(".lang-toggle__btn").forEach(function (b) {
+        b.classList.toggle("is-active", b.getAttribute("data-lang") === lang);
+      });
+    }
+
+    // Injektoi FI/SV-valitsin jokaiseen yläpalkkiin
+    document.querySelectorAll(".topbar").forEach(function (tb) {
+      var host = tb.querySelector(".topbar__right") || tb;
+      var wrap = document.createElement("div");
+      wrap.className = "lang-toggle";
+      ["fi", "sv"].forEach(function (l) {
+        var btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "lang-toggle__btn";
+        btn.setAttribute("data-lang", l);
+        btn.textContent = l.toUpperCase();
+        btn.addEventListener("click", function () {
+          setLang(l);
+        });
+        wrap.appendChild(btn);
+      });
+      host.appendChild(wrap);
+    });
+
+    var saved = "fi";
+    try {
+      saved = localStorage.getItem("velora-lang") || "fi";
+    } catch (e) {}
+    setLang(saved);
   });
-});
+})();

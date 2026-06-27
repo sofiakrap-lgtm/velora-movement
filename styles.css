@@ -2218,6 +2218,38 @@ section {
   }
 }
 
+/* ---------- Kielivalitsin (FI/SV) ---------- */
+.lang-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.15rem;
+  margin-left: 1.2rem;
+  font-family: "Montserrat", sans-serif;
+}
+
+.lang-toggle__btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: inherit;
+  font: inherit;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.5;
+  padding: 0.2em 0.3em;
+}
+
+.lang-toggle__btn.is-active {
+  opacity: 1;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.lang-toggle__btn:hover {
+  opacity: 0.85;
+}
+
 /* ---------- Responsiivisuus ---------- */
 
 @media (max-width: 820px) {
