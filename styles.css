@@ -813,17 +813,18 @@ section {
   gap: 1.2rem;
   border-radius: 20px;
   padding: clamp(1.8rem, 2.5vw, 2.6rem);
-  background: color-mix(in srgb, #7e8ca8 22%, #fff8e7); /* sky-tint */
+  background: #828894; /* laajennettu väri 1 · Stone Blue */
+  color: #fff8e7; /* teksti taustan värisenä */
 }
 
 .pricing__cards .price-card:nth-child(3) {
-  background: color-mix(in srgb, #bfb5a4 48%, #fff8e7); /* taupe-tint */
+  background: #8f734c; /* laajennettu väri 6 · Bronze */
 }
 
 .price-card--featured {
   position: relative;
-  background: #3d322c;
-  color: #e9e3d6;
+  background: #ceb8a0; /* laajennettu väri 5 · Oat */
+  color: #fff8e7;
   transform: translateY(-20px);
   padding-block: clamp(2.4rem, 3.5vw, 3.4rem);
 }
@@ -833,8 +834,8 @@ section {
   top: -0.85rem;
   left: 50%;
   transform: translateX(-50%);
-  background: #bfb5a4;
-  color: #3d322c;
+  background: #3d322c;
+  color: #fff8e7;
   font-family: "Montserrat", sans-serif;
   font-size: 0.62rem;
   text-transform: uppercase;
@@ -891,13 +892,15 @@ section {
   letter-spacing: 0.12em;
 }
 
-.price-card--featured .price-card__cta {
-  background: #e9e3d6;
+/* Napit värillisten korttien päällä: cream-tausta, tumma teksti */
+.home .price-card__cta {
+  background: #fff8e7;
   color: #3d322c;
 }
 
-.price-card--featured .price-card__cta:hover {
+.home .price-card__cta:hover {
   background: #fff;
+  color: #3d322c;
 }
 
 /* ---------- 219 · Tilastot (2×2, shakkilautarytmi) ---------- */
