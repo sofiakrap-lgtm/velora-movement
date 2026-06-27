@@ -1,4 +1,4 @@
-// Velora Movement — "Liity asiakkaaksi" -modaali.
+// Velora Movement · "Liity asiakkaaksi" -modaali.
 // Rakentaa modaalin ja kytkee sen kaikkiin "Liity asiakkaaksi" -painikkeisiin.
 document.addEventListener("DOMContentLoaded", function () {
   var dialog = document.createElement("dialog");
@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function () {
     '<div class="join-modal__body">' +
     '<span class="eyebrow">Kanta-asiakkuus</span>' +
     "<h2>Tervetuloa Veloran kanta-asiakkaaksi</h2>" +
-    "<p>Kanta-asiakkuutemme hoituu [järjestelmä]-palvelussa, joka pitää huolta jäsenyydestäsi, varauksistasi ja eduistasi — kaikki helposti yhdessä paikassa.</p>" +
+    "<p>Kanta-asiakkuutemme hoituu [järjestelmä]-palvelussa, joka pitää huolta jäsenyydestäsi, varauksistasi ja eduistasi, kaikki helposti yhdessä paikassa.</p>" +
     "<p>Jäsenenä saat joustavat tunnit, jäsenhinnat ja ennakkovaraukset sekä kutsut workshoppeihin ja tapahtumiin.</p>" +
     '<a class="btn join-modal__cta" href="index.html#liity">Siirry liittymään →</a>' +
     "</div>" +
