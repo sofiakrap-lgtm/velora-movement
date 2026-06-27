@@ -496,6 +496,18 @@
       host.appendChild(wrap);
     });
 
+    // Skrollatessa: läpinäkyvä herokuvan päällä oleva palkki muuttuu
+    // taustan väriseksi ja teksti tekstin väriseksi (sijainti ennallaan).
+    var floatingBars = document.querySelectorAll(".topbar:not(.topbar--solid)");
+    function onScroll() {
+      var scrolled = window.scrollY > 30;
+      floatingBars.forEach(function (tb) {
+        tb.classList.toggle("is-scrolled", scrolled);
+      });
+    }
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+
     var saved = "fi";
     try {
       saved = localStorage.getItem("velora-lang") || "fi";

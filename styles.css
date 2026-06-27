@@ -489,33 +489,81 @@ section {
 }
 
 .topbar {
-  position: relative;
-  z-index: 2;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 1.5rem;
-  padding: 1.6rem clamp(1.2rem, 4vw, 3rem);
+  padding: 0.6rem clamp(1.2rem, 4vw, 3rem);
+  border-bottom: 1px solid currentColor;
+  transition:
+    background-color 0.4s ease,
+    color 0.4s ease;
+}
+
+/* Logo isompana */
+.topbar__logo {
+  display: block;
+  line-height: 0;
 }
 
 .topbar__logo img {
-  height: 24px;
+  height: 34px;
   width: auto;
+  display: block;
+}
+
+/* Herokuvan päällä: vaalea logo. Skrollatessa vaihtuu tummaan. */
+.topbar .topbar__logo-img--dark {
+  display: none;
+}
+
+.topbar.is-scrolled .topbar__logo-img--light {
+  display: none;
+}
+
+.topbar.is-scrolled .topbar__logo-img--dark {
   display: block;
 }
 
 .topbar__nav {
   display: flex;
-  gap: clamp(1.2rem, 2.5vw, 2.4rem);
+  margin-left: auto;
+  gap: clamp(0.8rem, 1.7vw, 1.6rem);
+}
+
+/* Skrollatessa: tausta taustan väriseksi, teksti tekstin väriseksi */
+.topbar.is-scrolled {
+  background: var(--cream);
+  color: var(--espresso);
+}
+
+.topbar.is-scrolled .topbar__nav a {
+  color: var(--espresso);
+}
+
+/* Vaalat sivut ilman herokuvaa: palkki virtaa mukana (sticky), aina vaalea */
+.topbar--solid {
+  position: sticky;
+  background: var(--cream);
+  color: #3d322c;
+}
+
+.topbar--page .topbar__right {
+  margin-left: auto;
 }
 
 .topbar__nav a {
   color: #e9e3d6;
   text-decoration: none;
   font-family: "Montserrat", sans-serif;
-  font-size: 0.78rem;
+  font-size: 0.68rem;
   text-transform: uppercase;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.16em;
 }
 
 .topbar__nav a:hover {
@@ -546,13 +594,32 @@ section {
 
 .statement__copy {
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 1.6rem;
   padding: clamp(2rem, 6vw, 6rem);
 }
 
 .statement__title {
   font-size: clamp(2.6rem, 7vw, 5.5rem);
   line-height: 1.02;
+}
+
+.statement__lead {
+  max-width: 42ch;
+  font-size: 1rem;
+  line-height: 1.7;
+  opacity: 0.85;
+}
+
+.statement__cta {
+  align-self: flex-start;
+  padding: 0.9em 1.8em;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-top: 0.4rem;
 }
 
 /* ---------- 206 · Palvelut (linkkilista + kuva) ---------- */
@@ -1489,16 +1556,18 @@ section {
 .marquee {
   overflow: hidden;
   white-space: nowrap;
-  background: #3d322c;
-  color: #e9e3d6;
-  padding: 0.85rem 0;
+  background: var(--cream);
+  color: #3d322c;
+  padding: 1.1rem 0;
+  border-top: 1px solid #3d322c;
+  border-bottom: 1px solid #3d322c;
 }
 
 .marquee__track {
   display: inline-flex;
   align-items: center;
-  gap: 1.6rem;
-  padding-left: 1.6rem;
+  gap: 2.4rem;
+  padding-left: 2.4rem;
   animation: marquee-right 32s linear infinite;
   will-change: transform;
 }
@@ -1513,15 +1582,15 @@ section {
 }
 
 .marquee__item {
-  font-family: "Nourd", "Montserrat", sans-serif;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  font-size: 0.95rem;
+  display: block;
+  height: 24px;
+  width: auto;
+  flex: none;
 }
 
 .marquee__dot {
   opacity: 0.55;
+  font-size: 0.9rem;
 }
 
 @media (prefers-reduced-motion: reduce) {
