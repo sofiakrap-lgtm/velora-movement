@@ -536,13 +536,12 @@ section {
 /* ---------- 204 · Statement (kuvalohko + iso otsikko) ---------- */
 .statement {
   display: grid;
-  grid-template-columns: 1fr 1.2fr;
-  min-height: 72vh;
+  grid-template-columns: 1fr 1fr;
+  align-items: stretch;
 }
 
 .statement__media {
   background-color: #d8cdba;
-  background-image: linear-gradient(135deg, #ded3c0, #c3b4a0);
 }
 
 .statement__copy {
@@ -559,7 +558,8 @@ section {
 /* ---------- 206 · Palvelut (linkkilista + kuva) ---------- */
 .services {
   display: grid;
-  grid-template-columns: 0.9fr 1.1fr;
+  grid-template-columns: 1fr 1fr;
+  align-items: stretch;
 }
 
 .service-list {
@@ -610,9 +610,7 @@ section {
 }
 
 .services__media {
-  min-height: 62vh;
   background-color: #b8a99a;
-  background-image: linear-gradient(135deg, #cabcac, #9c8a78);
 }
 
 /* ---------- 208 · Intro-lause (keskitetty, kursiivikorostus) ---------- */
@@ -942,8 +940,8 @@ section {
 /* ---------- 802 · Konversio / CTA (teksti + kuva) ---------- */
 .cta-split {
   display: grid;
-  grid-template-columns: 45% 55%;
-  min-height: 82vh;
+  grid-template-columns: 1fr 1fr;
+  align-items: stretch;
 }
 
 .cta-split__text {
@@ -979,9 +977,7 @@ section {
 }
 
 .cta-split__media {
-  min-height: 60vh;
   background-color: #b8a99a;
-  background-image: linear-gradient(135deg, #cabcac, #8d7b6a);
 }
 
 /* ---------- 601 · Numeroitu lajilista (rivilinkit) ---------- */
@@ -1817,16 +1813,7 @@ section {
 }
 
 .two-images__img {
-  min-height: 70vh;
   background-color: #b8a99a;
-}
-
-.two-images__img:first-child {
-  background-image: linear-gradient(135deg, #cdbfb0, #9a8979);
-}
-
-.two-images__img:last-child {
-  background-image: linear-gradient(135deg, #d8ccb8, #a9967f);
 }
 
 /* ---------- 222 · Kolme arvoa (tumma tausta) ---------- */
@@ -2275,6 +2262,21 @@ section {
   background-image: var(--img) !important;
   background-size: cover !important;
   background-position: center !important;
+}
+
+/* ---------- Puolikas kuva / puolikas sisältö: kuva kokonaisena 3:4 ----------
+   Kuvat ovat 1200 x 1600 px (3:4). object-fit: cover + sama kuvasuhde näyttää
+   kuvan kokonaisena, ja leveys täyttää tasan puolet sivusta (1fr 1fr). */
+.statement__media,
+.services__media,
+.cta-split__media,
+.two-images__img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  align-self: start;
+  min-height: 0;
 }
 
 /* ---------- Responsiivisuus ---------- */
