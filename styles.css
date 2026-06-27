@@ -856,6 +856,117 @@ section {
   user-select: none;
 }
 
+/* ============================================================
+   PALVELUT-sivu
+   ============================================================ */
+
+/* ---------- 105 · Hero (otsikko + kategoriarivi) ---------- */
+.hero-page {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  color: #e9e3d6;
+  background-color: #3d322c;
+  /* Paikkamerkkikuva — korvaa: assets/images/palvelut-hero.jpg */
+  background-image:
+    linear-gradient(180deg, rgba(52, 31, 26, 0.3), rgba(52, 31, 26, 0.5)),
+    linear-gradient(135deg, #9c8773 0%, #4a3a30 80%);
+  background-size: cover;
+  background-position: center;
+}
+
+.topbar--page .topbar__right {
+  display: flex;
+  align-items: center;
+  gap: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+.topbar__nav .is-active {
+  opacity: 1;
+  text-decoration: underline;
+  text-underline-offset: 6px;
+}
+
+.hero-page__title {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-page__title h1 {
+  font-size: clamp(3rem, 11vw, 8.5rem);
+  text-align: center;
+}
+
+.hero-cats {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.5rem clamp(1.2rem, 4vw, 3rem);
+  border-top: 1px solid color-mix(in srgb, #e9e3d6 35%, transparent);
+}
+
+.hero-cats a {
+  color: #e9e3d6;
+  text-decoration: none;
+  font-family: "Montserrat", sans-serif;
+  font-size: clamp(0.6rem, 1.2vw, 0.8rem);
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  opacity: 0.85;
+}
+
+.hero-cats a:hover {
+  opacity: 0.55;
+}
+
+/* ---------- 802 · Konversio / CTA (teksti + kuva) ---------- */
+.cta-split {
+  display: grid;
+  grid-template-columns: 45% 55%;
+  min-height: 82vh;
+}
+
+.cta-split__text {
+  background: #cfe1e2;        /* väri · Winter Sky accent */
+  color: #3d322c;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.6rem;
+  padding: clamp(2.5rem, 6vw, 6rem);
+}
+
+.cta-split__text h2 {
+  font-size: clamp(2.2rem, 4.5vw, 3.6rem);
+  line-height: 1.1;
+}
+
+.cta-split__text h2 em {
+  font-style: italic;
+}
+
+.cta-split__text p {
+  max-width: 38ch;
+  opacity: 0.9;
+}
+
+.cta-split__text .btn {
+  align-self: flex-start;
+  padding: 0.9em 1.8em;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.cta-split__media {
+  min-height: 60vh;
+  background-color: #b8a99a;
+  background-image: linear-gradient(135deg, #cabcac, #8d7b6a);
+}
+
 /* ---------- Responsiivisuus ---------- */
 
 @media (max-width: 820px) {
@@ -898,5 +1009,23 @@ section {
 
   .stats__grid {
     grid-template-columns: 1fr;
+  }
+
+  /* Palvelut */
+  .topbar--page .topbar__right {
+    gap: 1rem;
+  }
+
+  .hero-cats {
+    flex-wrap: wrap;
+    gap: 0.6rem 1.4rem;
+  }
+
+  .cta-split {
+    grid-template-columns: 1fr;
+  }
+
+  .cta-split__media {
+    min-height: 42vh;
   }
 }
