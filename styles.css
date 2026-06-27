@@ -888,6 +888,15 @@ section {
   text-underline-offset: 6px;
 }
 
+/* Vaalealla taustalla (lajisivut): tumma teksti */
+.topbar--solid {
+  color: #3d322c;
+}
+
+.topbar--solid .topbar__nav a {
+  color: #3d322c;
+}
+
 .hero-page__title {
   flex: 1;
   display: flex;
@@ -967,6 +976,185 @@ section {
   background-image: linear-gradient(135deg, #cabcac, #8d7b6a);
 }
 
+/* ---------- 601 · Numeroitu lajilista (rivilinkit) ---------- */
+.nav-index {
+  padding-block: clamp(2rem, 5vw, 4rem);
+}
+
+.nav-index__row {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: clamp(1.5rem, 3vw, 2.4rem) clamp(1.2rem, 5vw, 4rem);
+  border-top: 1px solid color-mix(in srgb, #3d322c 16%, transparent);
+  color: #3d322c;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+.nav-index__row:last-child {
+  border-bottom: 1px solid color-mix(in srgb, #3d322c 16%, transparent);
+}
+
+.nav-index__row:hover {
+  background: color-mix(in srgb, #bfb5a4 28%, transparent);
+}
+
+.nav-index__num {
+  min-width: 2.5rem;
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  opacity: 0.6;
+}
+
+.nav-index__title {
+  flex: 1;
+  text-align: center;
+  line-height: 1.1;
+}
+
+.nav-index__row:nth-child(odd) .nav-index__title {
+  font-family: "Nourd", "Montserrat", sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  font-size: clamp(1.2rem, 3vw, 2rem);
+}
+
+.nav-index__row:nth-child(even) .nav-index__title {
+  font-family: "EB Garamond", Georgia, serif;
+  font-style: italic;
+  font-size: clamp(1.5rem, 3.4vw, 2.4rem);
+}
+
+.nav-index__arrow {
+  min-width: 2rem;
+  text-align: right;
+  font-size: 1.1rem;
+  opacity: 0.7;
+}
+
+/* ---------- 218 · Lajisivu (kuvakollaasi + kuvaus + FAQ) ---------- */
+.service-detail {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 100vh;
+}
+
+.service-detail__media {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(2rem, 5vw, 4rem);
+  /* pystyraidat */
+  background: repeating-linear-gradient(
+    90deg,
+    #d7e4e6 0 20px,
+    #eef0e9 20px 40px
+  );
+}
+
+.collage {
+  position: relative;
+  width: 60%;
+}
+
+.collage__main {
+  aspect-ratio: 3 / 4;
+  border-radius: 6px;
+  background-image: linear-gradient(135deg, #b9c4c8, #8f8073);
+}
+
+.collage__sub {
+  position: absolute;
+  right: -22%;
+  bottom: -14%;
+  width: 48%;
+  aspect-ratio: 3 / 4;
+  border-radius: 6px;
+  border: 6px solid #eef0e9;
+  background-image: linear-gradient(135deg, #cdbfb0, #9a8979);
+}
+
+.service-detail__body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.3rem;
+  padding: clamp(2.5rem, 6vw, 6rem);
+}
+
+.service-detail__body .eyebrow {
+  display: block;
+}
+
+.service-detail__title {
+  font-size: clamp(2.4rem, 5vw, 4rem);
+  line-height: 1.05;
+}
+
+.service-detail__lead {
+  max-width: 42ch;
+  opacity: 0.9;
+}
+
+.faq {
+  margin-top: 0.8rem;
+}
+
+.faq__item {
+  border-top: 1px solid color-mix(in srgb, #3d322c 18%, transparent);
+}
+
+.faq__item:last-of-type {
+  border-bottom: 1px solid color-mix(in srgb, #3d322c 18%, transparent);
+}
+
+.faq__item summary {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.1rem 0;
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.98rem;
+  letter-spacing: 0.02em;
+}
+
+.faq__item summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq__item summary::after {
+  content: "+";
+  font-size: 1.2rem;
+  opacity: 0.7;
+}
+
+.faq__item[open] summary::after {
+  content: "–";
+}
+
+.faq__item p {
+  padding: 0 0 1.2rem;
+  font-size: 1rem;
+  max-width: 50ch;
+  opacity: 0.88;
+}
+
+.service-detail__cta {
+  align-self: center;
+  margin-top: 1.4rem;
+  padding: 0.95em 2em;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
 /* ---------- Responsiivisuus ---------- */
 
 @media (max-width: 820px) {
@@ -1027,5 +1215,17 @@ section {
 
   .cta-split__media {
     min-height: 42vh;
+  }
+
+  .nav-index__title {
+    text-align: left;
+  }
+
+  .service-detail {
+    grid-template-columns: 1fr;
+  }
+
+  .service-detail__media {
+    min-height: 56vh;
   }
 }
