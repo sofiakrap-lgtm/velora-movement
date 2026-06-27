@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="fi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Velora Movement — Kauppa</title>
+    <meta name="description" content="Velora Movement — kauppa. Rauhoittavaa itsehoitoa ja studiotarvikkeita." />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="home">
+    <header class="topbar topbar--page topbar--solid">
+      <a href="index.html" class="topbar__logo">
+        <img src="assets/logos/velora-logo.svg" alt="Velora Movement" />
+      </a>
+      <div class="topbar__right">
+        <nav class="topbar__nav">
+          <a href="index.html">Etusivu</a>
+          <a href="palvelut.html">Palvelut</a>
+          <a href="kauppa.html" class="is-active">Kauppa</a>
+          <a href="#liity">Yhteystiedot</a>
+        </nav>
+        <a class="btn btn--member" href="index.html#liity">Liity asiakkaaksi</a>
+      </div>
+    </header>
+
+    <main>
+      <!-- ============ 503 · VERKKOKAUPPA / Tuotesivu (PDP) ============ -->
+      <section class="pdp">
+        <div class="pdp__gallery">
+          <div class="pdp__image" aria-hidden="true"></div>
+        </div>
+
+        <div class="pdp__buy">
+          <div class="pdp__head">
+            <h1 class="pdp__name">Lepo — rauhoittava eteerinen öljy</h1>
+            <span class="pdp__price">28&nbsp;€</span>
+          </div>
+          <div class="pdp__rating">
+            <span class="stars" aria-hidden="true">★★★★★</span>
+            <a href="#">24 arvostelua</a>
+          </div>
+
+          <hr class="pdp__rule" />
+
+          <h2 class="pdp__subtitle">Kuvaus</h2>
+          <p>
+            Rauhoittava eteerinen öljyseos laventelia ja setripuuta. Hetki
+            itselle keskellä kiireistä arkea.
+          </p>
+          <p>
+            Muutama tippa ranteisiin tai matolle ennen harjoitusta — hengitä
+            syvään ja anna kiireen laskeutua.
+          </p>
+          <p>100 % luonnollinen. Eläinkokeeton. Valmistettu Suomessa.</p>
+
+          <div class="pdp__variants" role="radiogroup" aria-label="Koko">
+            <label><input type="radio" name="koko" checked /> 10 ml</label>
+            <label><input type="radio" name="koko" /> 30 ml</label>
+            <label><input type="radio" name="koko" /> 50 ml</label>
+          </div>
+
+          <div class="pdp__actions">
+            <a class="btn pdp__add" href="#">Lisää koriin</a>
+            <a class="btn pdp__fav" href="#">Tallenna suosikki</a>
+          </div>
+
+          <div class="pdp__ship">
+            <span>Ilmainen toimitus yli 60 €</span>
+            <span>Toimitus 2–4 arkipäivää</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Alaosa: ainesosat + käyttö -->
+      <section class="pdp-info">
+        <div class="pdp-info__col">
+          <h2>Ainesosat</h2>
+          <p>
+            Laventeliöljy, setripuuöljy, bergamotti ja jojobaöljy. Ei
+            keinotekoisia tuoksuja, väriaineita tai säilöntäaineita.
+          </p>
+          <a href="#">Lue lisää</a>
+          <div class="pdp-info__thumbs" aria-hidden="true">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+        </div>
+        <div class="pdp-info__col">
+          <h2>Käyttö</h2>
+          <p>
+            Tiputa muutama pisara ranteisiin, niskaan tai joogamatolle. Hengitä
+            rauhassa sisään ennen harjoitusta tai illan rauhoittuessa.
+          </p>
+          <p>
+            Vältä suoraa kosketusta silmiin. Säilytä viileässä ja valolta
+            suojattuna.
+          </p>
+          <div class="pdp-info__image" aria-hidden="true"></div>
+        </div>
+      </section>
+
+      <!-- ============ 502 · VERKKOKAUPPA / "Saatat pitää myös" ============ -->
+      <section class="related">
+        <h2 class="related__title">Saatat pitää myös näistä</h2>
+        <div class="related__grid">
+          <article class="rel-card">
+            <div class="rel-card__img" aria-hidden="true"></div>
+            <span class="rel-card__name">Hiljaisuus — tuoksukynttilä</span>
+            <span class="rel-card__price">24&nbsp;€</span>
+          </article>
+          <article class="rel-card">
+            <div class="rel-card__img" aria-hidden="true"></div>
+            <span class="rel-card__name">Juuri — villaiset grip-sukat</span>
+            <span class="rel-card__price">19&nbsp;€</span>
+          </article>
+          <article class="rel-card">
+            <div class="rel-card__img" aria-hidden="true"></div>
+            <span class="rel-card__name">Faskiapallo</span>
+            <span class="rel-card__price">16&nbsp;€</span>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer-wordmark">
+      <div class="footer-wordmark__links">
+        <ul class="footer-col">
+          <li><a href="index.html">Etusivu</a></li>
+          <li><a href="palvelut.html">Palvelut</a></li>
+          <li><a href="kauppa.html">Kauppa</a></li>
+          <li><a href="index.html#liity" class="footer-cta">Löydä oma rytmisi →</a></li>
+        </ul>
+        <ul class="footer-col">
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">TikTok</a></li>
+          <li><a href="#">Pinterest</a></li>
+        </ul>
+      </div>
+      <div class="footer-wordmark__mark" aria-hidden="true">Velora Movement</div>
+    </footer>
+  </body>
+</html>

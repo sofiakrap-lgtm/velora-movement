@@ -1462,6 +1462,278 @@ section {
   }
 }
 
+/* ============================================================
+   VERKKOKAUPPA-sivu
+   ============================================================ */
+
+/* ---------- 503 · Tuotesivu (PDP) ---------- */
+.pdp {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-bottom: 1px solid color-mix(in srgb, #3d322c 14%, transparent);
+}
+
+.pdp__gallery {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(2rem, 5vw, 5rem);
+  min-height: 72vh;
+  background: #f3eee2;
+}
+
+.pdp__image {
+  width: min(70%, 360px);
+  aspect-ratio: 3 / 4;
+  border-radius: 8px;
+  background: linear-gradient(160deg, #efe9dc, #d8ccb8);
+}
+
+.pdp__buy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.1rem;
+  padding: clamp(2rem, 5vw, 5rem);
+}
+
+.pdp__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.pdp__name,
+.pdp__price {
+  font-family: "Nourd", "Montserrat", sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: clamp(1.35rem, 2.4vw, 1.9rem);
+  line-height: 1.15;
+}
+
+.pdp__price {
+  white-space: nowrap;
+}
+
+.pdp__rating {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.pdp__rating .stars {
+  color: #bfa86a;
+  letter-spacing: 0.1em;
+}
+
+.pdp__rating a {
+  color: inherit;
+  opacity: 0.7;
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.72rem;
+}
+
+.pdp__rule {
+  width: 100%;
+  border: none;
+  border-top: 1px solid color-mix(in srgb, #3d322c 16%, transparent);
+  margin: 0.4rem 0;
+}
+
+.pdp__subtitle {
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+}
+
+.pdp__buy p {
+  font-size: 0.95rem;
+  opacity: 0.88;
+}
+
+.pdp__variants {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 0.3rem;
+}
+
+.pdp__variants label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.5em 1em;
+  border: 1px solid color-mix(in srgb, #3d322c 30%, transparent);
+  border-radius: 999px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+
+.pdp__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-top: 0.4rem;
+}
+
+.home .pdp__add {
+  flex: 1;
+  background: #3d322c;
+  color: #e9e3d6;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.76rem;
+  padding: 1em 1.4em;
+}
+
+.home .pdp__add:hover {
+  background: #2a201b;
+  color: #e9e3d6;
+}
+
+.home .pdp__fav {
+  flex: 1;
+  background: transparent;
+  color: #3d322c;
+  border: 1px solid #3d322c;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.76rem;
+  padding: 1em 1.4em;
+}
+
+.home .pdp__fav:hover {
+  background: #3d322c;
+  color: #e9e3d6;
+}
+
+.pdp__ship {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 0.3rem;
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.66rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  opacity: 0.6;
+}
+
+/* Alaosa: ainesosat + käyttö */
+.pdp-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.pdp-info__col {
+  padding: clamp(2rem, 4vw, 3.5rem);
+}
+
+.pdp-info__col + .pdp-info__col {
+  border-left: 1px solid color-mix(in srgb, #3d322c 14%, transparent);
+}
+
+.pdp-info__col h2 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  margin-bottom: 1rem;
+}
+
+.pdp-info__col p {
+  font-size: 0.92rem;
+  opacity: 0.85;
+  margin-bottom: 1rem;
+  max-width: 46ch;
+}
+
+.pdp-info__col a {
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  color: inherit;
+}
+
+.pdp-info__thumbs {
+  display: flex;
+  gap: 0.6rem;
+  margin-top: 1.4rem;
+}
+
+.pdp-info__thumbs div {
+  width: 64px;
+  height: 64px;
+  border-radius: 6px;
+  background: linear-gradient(135deg, #d8ccb8, #a9967f);
+}
+
+.pdp-info__image {
+  margin-top: 1.4rem;
+  aspect-ratio: 3 / 2;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #cdbfb0, #9a8979);
+}
+
+/* ---------- 502 · "Saatat pitää myös" ---------- */
+.related {
+  padding: clamp(3rem, 6vw, 5rem) clamp(1.2rem, 5vw, 4rem);
+}
+
+.related__title {
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  margin-bottom: 2rem;
+}
+
+.related__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(1rem, 2vw, 1.6rem);
+}
+
+.rel-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.5rem;
+  padding: clamp(1.5rem, 3vw, 2.5rem);
+  border: 1px solid color-mix(in srgb, #3d322c 12%, transparent);
+  border-radius: 14px;
+}
+
+.rel-card__img {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  border-radius: 8px;
+  background: linear-gradient(160deg, #efe9dc, #d8ccb8);
+  margin-bottom: 0.6rem;
+}
+
+.rel-card__name {
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.74rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.rel-card__price {
+  font-family: "EB Garamond", Georgia, serif;
+  font-size: 1.05rem;
+}
+
 /* ---------- Responsiivisuus ---------- */
 
 @media (max-width: 820px) {
@@ -1543,5 +1815,17 @@ section {
 
   .ow-text {
     grid-column: 1 / -1;
+  }
+
+  /* Verkkokauppa */
+  .pdp,
+  .pdp-info,
+  .related__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .pdp-info__col + .pdp-info__col {
+    border-left: none;
+    border-top: 1px solid color-mix(in srgb, #3d322c 14%, transparent);
   }
 }
