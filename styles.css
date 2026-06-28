@@ -1260,6 +1260,120 @@ section {
   max-width: none;
 }
 
+/* ---------- 909 · Kaksi tapaa -kortit (yksittäinen | kuukausi) ---------- */
+.duo {
+  padding: clamp(2.5rem, 6vw, 5rem) clamp(1.2rem, 5vw, 4rem);
+}
+.duo__bar {
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.24em;
+  font-size: 0.7rem;
+  opacity: 0.55;
+  margin-bottom: clamp(1.6rem, 3vw, 2.6rem);
+}
+.duo__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(1rem, 2.5vw, 2rem);
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.duo-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.1rem;
+  text-align: center;
+  background: #f4f1e2;
+  border: 1px solid #3d322c;
+  border-radius: 18px;
+  padding: clamp(2rem, 4vw, 3.4rem);
+}
+.duo-card__title {
+  font-family: "EB Garamond", Georgia, serif;
+  font-style: italic;
+  font-size: clamp(1.8rem, 3.2vw, 2.6rem);
+  line-height: 1.1;
+}
+.duo-card__rule {
+  width: 48px;
+  height: 1px;
+  background: #3d322c;
+  opacity: 0.5;
+}
+.duo-card__body {
+  max-width: 42ch;
+  font-size: 0.98rem;
+  line-height: 1.65;
+  opacity: 0.85;
+}
+.duo-card__cta {
+  margin-top: 0.4rem;
+  padding: 0.8em 1.7em;
+  font-size: 0.74rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+@media (max-width: 720px) {
+  .duo__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---------- Hinnasto-sivu ---------- */
+.pricelist-head {
+  padding: clamp(3rem, 7vw, 6rem) clamp(1.2rem, 5vw, 4rem)
+    clamp(1rem, 3vw, 2rem);
+  text-align: center;
+}
+.pricelist-head__title {
+  font-size: clamp(2.2rem, 5vw, 3.6rem);
+  margin-bottom: 1rem;
+}
+.pricelist-head__lead {
+  max-width: 54ch;
+  margin: 0 auto;
+  opacity: 0.85;
+}
+.pricelist-section {
+  padding: clamp(2rem, 4vw, 3rem) clamp(1.2rem, 5vw, 4rem);
+}
+.pricelist-section__title {
+  text-align: center;
+  font-family: "EB Garamond", Georgia, serif;
+  font-style: italic;
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  margin-bottom: clamp(1.4rem, 3vw, 2.2rem);
+}
+.pricelist {
+  max-width: 720px;
+  margin: 0 auto;
+}
+.pricelist__row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  padding: 1.1rem 0.2rem;
+  border-top: 1px solid color-mix(in srgb, #3d322c 16%, transparent);
+}
+.pricelist__row:last-child {
+  border-bottom: 1px solid color-mix(in srgb, #3d322c 16%, transparent);
+}
+.pricelist__name {
+  font-family: "Montserrat", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.85rem;
+}
+.pricelist__price {
+  font-family: "EB Garamond", Georgia, serif;
+  font-size: 1.2rem;
+  white-space: nowrap;
+}
+
 .cta-split__text .btn {
   align-self: flex-start;
   padding: 0.9em 1.8em;

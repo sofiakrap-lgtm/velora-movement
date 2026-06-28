@@ -59,6 +59,35 @@
     </section>
 
     <main>
+      <!-- ============ 909 · Kaksi tapaa (yksittäinen tunti | kuukausiveloitus) ============ -->
+      <section class="duo">
+        <p class="duo__bar">Valitse oma tapasi liikkua</p>
+        <div class="duo__grid">
+          <article class="duo-card">
+            <h2 class="duo-card__title">Yksittäinen tunti</h2>
+            <span class="duo-card__rule" aria-hidden="true"></span>
+            <p class="duo-card__body">
+              Liity asiakkaaksi ja varaa haluamasi tunti suoraan kalenterista.
+              Maksat vain käymistäsi tunneista, ilman sitoutumista —
+              täydellinen, kun haluat liikkua omaan tahtiisi.
+            </p>
+            <a class="btn duo-card__cta" href="hinnasto.html"
+              >Katso hinnasto →</a
+            >
+          </article>
+          <article class="duo-card">
+            <h2 class="duo-card__title">Kuukausiveloitus</h2>
+            <span class="duo-card__rule" aria-hidden="true"></span>
+            <p class="duo-card__body">
+              Kuukausipaketilla tunnit ovat edullisempia ja jäsenedut tulevat
+              kaupan päälle. Valittavana kolme tasoa aloittelijasta rajattomaan
+              — vaihda tasoa milloin tahansa.
+            </p>
+            <a class="btn duo-card__cta" href="#paketit">Katso paketit →</a>
+          </article>
+        </div>
+      </section>
+
       <!-- ============ 601 · NAVIGAATIO / Numeroitu lajilista ============ -->
       <section class="nav-index" id="lajit">
         <a class="nav-index__row" href="joogatunnit.html">
@@ -84,7 +113,7 @@
       </section>
 
       <!-- ============ 802 · KONVERSIO / CTA (teksti + kuva) ============ -->
-      <section class="cta-split" id="paketit">
+      <section class="cta-split">
         <div class="cta-split__text">
           <h2>Yksittäistuntien lisäksi,<br /><em>paketit</em>.</h2>
           <p>
@@ -92,7 +121,7 @@
             itsellesi sopiva kokonaisuus, kolme tasoa, oma rytmisi, ilman
             kiirettä.
           </p>
-          <a class="btn" href="index.html#liity">Katso paketit →</a>
+          <a class="btn" href="#paketit">Katso paketit →</a>
         </div>
         <img
           class="cta-split__media"
@@ -100,6 +129,62 @@
           alt=""
           loading="lazy"
         />
+      </section>
+
+      <!-- ============ 403 · KUUKAUSIPAKETIT (sama kuin etusivulla) ============ -->
+      <section class="pricing" id="paketit">
+        <div class="pricing__head">
+          <h2 class="pricing__title">Kuukausipaketit</h2>
+          <p class="pricing__lead">
+            Kolme tasoa, oma rytmisi. Valitse paketti, joka sopii viikkoosi,
+            vaihda tasoa milloin tahansa, ilman kiirettä.
+          </p>
+        </div>
+
+        <div class="pricing__cards">
+          <article class="price-card">
+            <span class="price-card__level">Aloittelija</span>
+            <div class="price-card__price">
+              <span class="amount">49&nbsp;€</span><span class="per">/ kk</span>
+            </div>
+            <ul class="price-card__features">
+              <li>1 joogatunti / vko</li>
+              <li>1 stretching / vko</li>
+              <li>Online-jäsenyys</li>
+            </ul>
+            <a class="btn price-card__cta" href="hinnasto.html">Liity →</a>
+          </article>
+
+          <article class="price-card price-card--featured">
+            <span class="price-card__badge">Suosituin</span>
+            <span class="price-card__level">Keskitaso</span>
+            <div class="price-card__price">
+              <span class="amount">89&nbsp;€</span><span class="per">/ kk</span>
+            </div>
+            <ul class="price-card__features">
+              <li>2 joogatuntia / vko</li>
+              <li>1 pilates / vko</li>
+              <li>1 core / vko</li>
+              <li>Online-jäsenyys</li>
+            </ul>
+            <a class="btn price-card__cta" href="hinnasto.html">Liity →</a>
+          </article>
+
+          <article class="price-card">
+            <span class="price-card__level">Edistynyt</span>
+            <div class="price-card__price">
+              <span class="amount">129&nbsp;€</span
+              ><span class="per">/ kk</span>
+            </div>
+            <ul class="price-card__features">
+              <li>Rajattomat tunnit / vko</li>
+              <li>Kaikki lajit</li>
+              <li>Online-jäsenyys</li>
+              <li>Prioriteettivaraus</li>
+            </ul>
+            <a class="btn price-card__cta" href="hinnasto.html">Liity →</a>
+          </article>
+        </div>
       </section>
     </main>
 
