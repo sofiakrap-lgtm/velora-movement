@@ -721,6 +721,30 @@ section {
   }
 }
 
+/* Käsinkirjoitettu huomautus vaalealla taustalla (espresso) */
+.note-hand {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.4rem;
+  max-width: 320px;
+  margin-top: 0.4rem;
+  transform: translateX(40px) rotate(-3deg);
+}
+.note-hand__arrow {
+  width: 48px;
+  height: 52px;
+  flex-shrink: 0;
+  margin-top: -30px;
+}
+.note-hand__text {
+  font-family: "Caveat", cursive;
+  font-weight: 600;
+  font-size: clamp(1.25rem, 1.8vw, 1.6rem);
+  line-height: 1.15;
+  color: #3d322c;
+  text-align: left;
+}
+
 /* ---------- 204 · Statement (kuvalohko + iso otsikko) ---------- */
 /* Täysleveät jaetut osiot: ei osion pystypaddingia (kuva reunasta reunaan) */
 .statement,
@@ -1344,9 +1368,11 @@ section {
   padding: clamp(2rem, 4vw, 3.4rem);
 }
 .duo-card__title {
-  font-family: "EB Garamond", Georgia, serif;
-  font-style: italic;
-  font-size: clamp(1.8rem, 3.2vw, 2.6rem);
+  font-family: "Nourd", "Montserrat", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  text-align: center;
+  font-size: clamp(1.7rem, 3vw, 2.4rem);
   line-height: 1.1;
 }
 .duo-card__rule {
@@ -1423,7 +1449,8 @@ section {
   border-color: #3d322c;
 }
 
-/* Vain yksi viiva: otsikon ja painikkeiden väliin (muut pois) */
+/* Hinnaston osioviivat pois */
+.pricelist-head,
 .pricecats,
 .pricegroup {
   border-bottom: none;
@@ -1557,11 +1584,7 @@ section {
 }
 
 .cta-split__rule {
-  width: 100%;
-  border: 0;
-  border-top: 1px solid currentColor;
-  opacity: 0.35;
-  margin: 0.6rem 0;
+  display: none; /* viiva pois */
 }
 
 .cta-split__who {
@@ -1572,10 +1595,11 @@ section {
 }
 .cta-split__who-label {
   font-family: "Montserrat", sans-serif;
-  font-size: 0.7rem;
+  font-weight: 700; /* boldattu */
+  font-size: 0.72rem;
   text-transform: uppercase;
   letter-spacing: 0.2em;
-  opacity: 0.85;
+  opacity: 0.95;
 }
 
 /* Vaalea nappi värillisellä taustalla */
@@ -2374,6 +2398,7 @@ section {
 .pdp__buy p {
   font-size: 0.95rem;
   opacity: 0.88;
+  text-align: center; /* kuvaus keskelle */
 }
 
 .pdp__variants {
@@ -2394,6 +2419,11 @@ section {
   font-family: "Montserrat", sans-serif;
   font-size: 0.8rem;
   cursor: pointer;
+}
+
+/* Valintanappi brändin värillä (ei sinistä) */
+.pdp__variants input[type="radio"] {
+  accent-color: #3d322c;
 }
 
 .pdp__actions {
