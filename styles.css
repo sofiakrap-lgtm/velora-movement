@@ -1136,25 +1136,48 @@ section {
 .hero-page__title {
   flex: 1;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 0.8rem;
 }
 
 .hero-page__title h1 {
-  font-size: clamp(3rem, 11vw, 8.5rem);
+  font-size: clamp(1.5rem, 5.5vw, 4.25rem); /* puoleen kokoon */
   text-align: center;
 }
 
+.hero-page__sub {
+  font-family: "EB Garamond", Georgia, serif;
+  font-style: italic;
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  opacity: 0.92;
+}
+
+/* Aikajana: pallot janalla */
 .hero-cats {
+  position: relative;
   display: flex;
   justify-content: space-between;
   gap: 1rem;
-  padding: 1.5rem clamp(1.2rem, 4vw, 3rem);
-  border-top: 1px solid color-mix(in srgb, #e9e3d6 35%, transparent);
+  padding: 2.4rem clamp(1.2rem, 4vw, 3rem) 1.5rem;
+}
+
+.hero-cats::before {
+  content: "";
+  position: absolute;
+  top: 1.2rem;
+  left: clamp(1.2rem, 4vw, 3rem);
+  right: clamp(1.2rem, 4vw, 3rem);
+  height: 1px;
+  background: color-mix(in srgb, #e9e3d6 40%, transparent);
 }
 
 .hero-cats a,
 .hero-cats span {
+  position: relative;
+  flex: 1;
+  text-align: center;
   color: #e9e3d6;
   text-decoration: none;
   font-family: "Montserrat", sans-serif;
@@ -1162,6 +1185,19 @@ section {
   text-transform: uppercase;
   letter-spacing: 0.18em;
   opacity: 0.85;
+}
+
+.hero-cats a::before,
+.hero-cats span::before {
+  content: "";
+  position: absolute;
+  top: -1.2rem;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #e9e3d6;
 }
 
 .hero-cats a:hover {
