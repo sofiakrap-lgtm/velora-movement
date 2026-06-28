@@ -1798,6 +1798,11 @@ section {
     clamp(2rem, 5vw, 3rem);
 }
 
+/* Ajankohta keskelle (lead, kuva ja nappi ovat jo keskitettyjä) */
+.laji__panel .service-detail__meta {
+  text-align: center;
+}
+
 @media (max-width: 760px) {
   .laji__panel {
     grid-template-columns: 1fr;
