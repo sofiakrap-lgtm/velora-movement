@@ -88,29 +88,106 @@
         </div>
       </section>
 
-      <!-- ============ 601 · NAVIGAATIO / Tapahtumalista ============ -->
-      <section class="nav-index" id="tapahtumat">
-        <h2 class="nav-index__heading">Tulevat tapahtumat</h2>
-        <a class="nav-index__row" href="tapahtuma-aamujooga.html">
-          <span class="nav-index__num">01.</span>
-          <span class="nav-index__title">Aamujooga &amp; smoothie</span>
-          <span class="nav-index__arrow" aria-hidden="true">→</span>
-        </a>
-        <a class="nav-index__row" href="tapahtuma-yhteislenkki.html">
-          <span class="nav-index__num">02.</span>
-          <span class="nav-index__title">Sunnuntain yhteislenkki</span>
-          <span class="nav-index__arrow" aria-hidden="true">→</span>
-        </a>
-        <a class="nav-index__row" href="tapahtuma-kahvit.html">
-          <span class="nav-index__num">03.</span>
-          <span class="nav-index__title">Kahvit &amp; keskustelu</span>
-          <span class="nav-index__arrow" aria-hidden="true">→</span>
-        </a>
-        <a class="nav-index__row" href="tapahtuma-workshop.html">
-          <span class="nav-index__num">04.</span>
-          <span class="nav-index__title">Hengitys-workshop</span>
-          <span class="nav-index__arrow" aria-hidden="true">→</span>
-        </a>
+      <!-- ============ 601 · Viikon tapahtumat (avautuva accordion) ============ -->
+      <section class="nav-index nav-index--laji" id="tapahtumat">
+        <h2 class="nav-index__heading">Viikon tapahtumat</h2>
+
+        <details class="laji" name="tapahtumat">
+          <summary class="nav-index__row">
+            <span class="nav-index__num">Ma</span>
+            <span class="nav-index__title">Aamujooga &amp; smoothie</span>
+            <span class="nav-index__arrow" aria-hidden="true">+</span>
+          </summary>
+          <div class="laji__panel">
+            <div class="service-detail__body">
+              <p class="service-detail__lead">
+                Aloita viikko pehmeällä aamujoogalla ja yhteisellä hetkellä
+                smoothien äärellä. Tunti rakentuu rauhallisesta liikkeestä ja
+                hengityksestä, jotka herättävät kehon lempeästi. Jäämme tunnin
+                jälkeen juttelemaan ja nauttimaan kausihedelmistä tehdyistä
+                smoothieista. Täydellinen tapa virittäytyä uuteen viikkoon
+                kiireettä.
+              </p>
+              <p class="service-detail__meta">Joka maanantai klo 7.30–8.45</p>
+              <a class="btn service-detail__cta" href="index.html#liity"
+                >Ilmoittaudu →</a
+              >
+            </div>
+          </div>
+        </details>
+
+        <details class="laji" name="tapahtumat">
+          <summary class="nav-index__row">
+            <span class="nav-index__num">Ke</span>
+            <span class="nav-index__title">Hengitys &amp; meditaatio</span>
+            <span class="nav-index__arrow" aria-hidden="true">+</span>
+          </summary>
+          <div class="laji__panel">
+            <div class="service-detail__body">
+              <p class="service-detail__lead">
+                Keskelle viikkoa hetki pysähtyä ja hengittää. Ohjattu
+                hengitysharjoitus ja meditaatio rauhoittavat mielen ja
+                helpottavat kehon jännityksiä. Tunti sopii kaikille, eikä
+                aiempaa kokemusta tarvita. Tyynyt, peitot ja hämärä valaistus
+                tekevät hetkestä turvallisen ja levollisen.
+              </p>
+              <p class="service-detail__meta">
+                Joka keskiviikko klo 18.00–19.00
+              </p>
+              <a class="btn service-detail__cta" href="index.html#liity"
+                >Ilmoittaudu →</a
+              >
+            </div>
+          </div>
+        </details>
+
+        <details class="laji" name="tapahtumat">
+          <summary class="nav-index__row">
+            <span class="nav-index__num">Pe</span>
+            <span class="nav-index__title">Yhteislenkki</span>
+            <span class="nav-index__arrow" aria-hidden="true">+</span>
+          </summary>
+          <div class="laji__panel">
+            <div class="service-detail__body">
+              <p class="service-detail__lead">
+                Päätä työviikko raikkaaseen ulkoiluun hyvässä seurassa. Lähdemme
+                yhdessä studiolta rauhalliselle lenkille lähimaastoon, oma
+                vauhti edellä. Matkan varrella ehtii jutella ja tuulettaa
+                ajatukset. Lenkki sopii kaikenkuntoisille, ja reitti valitaan
+                porukan mukaan.
+              </p>
+              <p class="service-detail__meta">
+                Joka perjantai klo 17.00, lähtö studiolta
+              </p>
+              <a class="btn service-detail__cta" href="index.html#liity"
+                >Ilmoittaudu →</a
+              >
+            </div>
+          </div>
+        </details>
+
+        <details class="laji" name="tapahtumat">
+          <summary class="nav-index__row">
+            <span class="nav-index__num">Su</span>
+            <span class="nav-index__title">Kahvit &amp; keskustelu</span>
+            <span class="nav-index__arrow" aria-hidden="true">+</span>
+          </summary>
+          <div class="laji__panel">
+            <div class="service-detail__body">
+              <p class="service-detail__lead">
+                Rauhallinen sunnuntai yhdessä, maton ulkopuolella. Kokoonnumme
+                studiolle kahvien äärelle jakamaan kuulumisia ja hyviä juttuja
+                kiireettömässä tunnelmassa. Mukaan voi tulla juuri sellaisena
+                kuin on, eikä mitään tarvitse osata. Hetki, joka muistuttaa,
+                että hyvinvointi syntyy myös yhteydestä toisiin.
+              </p>
+              <p class="service-detail__meta">Joka sunnuntai klo 11.00–12.30</p>
+              <a class="btn service-detail__cta" href="index.html#liity"
+                >Ilmoittaudu →</a
+              >
+            </div>
+          </div>
+        </details>
       </section>
 
       <!-- ============ Galleria (4 kuvaa, hover-kuvaus) ============ -->

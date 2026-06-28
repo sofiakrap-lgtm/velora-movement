@@ -1387,36 +1387,59 @@ section {
   max-width: 760px;
   margin: 0 auto;
 }
-.pricelist__row {
+/* Avautuva hintarivi (accordion): otsikko + hinta, alla kuvaus */
+.price-item {
+  border-top: 1px solid color-mix(in srgb, #3d322c 18%, transparent);
+}
+.price-item:last-child {
+  border-bottom: 1px solid color-mix(in srgb, #3d322c 18%, transparent);
+}
+.price-item__head {
+  list-style: none;
+  cursor: pointer;
   display: flex;
   justify-content: space-between;
   align-items: baseline;
   gap: 1rem;
   padding: 1.2rem 0.2rem;
-  border-top: 1px solid color-mix(in srgb, #3d322c 18%, transparent);
 }
-.pricelist__row:last-child {
-  border-bottom: 1px solid color-mix(in srgb, #3d322c 18%, transparent);
+.price-item__head::-webkit-details-marker {
+  display: none;
 }
 .pricelist__name {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 0.2rem;
-  font-family: var(--font-heading);
-  font-size: clamp(1.05rem, 1.8vw, 1.3rem);
+  align-items: baseline;
+  gap: 0.6rem;
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: clamp(1.05rem, 1.8vw, 1.25rem);
   text-align: left;
 }
-.pricelist__sub {
-  font-family: var(--font-body);
-  font-size: 0.72rem;
-  letter-spacing: 0.02em;
-  opacity: 0.6;
+/* "+" -merkki, joka kääntyy ×:ksi avattaessa */
+.pricelist__name::before {
+  content: "+";
+  font-size: 1rem;
+  opacity: 0.5;
+  transition: transform 0.25s ease;
+}
+.price-item[open] .pricelist__name::before {
+  transform: rotate(45deg);
 }
 .pricelist__price {
-  font-family: var(--font-heading);
-  font-size: clamp(1.05rem, 1.8vw, 1.3rem);
+  font-family: var(--font-body);
+  font-size: clamp(1.05rem, 1.8vw, 1.25rem);
   white-space: nowrap;
+}
+.price-item__panel {
+  padding: 0 0.2rem 1.4rem 1.8rem;
+}
+.price-item__panel p {
+  max-width: 64ch;
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  opacity: 0.82;
+  text-align: left;
 }
 .pricegroup__cta {
   display: block;
@@ -1696,6 +1719,14 @@ section {
   font-size: 0.78rem;
   text-transform: uppercase;
   letter-spacing: 0.12em;
+}
+
+.service-detail__meta {
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.74rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  opacity: 0.6;
 }
 
 /* ---------- 702 · Testimonial-karuselli (tummennettu kuvatausta) ---------- */
