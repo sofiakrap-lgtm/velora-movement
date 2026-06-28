@@ -690,7 +690,17 @@ section {
 }
 
 .statement__media {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   background-color: #d8cdba;
+}
+
+.statement__right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .statement__copy {
@@ -1392,8 +1402,8 @@ section {
   color: #e9e3d6;
   background-color: #2e211c;
   background-image:
-    linear-gradient(rgba(46, 33, 28, 0.68), rgba(46, 33, 28, 0.68)),
-    linear-gradient(135deg, #7a6555, #2e211c);
+    linear-gradient(rgba(46, 33, 28, 0.2), rgba(46, 33, 28, 0.2)),
+    url("assets/images/kuva-9.jpg");
   background-size: cover;
   background-position: center;
 }
@@ -2371,7 +2381,7 @@ section {
    Liity-modaali (kanta-asiakkuus)
    ============================================================ */
 .join-modal {
-  position: relative;
+  margin: auto; /* keskitä näytölle pysty- ja vaakasuunnassa */
   width: 92vw;
   max-width: 880px;
   padding: 0;
@@ -2577,8 +2587,6 @@ main > div {
 /* ---------- Puolikas kuva / puolikas sisältö: kuva kokonaisena 3:4 ----------
    Kuvat ovat 1200 x 1600 px (3:4). object-fit: cover + sama kuvasuhde näyttää
    kuvan kokonaisena, ja leveys täyttää tasan puolet sivusta (1fr 1fr). */
-.statement__media,
-.services__media,
 .cta-split__media,
 .two-images__img {
   display: block;
@@ -2731,10 +2739,34 @@ main > div {
   padding-inline: 0; /* ruudukko reunasta reunaan */
 }
 .shop__head {
-  max-width: 54ch;
+  max-width: 64ch; /* leveämpi -> lead kahdelle riville */
   margin: 0 auto clamp(2.5rem, 5vw, 4rem);
   padding-inline: clamp(1.2rem, 5vw, 4rem);
   text-align: center;
+}
+
+/* Tuotekategoriat */
+.shop__cats {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: clamp(1rem, 3vw, 2.5rem);
+  margin-top: 1.6rem;
+  font-family: "Montserrat", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.74rem;
+}
+.shop__cats a {
+  color: inherit;
+  text-decoration: none;
+  opacity: 0.55;
+}
+.shop__cats a.is-active,
+.shop__cats a:hover {
+  opacity: 1;
+  text-decoration: underline;
+  text-underline-offset: 5px;
 }
 .shop__head .eyebrow {
   display: block;
@@ -2785,9 +2817,9 @@ main > div {
 }
 .shop-card__desc {
   max-width: 34ch;
+  margin: 0 auto 1rem; /* keskelle otsikon alle */
   font-size: 0.92rem;
   opacity: 0.8;
-  margin-bottom: 1rem;
 }
 .shop-card__foot {
   margin-top: auto;
@@ -2817,4 +2849,20 @@ main > div {
     grid-template-columns: 1fr;
     max-width: 420px;
   }
+}
+
+/* Tuotenimen linkki kauppakortissa */
+.shop-card__link {
+  color: inherit;
+  text-decoration: none;
+}
+.shop-card__link:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* Suosituskorttien linkki: peri väri, ei alleviivausta */
+.rel-card {
+  color: inherit;
+  text-decoration: none;
 }

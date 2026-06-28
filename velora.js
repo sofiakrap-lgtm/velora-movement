@@ -494,7 +494,7 @@
         '<circle cx="18" cy="20" r="1"></circle>' +
         '<path d="M2.5 3.5h2.2l2 11.2a1.2 1.2 0 0 0 1.2 1h8.4a1.2 1.2 0 0 0 1.2-1L20.5 7H6"></path>' +
         "</svg>" +
-        '<span class="topbar__cart-count">0</span>';
+        '<span class="topbar__cart-count"></span>';
       host.appendChild(cart);
 
       var wrap = document.createElement("div");
