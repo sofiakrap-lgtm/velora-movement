@@ -480,6 +480,23 @@
     // Injektoi FI/SV-valitsin jokaiseen yläpalkkiin
     document.querySelectorAll(".topbar").forEach(function (tb) {
       var host = tb.querySelector(".topbar__right") || tb;
+
+      // Ostoskori yläreunaan
+      var cart = document.createElement("a");
+      cart.className = "topbar__cart";
+      cart.href = "kauppa.html";
+      cart.setAttribute("aria-label", "Ostoskori");
+      cart.innerHTML =
+        '<svg viewBox="0 0 24 24" width="22" height="22" fill="none" ' +
+        'stroke="currentColor" stroke-width="1.5" stroke-linecap="round" ' +
+        'stroke-linejoin="round" aria-hidden="true">' +
+        '<circle cx="9" cy="20" r="1"></circle>' +
+        '<circle cx="18" cy="20" r="1"></circle>' +
+        '<path d="M2.5 3.5h2.2l2 11.2a1.2 1.2 0 0 0 1.2 1h8.4a1.2 1.2 0 0 0 1.2-1L20.5 7H6"></path>' +
+        "</svg>" +
+        '<span class="topbar__cart-count">0</span>';
+      host.appendChild(cart);
+
       var wrap = document.createElement("div");
       wrap.className = "lang-toggle";
       ["fi", "sv"].forEach(function (l) {
@@ -535,6 +552,37 @@
         });
       });
     });
+
+    // Liikuntalaskuri: päivittäiset minuutit -> arvioidut vaikutukset
+    var calcSlider = document.getElementById("calc-min");
+    if (calcSlider) {
+      var calcOut = document.getElementById("calc-out");
+      var calcFormulas = {
+        focus: function (m) {
+          return "+" + Math.round(m * 0.5) + " %";
+        },
+        sleep: function (m) {
+          return "+" + Math.round(m * 0.8) + " %";
+        },
+        energy: function (m) {
+          return "+" + Math.round(m * 0.6) + " %";
+        },
+        recovery: function (m) {
+          return (1 + m / 45).toFixed(1).replace(".", ",") + "×";
+        },
+      };
+      var calcFields = document.querySelectorAll("[data-calc]");
+      var updateCalc = function () {
+        var m = parseInt(calcSlider.value, 10) || 0;
+        calcOut.textContent = m + " min";
+        calcFields.forEach(function (el) {
+          var f = calcFormulas[el.getAttribute("data-calc")];
+          if (f) el.textContent = f(m);
+        });
+      };
+      calcSlider.addEventListener("input", updateCalc);
+      updateCalc();
+    }
 
     var saved = "fi";
     try {

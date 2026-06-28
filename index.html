@@ -249,31 +249,44 @@
         <div class="stats__head">
           <span class="eyebrow">Tutkittua</span>
           <h2 class="stats__title">Pieni liike, iso vaikutus.</h2>
+          <p class="stats__lead">
+            Kokeile laskurilla: kuinka paljon liikuntaa lisäät päivääsi?
+          </p>
         </div>
-        <div class="stats__grid">
-          <article class="stat-card">
-            <span class="stat-card__num">20&nbsp;min</span>
-            <p>
-              Päivittäistä liikettä riittää kohottamaan vireystilaa ja
-              keskittymistä läpi päivän.
-            </p>
-          </article>
-          <article class="stat-card">
-            <span class="stat-card__num">+13&nbsp;%</span>
-            <p>
-              Parempi keskittymiskyky jo lyhyen, kevyen liikuntahetken jälkeen.
-            </p>
-          </article>
-          <article class="stat-card">
-            <span class="stat-card__num">+37&nbsp;%</span>
-            <p>
-              Suurempi osuus syvää, palauttavaa unta säännöllisellä liikkeellä.
-            </p>
-          </article>
-          <article class="stat-card">
-            <span class="stat-card__num">2×</span>
-            <p>Nopeampi palautuminen, kun keho saa liikkua omaan tahtiinsa.</p>
-          </article>
+
+        <div class="calc">
+          <div class="calc__control">
+            <label class="calc__label" for="calc-min">Liikuntaa päivässä</label>
+            <output class="calc__value" id="calc-out">45 min</output>
+            <input
+              class="calc__slider"
+              type="range"
+              id="calc-min"
+              min="0"
+              max="90"
+              step="5"
+              value="45"
+            />
+          </div>
+
+          <div class="stats__grid">
+            <article class="stat-card">
+              <span class="stat-card__num" data-calc="focus">+23&nbsp;%</span>
+              <p>Parempi keskittymiskyky ja vireystila läpi päivän.</p>
+            </article>
+            <article class="stat-card">
+              <span class="stat-card__num" data-calc="sleep">+36&nbsp;%</span>
+              <p>Enemmän syvää, palauttavaa unta.</p>
+            </article>
+            <article class="stat-card">
+              <span class="stat-card__num" data-calc="energy">+27&nbsp;%</span>
+              <p>Enemmän energiaa ja jaksamista arkeen.</p>
+            </article>
+            <article class="stat-card">
+              <span class="stat-card__num" data-calc="recovery">2,0×</span>
+              <p>Nopeampi palautuminen säännöllisellä liikkeellä.</p>
+            </article>
+          </div>
         </div>
       </section>
 
@@ -467,9 +480,11 @@
           <li><a href="#">Pinterest</a></li>
         </ul>
       </div>
-      <div class="footer-wordmark__mark" aria-hidden="true">
-        Velora Movement
-      </div>
+      <img
+        class="footer-wordmark__mark"
+        src="assets/logos/logo-1-cream.svg"
+        alt="Velora Movement"
+      />
     </footer>
     <script src="velora.js" defer></script>
   </body>

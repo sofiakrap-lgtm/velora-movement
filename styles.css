@@ -443,8 +443,13 @@ section {
    ============================================================ */
 
 /* ---------- Teema (värit + fontit) ---------- */
+/* Poista turhat pikkuotsikot (eyebrow-labelit) koko sivustolta */
+.eyebrow {
+  display: none !important;
+}
+
 .home {
-  background: #e9e3d6; /* väri 3 · Paper Cream */
+  background: #fff8e7; /* yläpalkin vaalea sävy kaikille sivuille */
   color: #3d322c; /* väri 4 · Espresso */
   font-family: "EB Garamond", Georgia, serif; /* fontti 3 · body */
 }
@@ -974,6 +979,43 @@ section {
   color: #3d322c;
 }
 
+/* Liikuntalaskuri */
+.stats__lead {
+  max-width: 48ch;
+  margin: 1rem auto 0;
+  opacity: 0.85;
+}
+.calc {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.calc__control {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  max-width: 560px;
+  margin: 0 auto clamp(2rem, 4vw, 3rem);
+}
+.calc__label {
+  font-family: "Montserrat", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.72rem;
+  opacity: 0.8;
+}
+.calc__value {
+  font-family: "Nourd", "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  color: #3d322c;
+}
+.calc__slider {
+  width: 100%;
+  accent-color: #3d322c;
+  cursor: pointer;
+}
+
 .stat-card__num {
   display: block;
   font-size: clamp(2.6rem, 5vw, 4rem);
@@ -1032,14 +1074,10 @@ section {
 }
 
 .footer-wordmark__mark {
-  font-family: "Nourd", "Montserrat", sans-serif;
-  font-weight: 700;
-  color: #e9e3d6; /* iso logo taustan värisenä */
-  font-size: clamp(4rem, 17vw, 15rem);
-  line-height: 0.9;
-  letter-spacing: -0.02em;
-  white-space: nowrap;
-  margin-bottom: -0.12em; /* leikkautuu alareunasta (bleed-off) */
+  display: block;
+  width: min(92%, 1200px);
+  height: auto;
+  margin: clamp(1rem, 3vw, 2.5rem) auto 0; /* kokonaan keskellä */
   user-select: none;
 }
 
@@ -2428,6 +2466,21 @@ section {
 }
 
 /* ---------- Kielivalitsin (FI/SV) ---------- */
+.topbar__cart {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.15rem;
+  color: inherit;
+  margin-left: 0.6rem;
+}
+
+.topbar__cart-count {
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.62rem;
+  letter-spacing: 0.05em;
+}
+
 .lang-toggle {
   display: inline-flex;
   align-items: center;
@@ -2491,6 +2544,16 @@ main > div {
 .cta-split > * + *,
 .two-images > * + * {
   border-left: 1px solid #3d322c;
+}
+
+/* Reunusta kaikki kortit ohuella tekstin värisellä viivalla */
+.benefit-card,
+.price-card,
+.stat-card,
+.t-card,
+.brand-statement__card,
+.gallery__item {
+  border: 1px solid #3d322c;
 }
 
 .statement__media[style*="--img"],
@@ -2663,11 +2726,13 @@ main > div {
    KAUPPA · tuoteruudukko (kuvat kokonaisina)
    ============================================================ */
 .shop {
-  padding: clamp(2.5rem, 6vw, 5rem) clamp(1.2rem, 5vw, 4rem);
+  padding-block: clamp(2.5rem, 6vw, 5rem);
+  padding-inline: 0; /* ruudukko reunasta reunaan */
 }
 .shop__head {
   max-width: 54ch;
   margin: 0 auto clamp(2.5rem, 5vw, 4rem);
+  padding-inline: clamp(1.2rem, 5vw, 4rem);
   text-align: center;
 }
 .shop__head .eyebrow {
@@ -2683,10 +2748,10 @@ main > div {
 }
 .shop__grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr); /* 4 tuotetta riviin */
   gap: 0;
-  max-width: 1180px;
-  margin: 0 auto;
+  max-width: none; /* reunasta reunaan */
+  margin: 0;
   border-top: 1px solid #3d322c;
   border-left: 1px solid #3d322c;
 }
@@ -2698,7 +2763,7 @@ main > div {
   border-bottom: 1px solid #3d322c;
 }
 .shop-card__img {
-  aspect-ratio: 4 / 5;
+  aspect-ratio: 3 / 4; /* sama kuin kuva -> kokonaisena ja täyttää */
   margin-bottom: 1rem;
   border-radius: 0; /* teräväkulmainen (Typology-tyyli) */
   overflow: hidden;
@@ -2707,7 +2772,8 @@ main > div {
 .shop-card__img img {
   width: 100%;
   height: 100%;
-  object-fit: contain; /* kuva näkyy kokonaisena */
+  object-fit: cover; /* täyttää tilan, kuva kokonaisena (3:4) */
+  filter: brightness(0.9); /* tummennettu 10 % */
   display: block;
 }
 .shop-card__name {
