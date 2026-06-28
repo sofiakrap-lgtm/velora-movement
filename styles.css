@@ -1977,6 +1977,7 @@ section {
 .pdp__rating {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 0.6rem;
 }
 
@@ -2087,14 +2088,21 @@ section {
 .pdp-info {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  padding-block: 0;
 }
 
 .pdp-info__col {
-  padding: clamp(2rem, 4vw, 3.5rem);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 0.9rem;
+  padding: clamp(3rem, 6vw, 5rem) clamp(1.5rem, 4vw, 3rem);
 }
 
 .pdp-info__col + .pdp-info__col {
-  border-left: 1px solid color-mix(in srgb, #3d322c 14%, transparent);
+  border-left: 1px solid #3d322c;
 }
 
 .pdp-info__col h2 {
