@@ -1440,6 +1440,14 @@ section {
   background-color: #b8a99a;
 }
 
+/* Vuorotteleva asettelu: kuva vasemmalle, teksti oikealle */
+.cta-split--reverse .cta-split__media {
+  order: 1;
+}
+.cta-split--reverse .cta-split__text {
+  order: 2;
+}
+
 /* ---------- 601 · Numeroitu lajilista (rivilinkit) ---------- */
 .nav-index {
   padding-block: clamp(2rem, 5vw, 4rem);
