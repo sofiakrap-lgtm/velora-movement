@@ -508,6 +508,20 @@
     window.addEventListener("scroll", onScroll, { passive: true });
     onScroll();
 
+    // Palaute-karusellin nuolet: vieritä riviä yhden kortin verran
+    document.querySelectorAll(".testimonials").forEach(function (sec) {
+      var row = sec.querySelector(".testimonials__row");
+      if (!row) return;
+      sec.querySelectorAll(".testimonials__arrow").forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          var card = row.querySelector(".t-card");
+          var step = card ? card.getBoundingClientRect().width + 20 : 320;
+          var dir = parseInt(btn.getAttribute("data-dir"), 10) || 1;
+          row.scrollBy({ left: step * dir, behavior: "smooth" });
+        });
+      });
+    });
+
     var saved = "fi";
     try {
       saved = localStorage.getItem("velora-lang") || "fi";
