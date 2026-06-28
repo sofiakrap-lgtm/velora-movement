@@ -2990,8 +2990,16 @@ section {
   opacity: 0.88;
 }
 
+.join-modal__demo {
+  margin-top: 0.4rem;
+  font-size: 0.85rem;
+  font-style: italic;
+  text-align: center;
+  opacity: 0.75;
+}
+
 .join-modal__cta {
-  align-self: flex-start;
+  align-self: center;
   margin-top: 0.5rem;
   padding: 0.9em 1.8em;
   font-size: 0.78rem;

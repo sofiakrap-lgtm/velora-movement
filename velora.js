@@ -411,9 +411,18 @@
       "<p>Kanta-asiakkuutemme hoituu [järjestelmä]-palvelussa, joka pitää huolta jäsenyydestäsi, varauksistasi ja eduistasi, kaikki helposti yhdessä paikassa.</p>" +
       "<p>Jäsenenä saat joustavat tunnit, jäsenhinnat ja ennakkovaraukset sekä kutsut workshoppeihin ja tapahtumiin.</p>" +
       '<a class="btn join-modal__cta" href="index.html#liity">Siirry liittymään →</a>' +
+      '<p class="join-modal__demo" hidden>Tämä on demo. Oikeassa palvelussa siirtyisit liittymis- ja kirjautumissivulle.</p>' +
       "</div>" +
       "</div>";
     document.body.appendChild(dialog);
+
+    // Demo: nappi ei vie minnekään, vaan kertoo että kyseessä on demo
+    var joinCta = dialog.querySelector(".join-modal__cta");
+    var joinDemo = dialog.querySelector(".join-modal__demo");
+    joinCta.addEventListener("click", function (e) {
+      e.preventDefault();
+      joinDemo.hidden = false;
+    });
 
     function openModal(e) {
       e.preventDefault();
