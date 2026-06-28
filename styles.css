@@ -1320,6 +1320,63 @@ section {
   opacity: 0.7;
 }
 
+/* ---------- Lajilista-accordion (etusivu): rivi avautuu paneeliksi ---------- */
+.nav-index--laji {
+  padding-block: clamp(2rem, 5vw, 4rem);
+}
+
+.nav-index--laji .laji {
+  border-top: 1px solid color-mix(in srgb, #3d322c 16%, transparent);
+}
+
+.nav-index--laji .laji:last-child {
+  border-bottom: 1px solid color-mix(in srgb, #3d322c 16%, transparent);
+}
+
+.nav-index--laji .nav-index__row {
+  border-top: none;
+  list-style: none;
+  cursor: pointer;
+}
+
+.nav-index--laji .nav-index__row::-webkit-details-marker {
+  display: none;
+}
+
+/* Yhtenäinen fontti kaikille lajeille (kuten Joogatunnit & Stretching) */
+.nav-index--laji .nav-index__title {
+  font-family: "Nourd", "Montserrat", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  font-size: clamp(1.2rem, 3vw, 2rem);
+}
+
+/* "+" kääntyy "×":ksi avattaessa */
+.nav-index--laji .nav-index__arrow {
+  font-size: 1.6rem;
+  line-height: 1;
+  opacity: 0.55;
+  transition: transform 0.25s ease;
+}
+
+.nav-index--laji .laji[open] .nav-index__arrow {
+  transform: rotate(45deg);
+}
+
+/* Avautuva paneeli = lajisivun oikea puolisko */
+.laji__panel {
+  border-top: 1px solid color-mix(in srgb, #3d322c 12%, transparent);
+}
+
+.laji__panel .service-detail__body {
+  justify-content: flex-start;
+  gap: 1rem;
+  padding: clamp(1.4rem, 4vw, 2.4rem) clamp(1.2rem, 5vw, 3rem)
+    clamp(2rem, 5vw, 3rem);
+}
+
 /* ---------- 218 · Lajisivu (kuvakollaasi + kuvaus + FAQ) ---------- */
 .service-detail {
   display: grid;
