@@ -1735,6 +1735,45 @@ section {
   grid-template-columns: 1fr;
 }
 
+/* ---------- Viikon tapahtumat: lista vasemmalla, kuva oikealla ---------- */
+.events-split {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  align-items: stretch;
+  padding-block: 0;
+}
+
+.events-split__list {
+  padding: clamp(2rem, 5vw, 4rem) clamp(1.2rem, 4vw, 3rem);
+}
+
+.events-split__img {
+  min-height: 100%;
+  border-left: 1px solid #3d322c;
+  background-color: #f4f1e2;
+}
+
+/* Paneeli yhdellä palstalla (ei kuvaa rivin sisällä) */
+.events-split .laji__panel {
+  grid-template-columns: 1fr;
+}
+
+/* Listan sanat noin puolet pienemmäksi (otsikko ennallaan) */
+.events-split .nav-index__title {
+  font-size: clamp(0.8rem, 1.5vw, 1rem);
+}
+
+@media (max-width: 760px) {
+  .events-split {
+    grid-template-columns: 1fr;
+  }
+  .events-split__img {
+    min-height: 56vw;
+    border-left: 0;
+    border-top: 1px solid #3d322c;
+  }
+}
+
 .laji__panel .service-detail__body {
   justify-content: flex-start;
   gap: 1rem;
@@ -2090,7 +2129,7 @@ section {
 
 /* Pyörivä logo (esim. napin alla) */
 .spin-logo {
-  width: clamp(64px, 8vw, 96px);
+  width: clamp(128px, 16vw, 192px);
   height: auto;
   margin-top: 1.6rem;
   align-self: center;
@@ -2668,15 +2707,11 @@ section {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 48px;
-  height: 48px;
-  border-radius: 999px;
-  border: 1px solid color-mix(in srgb, #e9e3d6 45%, transparent);
 }
 
 .value__icon img {
-  width: 24px;
-  height: 24px;
+  width: 48px;
+  height: 48px;
   display: block;
 }
 
@@ -3160,6 +3195,7 @@ main > div {
 .rel-card__img[style*="--img"],
 .gallery__item[style*="--img"],
 .laji__media[style*="--img"],
+.events-split__img[style*="--img"],
 .join-modal__media[style*="--img"] {
   background-image: var(--img) !important;
   background-size: cover !important;
