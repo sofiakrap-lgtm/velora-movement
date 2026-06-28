@@ -444,7 +444,8 @@ section {
 
 /* ---------- Teema (värit + fontit) ---------- */
 /* Poista turhat pikkuotsikot (eyebrow-labelit) koko sivustolta */
-.eyebrow {
+.eyebrow,
+.brand-statement__label {
   display: none !important;
 }
 
