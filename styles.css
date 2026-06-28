@@ -2353,15 +2353,23 @@ section {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
+  text-align: center;
   gap: 1.1rem;
   padding: clamp(2rem, 5vw, 5rem);
 }
 
+/* Kaikki ostosarakkeen sisältö keskelle puolikasta */
+.pdp__buy > * {
+  width: 100%;
+}
+
 .pdp__head {
   display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 1rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.3rem;
 }
 
 .pdp__name,
