@@ -2282,13 +2282,36 @@ section {
 
 /* ---------- 217 · Brand-statement (pystyraitatausta + kortti) ---------- */
 .brand-statement {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
   padding: clamp(3rem, 7vw, 6rem) clamp(1.2rem, 5vw, 4rem);
-  background-color: #efe7d5;
-  background-image: repeating-linear-gradient(
-    90deg,
-    #ded2bb 0 10px,
-    #efe7d5 10px 20px
-  );
+  background-color: #2e2118;
+}
+
+/* Taustakuva (kuva 1) käännettynä 90° vasemmalle ja tummennettuna 20 % */
+.brand-statement::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 320%;
+  transform: translate(-50%, -50%) rotate(-90deg);
+  background: url("assets/images/kuva-1.jpg") center / cover no-repeat;
+  filter: brightness(0.8);
+  z-index: -2;
+}
+
+/* Kirjekuori-grafiikka taustan päällä, kortin takana */
+.brand-statement__envelope {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: min(460px, 72%);
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  pointer-events: none;
 }
 
 .brand-statement__card {
