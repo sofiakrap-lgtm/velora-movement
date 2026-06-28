@@ -697,7 +697,7 @@ section {
   align-items: flex-start;
   gap: 0.7rem;
   margin-top: 0.6rem;
-  transform: translateX(40px);
+  transform: translateX(170px);
 }
 .hero-note__arrow-img {
   width: 46px;
