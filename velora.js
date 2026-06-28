@@ -584,6 +584,25 @@
       updateCalc();
     }
 
+    // Kaupan kategoriasuodatus: näytä vain valitun kategorian tuotteet
+    var shopCats = document.querySelector(".shop__cats");
+    if (shopCats) {
+      var shopCards = document.querySelectorAll(".shop-card[data-cat]");
+      shopCats.querySelectorAll("a[data-filter]").forEach(function (tab) {
+        tab.addEventListener("click", function (e) {
+          e.preventDefault();
+          var cat = tab.getAttribute("data-filter");
+          shopCats.querySelectorAll("a").forEach(function (a) {
+            a.classList.toggle("is-active", a === tab);
+          });
+          shopCards.forEach(function (card) {
+            var show = cat === "all" || card.getAttribute("data-cat") === cat;
+            card.style.display = show ? "" : "none";
+          });
+        });
+      });
+    }
+
     var saved = "fi";
     try {
       saved = localStorage.getItem("velora-lang") || "fi";

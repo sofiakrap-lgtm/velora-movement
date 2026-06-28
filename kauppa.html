@@ -39,14 +39,15 @@
             tuovat Veloran tunnelman myös maton ulkopuolelle.
           </p>
           <div class="shop__cats">
-            <a href="kauppa.html" class="is-active">Velora Goods</a>
-            <a href="#">Kurssit</a>
-            <a href="#">Lahjakortti</a>
+            <a href="#" class="is-active" data-filter="all">Kaikki</a>
+            <a href="#" data-filter="goods">Velora Goods</a>
+            <a href="#" data-filter="kurssit">Kurssit</a>
+            <a href="#" data-filter="lahjakortti">Lahjakortti</a>
           </div>
         </div>
 
         <div class="shop__grid">
-          <article class="shop-card">
+          <article class="shop-card" data-cat="goods">
             <div class="shop-card__img">
               <img
                 src="assets/images/tuote-joogasetti.jpg"
@@ -66,7 +67,7 @@
             </div>
           </article>
 
-          <article class="shop-card">
+          <article class="shop-card" data-cat="goods">
             <div class="shop-card__img">
               <img
                 src="assets/images/tuote-pilatessetti.jpg"
@@ -88,7 +89,7 @@
             </div>
           </article>
 
-          <article class="shop-card">
+          <article class="shop-card" data-cat="goods">
             <div class="shop-card__img">
               <img
                 src="assets/images/tuote-pyyhesetti.jpg"
@@ -110,7 +111,7 @@
             </div>
           </article>
 
-          <article class="shop-card">
+          <article class="shop-card" data-cat="goods">
             <div class="shop-card__img">
               <img
                 src="assets/images/tuote-kylpytossut.jpg"
@@ -130,7 +131,7 @@
             </div>
           </article>
 
-          <article class="shop-card">
+          <article class="shop-card" data-cat="goods">
             <div class="shop-card__img">
               <img
                 src="assets/images/tuote-kylpysetti.jpg"
@@ -150,7 +151,7 @@
             </div>
           </article>
 
-          <article class="shop-card">
+          <article class="shop-card" data-cat="goods">
             <div class="shop-card__img">
               <img
                 src="assets/images/tuote-kylpytakki.jpg"
@@ -170,7 +171,7 @@
             </div>
           </article>
 
-          <article class="shop-card">
+          <article class="shop-card" data-cat="goods">
             <div class="shop-card__img">
               <img
                 src="assets/images/tuote-saippua.jpg"
@@ -190,7 +191,7 @@
             </div>
           </article>
 
-          <article class="shop-card">
+          <article class="shop-card" data-cat="goods">
             <div class="shop-card__img">
               <img
                 src="assets/images/tuote-juomapullo.jpg"
@@ -212,7 +213,7 @@
             </div>
           </article>
 
-          <article class="shop-card">
+          <article class="shop-card" data-cat="goods">
             <div class="shop-card__img">
               <img
                 src="assets/images/tuote-harjasetti.jpg"
@@ -234,7 +235,7 @@
             </div>
           </article>
 
-          <article class="shop-card">
+          <article class="shop-card" data-cat="goods">
             <div class="shop-card__img">
               <img
                 src="assets/images/tuote-voide.jpg"
@@ -256,7 +257,7 @@
             </div>
           </article>
 
-          <article class="shop-card">
+          <article class="shop-card" data-cat="goods">
             <div class="shop-card__img">
               <img
                 src="assets/images/tuote-hierontasetti.jpg"
@@ -274,6 +275,68 @@
             </p>
             <div class="shop-card__foot">
               <span class="shop-card__price">34&nbsp;€</span>
+              <a class="btn" href="#">Lisää koriin</a>
+            </div>
+          </article>
+
+          <article class="shop-card" data-cat="kurssit">
+            <div class="shop-card__img">
+              <img
+                src="assets/images/aloittelija%20paketti.jpg"
+                alt="Aloittelijan paketti"
+                loading="lazy"
+              />
+            </div>
+            <h3 class="shop-card__name">
+              <a class="shop-card__link" href="tuote.html"
+                >Aloittelijan paketti</a
+              >
+            </h3>
+            <p class="shop-card__desc">
+              Neljä tuntia ja lempeä perehdytys omaan rytmiin.
+            </p>
+            <div class="shop-card__foot">
+              <span class="shop-card__price">59&nbsp;€</span>
+              <a class="btn" href="#">Lisää koriin</a>
+            </div>
+          </article>
+
+          <article class="shop-card" data-cat="kurssit">
+            <div class="shop-card__img">
+              <img
+                src="assets/images/suurin%20paketti.jpg"
+                alt="Suurin paketti"
+                loading="lazy"
+              />
+            </div>
+            <h3 class="shop-card__name">
+              <a class="shop-card__link" href="tuote.html">Suurin paketti</a>
+            </h3>
+            <p class="shop-card__desc">
+              Rajaton kuukausi kaikille tunneille, omaan tahtiin.
+            </p>
+            <div class="shop-card__foot">
+              <span class="shop-card__price">129&nbsp;€</span>
+              <a class="btn" href="#">Lisää koriin</a>
+            </div>
+          </article>
+
+          <article class="shop-card" data-cat="lahjakortti">
+            <div class="shop-card__img">
+              <img
+                src="assets/images/lahjakortti.jpg"
+                alt="Lahjakortti"
+                loading="lazy"
+              />
+            </div>
+            <h3 class="shop-card__name">
+              <a class="shop-card__link" href="tuote.html">Lahjakortti</a>
+            </h3>
+            <p class="shop-card__desc">
+              Anna lahjaksi hetki itselle, vapaasti valittavalla summalla.
+            </p>
+            <div class="shop-card__foot">
+              <span class="shop-card__price">alk. 30&nbsp;€</span>
               <a class="btn" href="#">Lisää koriin</a>
             </div>
           </article>
