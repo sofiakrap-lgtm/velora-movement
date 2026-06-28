@@ -2062,6 +2062,7 @@ section {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 0.5rem;
+  padding-block: 0;
 }
 
 .gallery__item {
