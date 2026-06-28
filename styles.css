@@ -1244,6 +1244,11 @@ section {
   opacity: 0.9;
 }
 
+/* Alateksti otsikon levyiseksi (täyttää palstan, kuten otsikko) */
+.cta-split--wide .cta-split__text p {
+  max-width: none;
+}
+
 .cta-split__text .btn {
   align-self: flex-start;
   padding: 0.9em 1.8em;
