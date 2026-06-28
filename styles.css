@@ -632,7 +632,7 @@ section {
 
 .hero-full__tagline {
   color: #fff8e7; /* taustan värinen vaalealla */
-  font-size: clamp(0.9rem, 2.25vw, 1.7rem); /* puoleen entisestä */
+  font-size: clamp(0.8rem, 1.8vw, 1.35rem); /* hieman pienempi vielä */
   line-height: 1.15;
   max-width: 36ch; /* laajempi tekstialue */
 }
@@ -657,8 +657,24 @@ section {
 .statement,
 .services,
 .cta-split,
-.two-images {
+.two-images,
+.gallery5 {
   padding-block: 0;
+}
+
+/* Galleria: viisi kuvaa rivissä, ohuet viivat välissä */
+.gallery5 {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+}
+.gallery5 img {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  display: block;
+}
+.gallery5 > * + * {
+  border-left: 1px solid #3d322c;
 }
 
 .statement {
@@ -1349,6 +1365,13 @@ section {
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   padding: 0 clamp(1.2rem, 5vw, 4rem) 2.5rem;
+  /* Piilota liukuasia (vierityspalkki), vieritys nuolilla */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.testimonials__row::-webkit-scrollbar {
+  display: none;
 }
 
 .t-card {
@@ -1356,18 +1379,13 @@ section {
   flex: 0 0 clamp(280px, 30vw, 360px);
   display: flex;
   flex-direction: column;
+  align-items: center;
+  text-align: center;
   gap: 1rem;
   border-radius: 18px;
   padding: clamp(1.6rem, 2.2vw, 2.2rem);
   background: #f4f1e2;
   color: #3d322c;
-}
-
-.t-card__avatar {
-  width: 56px;
-  height: 56px;
-  border-radius: 999px;
-  background: linear-gradient(135deg, #cbbcab, #9a8979);
 }
 
 .t-card__quote {
@@ -1401,7 +1419,7 @@ section {
 
 .testimonials__arrows {
   display: flex;
-  gap: 1.2rem;
+  gap: 2rem;
 }
 
 .testimonials__arrow {
@@ -1409,9 +1427,9 @@ section {
   border: none;
   cursor: pointer;
   color: #e9e3d6;
-  font-size: 1.3rem;
+  font-size: 2.4rem; /* isommat nuolet */
   line-height: 1;
-  padding: 0.3rem 0.5rem;
+  padding: 0.3rem 0.6rem;
   opacity: 0.8;
   transition: opacity 0.2s ease;
 }
@@ -1503,7 +1521,7 @@ section {
 }
 
 .featured-quote__logo {
-  height: 102px; /* n. 3x isompi */
+  height: 204px; /* 2x isompi */
   width: auto;
   margin-bottom: 2rem;
   opacity: 0.85;
