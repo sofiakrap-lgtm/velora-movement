@@ -1471,6 +1471,67 @@ section {
   order: 2;
 }
 
+/* ---------- Pakettien sisältöosiot: oma taustaväri + vaalea teksti ---------- */
+.cta-split--paketti .cta-split__text {
+  color: #fff8e7;
+}
+.cta-split--stone .cta-split__text {
+  background: #828894; /* väri 1 · Stone Blue */
+}
+.cta-split--oat .cta-split__text {
+  background: #ceb8a0; /* väri 5 · Oat */
+}
+.cta-split--bronze .cta-split__text {
+  background: #8f734c; /* väri 6 · Bronze */
+}
+
+/* Leveämpi leipäteksti (otsikon levyinen tai leveämpi) */
+.cta-split--paketti .cta-split__text p {
+  max-width: none;
+  margin-inline: 0;
+}
+
+.cta-split__price {
+  font-family: "Nourd", "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: clamp(1.3rem, 2.2vw, 1.8rem);
+  letter-spacing: 0.02em;
+}
+
+.cta-split__rule {
+  width: 100%;
+  border: 0;
+  border-top: 1px solid currentColor;
+  opacity: 0.35;
+  margin: 0.6rem 0;
+}
+
+.cta-split__who {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+.cta-split__who-label {
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  opacity: 0.85;
+}
+
+/* Vaalea nappi värillisellä taustalla */
+.cta-split--paketti .cta-split__text .btn {
+  align-self: center;
+  background: #fff8e7;
+  color: #3d322c;
+  border: 1px solid #fff8e7;
+}
+.cta-split--paketti .cta-split__text .btn:hover {
+  background: transparent;
+  color: #fff8e7;
+}
+
 /* ---------- 601 · Numeroitu lajilista (rivilinkit) ---------- */
 .nav-index {
   padding-block: clamp(2rem, 5vw, 4rem);
@@ -2160,7 +2221,17 @@ section {
   width: 100%;
   height: 100%;
   border-radius: 0;
-  background: linear-gradient(160deg, #efe9dc, #d8ccb8);
+  /* Ohut ruskea viiva kuvan ylä- ja alapuolelle */
+  border-top: 1px solid #3d322c;
+  border-bottom: 1px solid #3d322c;
+  background: #f4f1e2;
+}
+
+/* Koko tuotekuva näkyviin (ei rajausta) */
+.pdp__gallery .pdp__image[style*="--img"] {
+  background-size: contain !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
 }
 
 .pdp__buy {
