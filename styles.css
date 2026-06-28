@@ -687,7 +687,7 @@ section {
 }
 
 .statement__lead {
-  max-width: 40ch;
+  max-width: 56ch; /* leveämpi alue, matalampi teksti */
   font-size: 0.95rem;
   line-height: 1.7;
   opacity: 0.85;
