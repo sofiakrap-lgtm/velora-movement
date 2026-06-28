@@ -132,6 +132,7 @@
 
       <!-- ============ 702 · Testimonial-karuselli ============ -->
       <section class="testimonials">
+        <h2 class="testimonials__heading">Asiakkaamme puhuvat:</h2>
         <div class="testimonials__row">
           <article class="t-card">
             <div class="t-card__avatar" aria-hidden="true"></div>
@@ -165,10 +166,23 @@
           </article>
         </div>
         <div class="testimonials__controls">
-          <span class="testimonials__arrows" aria-hidden="true"
-            >←&nbsp;&nbsp;→</span
+          <button
+            type="button"
+            class="testimonials__arrow testimonials__arrow--prev"
+            data-dir="-1"
+            aria-label="Edellinen"
           >
+            ←
+          </button>
           <a class="btn testimonials__cta" href="#">Katso asiakastarinat →</a>
+          <button
+            type="button"
+            class="testimonials__arrow testimonials__arrow--next"
+            data-dir="1"
+            aria-label="Seuraava"
+          >
+            →
+          </button>
         </div>
       </section>
     </main>
