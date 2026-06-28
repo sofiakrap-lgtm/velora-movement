@@ -748,14 +748,17 @@ section {
   padding-block: 0;
 }
 
-/* Galleria: viisi kuvaa rivissä, ohuet viivat välissä */
+/* Galleria: viisi kuvaa rivissä, pienempi korkeus + rajaavat viivat */
 .gallery5 {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
+  border-top: 1px solid #3d322c;
+  border-bottom: 1px solid #3d322c;
+  padding-block: 5px; /* viiva muutama pikseli kuvan ylä- ja alapuolelle */
 }
 .gallery5 img {
   width: 100%;
-  aspect-ratio: 3 / 4;
+  height: clamp(170px, 18vw, 260px); /* pienempi galleria */
   object-fit: cover;
   display: block;
 }
