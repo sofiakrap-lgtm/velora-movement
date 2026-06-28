@@ -883,6 +883,34 @@
       });
     }
 
+    // Ostoskori-demomodaali (kori on tyhjä, demo)
+    var cartDialog = document.createElement("dialog");
+    cartDialog.className = "join-modal join-modal--cart";
+    cartDialog.innerHTML =
+      '<button class="join-modal__close" type="button" aria-label="Sulje">×</button>' +
+      '<div class="join-modal__inner">' +
+      '<div class="join-modal__body">' +
+      '<span class="eyebrow">Ostoskori</span>' +
+      "<h2>Ostoskorisi on tyhjä</h2>" +
+      "<p>Tämä on demo. Oikeassa kaupassa näkisit tästä valitsemasi tuotteet ja pääsisit kassalle.</p>" +
+      '<a class="btn join-modal__cta" href="kauppa.html">Jatka kauppaan →</a>' +
+      "</div>" +
+      "</div>";
+    document.body.appendChild(cartDialog);
+    cartDialog
+      .querySelector(".join-modal__close")
+      .addEventListener("click", function () {
+        cartDialog.close();
+      });
+    cartDialog.addEventListener("click", function (e) {
+      if (e.target === cartDialog) cartDialog.close();
+    });
+    function openCart(e) {
+      e.preventDefault();
+      if (typeof cartDialog.showModal === "function") cartDialog.showModal();
+      else cartDialog.setAttribute("open", "");
+    }
+
     // Injektoi FI/SV-valitsin jokaiseen yläpalkkiin
     document.querySelectorAll(".topbar").forEach(function (tb) {
       var host = tb.querySelector(".topbar__right") || tb;
@@ -891,6 +919,7 @@
       var cart = document.createElement("a");
       cart.className = "topbar__cart";
       cart.href = "kauppa.html";
+      cart.addEventListener("click", openCart);
       cart.setAttribute("aria-label", "Ostoskori");
       cart.innerHTML =
         '<svg viewBox="0 0 24 24" width="22" height="22" fill="none" ' +

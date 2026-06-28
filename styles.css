@@ -3044,6 +3044,18 @@ section {
   grid-template-columns: 1fr 1fr;
 }
 
+/* Ostoskori-demomodaali: yksi palsta, kapeampi, teksti keskitetty */
+.join-modal--cart {
+  max-width: 460px;
+}
+.join-modal--cart .join-modal__inner {
+  grid-template-columns: 1fr;
+}
+.join-modal--cart .join-modal__body {
+  text-align: center;
+  align-items: center;
+}
+
 .join-modal__media {
   min-height: 380px;
   background-image: linear-gradient(135deg, #cdbfb0, #9a8979);
