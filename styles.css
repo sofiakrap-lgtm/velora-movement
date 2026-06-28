@@ -1230,8 +1230,8 @@ section {
 }
 
 .cta-split__text h2 {
-  font-size: clamp(2.2rem, 4.5vw, 3.6rem);
-  line-height: 1.1;
+  font-size: clamp(1.8rem, 3.5vw, 2.8rem); /* mahtuu kahdelle riville */
+  line-height: 1.12;
 }
 
 .cta-split__text h2 em {
@@ -1239,7 +1239,8 @@ section {
 }
 
 .cta-split__text p {
-  max-width: 38ch;
+  max-width: 48ch; /* leveämpi -> kolme riviä, ei liian korkea */
+  margin-inline: auto;
   opacity: 0.9;
 }
 
@@ -3037,8 +3038,9 @@ main > div {
   margin-bottom: 0.9rem;
 }
 .member-block__lead {
-  padding-inline: clamp(1.5rem, 5vw, 4.5rem);
-  margin-bottom: 1.6rem;
+  max-width: 52ch; /* leveämpi -> matalampi, ei liian korkea palsta */
+  margin: 0 auto 1.6rem; /* keskitys suoraan otsikon alle */
+  padding-inline: clamp(1rem, 3vw, 2rem);
   font-size: 0.95rem;
   opacity: 0.85;
 }
