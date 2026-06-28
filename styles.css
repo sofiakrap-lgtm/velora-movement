@@ -2089,6 +2089,8 @@ section {
   display: grid;
   grid-template-columns: 1fr 1fr;
   padding-block: 0;
+  border-top: 1px solid #3d322c;
+  border-bottom: 1px solid #3d322c;
 }
 
 .pdp-info__col {
