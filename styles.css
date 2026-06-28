@@ -1820,6 +1820,12 @@ section {
   opacity: 0.9;
 }
 
+.join-card__link {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
 .join-card .btn {
   margin-top: 0.4rem;
   padding: 0.95em 2em;
