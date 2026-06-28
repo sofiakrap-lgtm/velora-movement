@@ -603,6 +603,23 @@
       });
     }
 
+    // Hinnaston kategoriapainikkeet: näytä valittu ryhmä
+    var priceCats = document.querySelector(".pricecats");
+    if (priceCats) {
+      var priceGroups = document.querySelectorAll(".pricegroup[data-group]");
+      priceCats.querySelectorAll("button[data-group]").forEach(function (tab) {
+        tab.addEventListener("click", function () {
+          var g = tab.getAttribute("data-group");
+          priceCats.querySelectorAll("button").forEach(function (b) {
+            b.classList.toggle("is-active", b === tab);
+          });
+          priceGroups.forEach(function (grp) {
+            grp.hidden = grp.getAttribute("data-group") !== g;
+          });
+        });
+      });
+    }
+
     var saved = "fi";
     try {
       saved = localStorage.getItem("velora-lang") || "fi";

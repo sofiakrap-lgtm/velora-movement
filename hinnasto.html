@@ -33,40 +33,49 @@
       <section class="pricelist-head">
         <h1 class="pricelist-head__title">Hinnasto</h1>
         <p class="pricelist-head__lead">
-          Tule sellaisena kuin olet, omaan tahtiisi. Maksa yksittäisistä
-          tunneista tai valitse kuukausipaketti, joka sopii viikkoosi.
+          Maksa yksittäisistä tunneista tai valitse kuukausipaketti, joka sopii
+          viikkoosi.
         </p>
       </section>
 
+      <!-- ============ Kategoriapainikkeet ============ -->
+      <div class="pricecats" role="tablist">
+        <button type="button" class="is-active" data-group="tunnit">
+          Yksittäiset tunnit
+        </button>
+        <button type="button" data-group="kortit">Kortit</button>
+        <button type="button" data-group="paketit">Kuukausipaketit</button>
+      </div>
+
       <!-- ============ Yksittäiset tunnit ============ -->
-      <section class="pricelist-section">
+      <section class="pricegroup" data-group="tunnit">
         <h2 class="pricelist-section__title">Yksittäiset tunnit</h2>
         <div class="pricelist">
           <div class="pricelist__row">
-            <span class="pricelist__name">Joogatunti · 60 min</span>
+            <span class="pricelist__name">Joogatunti</span>
             <span class="pricelist__price">18&nbsp;€</span>
           </div>
           <div class="pricelist__row">
-            <span class="pricelist__name">Pilates · 50 min</span>
+            <span class="pricelist__name">Pilates</span>
             <span class="pricelist__price">20&nbsp;€</span>
           </div>
           <div class="pricelist__row">
-            <span class="pricelist__name">Stretching · 45 min</span>
+            <span class="pricelist__name">Stretching</span>
             <span class="pricelist__price">16&nbsp;€</span>
           </div>
           <div class="pricelist__row">
-            <span class="pricelist__name">Core · 30 min</span>
+            <span class="pricelist__name">Core</span>
             <span class="pricelist__price">15&nbsp;€</span>
           </div>
           <div class="pricelist__row">
-            <span class="pricelist__name">Ensikäynti · tutustumistunti</span>
+            <span class="pricelist__name">Tutustumistunti</span>
             <span class="pricelist__price">10&nbsp;€</span>
           </div>
         </div>
       </section>
 
       <!-- ============ Kortit ============ -->
-      <section class="pricelist-section">
+      <section class="pricegroup" data-group="kortit" hidden>
         <h2 class="pricelist-section__title">Kortit</h2>
         <div class="pricelist">
           <div class="pricelist__row">
@@ -85,59 +94,38 @@
       </section>
 
       <!-- ============ Kuukausipaketit ============ -->
-      <section class="pricing" id="paketit">
-        <div class="pricing__head">
-          <h2 class="pricing__title">Kuukausipaketit</h2>
-          <p class="pricing__lead">
-            Kolme tasoa, oma rytmisi. Vaihda tasoa milloin tahansa, ilman
-            kiirettä.
-          </p>
+      <section class="pricegroup" data-group="paketit" hidden>
+        <h2 class="pricelist-section__title">Kuukausipaketit</h2>
+        <div class="pricelist">
+          <div class="pricelist__row">
+            <span class="pricelist__name">
+              Aloittelija
+              <small class="pricelist__sub">1 jooga + 1 stretching / vko</small>
+            </span>
+            <span class="pricelist__price">49&nbsp;€&nbsp;/&nbsp;kk</span>
+          </div>
+          <div class="pricelist__row">
+            <span class="pricelist__name">
+              Keskitaso
+              <small class="pricelist__sub"
+                >2 joogaa + pilates + core / vko</small
+              >
+            </span>
+            <span class="pricelist__price">89&nbsp;€&nbsp;/&nbsp;kk</span>
+          </div>
+          <div class="pricelist__row">
+            <span class="pricelist__name">
+              Edistynyt
+              <small class="pricelist__sub"
+                >Rajattomat tunnit, kaikki lajit</small
+              >
+            </span>
+            <span class="pricelist__price">129&nbsp;€&nbsp;/&nbsp;kk</span>
+          </div>
         </div>
-
-        <div class="pricing__cards">
-          <article class="price-card">
-            <span class="price-card__level">Aloittelija</span>
-            <div class="price-card__price">
-              <span class="amount">49&nbsp;€</span><span class="per">/ kk</span>
-            </div>
-            <ul class="price-card__features">
-              <li>1 joogatunti / vko</li>
-              <li>1 stretching / vko</li>
-              <li>Online-jäsenyys</li>
-            </ul>
-            <a class="btn price-card__cta" href="index.html#liity">Liity →</a>
-          </article>
-
-          <article class="price-card price-card--featured">
-            <span class="price-card__badge">Suosituin</span>
-            <span class="price-card__level">Keskitaso</span>
-            <div class="price-card__price">
-              <span class="amount">89&nbsp;€</span><span class="per">/ kk</span>
-            </div>
-            <ul class="price-card__features">
-              <li>2 joogatuntia / vko</li>
-              <li>1 pilates / vko</li>
-              <li>1 core / vko</li>
-              <li>Online-jäsenyys</li>
-            </ul>
-            <a class="btn price-card__cta" href="index.html#liity">Liity →</a>
-          </article>
-
-          <article class="price-card">
-            <span class="price-card__level">Edistynyt</span>
-            <div class="price-card__price">
-              <span class="amount">129&nbsp;€</span
-              ><span class="per">/ kk</span>
-            </div>
-            <ul class="price-card__features">
-              <li>Rajattomat tunnit / vko</li>
-              <li>Kaikki lajit</li>
-              <li>Online-jäsenyys</li>
-              <li>Prioriteettivaraus</li>
-            </ul>
-            <a class="btn price-card__cta" href="index.html#liity">Liity →</a>
-          </article>
-        </div>
+        <a class="btn pricegroup__cta" href="index.html#liity"
+          >Liity asiakkaaksi →</a
+        >
       </section>
     </main>
 
