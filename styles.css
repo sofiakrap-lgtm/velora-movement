@@ -1372,6 +1372,26 @@ section {
     clamp(2rem, 5vw, 3rem);
 }
 
+/* Laajempi, keskitetty yläteksti */
+.laji__panel .service-detail__lead {
+  max-width: 60ch;
+  margin-inline: auto;
+}
+
+/* Kysymykset lihavoituna ja keskitettynä, "+" oikeaan reunaan */
+.laji__panel .faq__item summary {
+  justify-content: center;
+  position: relative;
+  font-weight: 700;
+}
+
+.laji__panel .faq__item summary::after {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
 /* ---------- 218 · Lajisivu (kuvakollaasi + kuvaus + FAQ) ---------- */
 .service-detail {
   display: grid;
