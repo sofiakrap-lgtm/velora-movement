@@ -562,31 +562,15 @@ section {
   color: #3d322c;
 }
 
-/* Etusivun vaalean heron päällä: tumma teksti, tumma logo, tumma nappi */
-.hero-full .topbar:not(.is-scrolled) {
-  color: #3d322c;
-}
-
-.hero-full .topbar:not(.is-scrolled) .topbar__nav a {
-  color: #3d322c;
-}
-
-.hero-full .topbar:not(.is-scrolled) .topbar__logo-img--light {
-  display: none;
-}
-
-.hero-full .topbar:not(.is-scrolled) .topbar__logo-img--dark {
-  display: block;
-}
-
+/* Etusivun tumman heron päällä: vaalea logo, teksti ja nappi (taustan väriset) */
 .hero-full .topbar .btn--member {
-  background: #3d322c;
-  color: #f6f1e6;
+  background: #fff8e7;
+  color: #3d322c;
 }
 
 .hero-full .topbar .btn--member:hover {
-  background: #2a221d;
-  color: #f6f1e6;
+  background: #fff;
+  color: #3d322c;
 }
 
 .topbar--page .topbar__right {
@@ -647,27 +631,25 @@ section {
 }
 
 .hero-full__tagline {
+  color: #fff8e7; /* taustan värinen vaalealla */
+  font-size: clamp(0.9rem, 2.25vw, 1.7rem); /* puoleen entisestä */
+  line-height: 1.15;
+  max-width: 36ch; /* laajempi tekstialue */
+}
+
+/* Hero-napit taustan värisinä (vaalea) tummalla kuvalla */
+.home .hero-full__cta {
+  background: #fff8e7;
   color: #3d322c;
-  font-size: clamp(1.8rem, 4.5vw, 3.4rem);
-  line-height: 1.05;
-  max-width: 16ch;
-}
-
-.home .btn--solid {
-  background: #3d322c;
-  color: #f6f1e6;
-}
-
-.home .btn--solid:hover {
-  background: #2a221d;
-  color: #f6f1e6;
-}
-
-.hero-full__cta {
   padding: 0.95em 2em;
   font-size: 0.8rem;
   text-transform: uppercase;
   letter-spacing: 0.12em;
+}
+
+.home .hero-full__cta:hover {
+  background: #fff;
+  color: #3d322c;
 }
 
 /* ---------- 204 · Statement (kuvalohko + iso otsikko) ---------- */
@@ -2469,14 +2451,26 @@ section {
 /* Etusivun hero: vaalea cream-kalvo, jotta tumma sisältö erottuu */
 .hero-full[style*="--img"] {
   background-image:
-    linear-gradient(
-      180deg,
-      rgba(249, 244, 232, 0.6),
-      rgba(249, 244, 232, 0.42)
-    ),
-    var(--img) !important;
+    linear-gradient(rgba(46, 33, 28, 0.3), rgba(46, 33, 28, 0.3)), var(--img) !important;
   background-size: cover !important;
   background-position: center !important;
+}
+
+/* ---------- Ohut tekstin värinen viiva kaikkien osien väliin ---------- */
+.hero-full,
+.hero-page,
+main > section,
+main > .marquee,
+main > div {
+  border-bottom: 1px solid #3d322c;
+}
+
+/* Pystyviiva jaettujen osioiden palstojen väliin (kuva | sisältö) */
+.statement > * + *,
+.services > * + *,
+.cta-split > * + *,
+.two-images > * + * {
+  border-left: 1px solid #3d322c;
 }
 
 .statement__media[style*="--img"],

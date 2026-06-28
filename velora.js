@@ -508,6 +508,20 @@
     window.addEventListener("scroll", onScroll, { passive: true });
     onScroll();
 
+    // Marquee: täytä nauha saumattomaksi (ei tyhjää aukkoa millään leveydellä)
+    document.querySelectorAll(".marquee").forEach(function (m) {
+      var track = m.querySelector(".marquee__track");
+      if (!track) return;
+      var base = track.innerHTML;
+      var guard = 0;
+      while (track.scrollWidth < m.offsetWidth && guard < 24) {
+        track.innerHTML += base;
+        guard++;
+      }
+      // Kahdenna sisältö: kaksi yhtä suurta puolikasta -> saumaton -50 % looppi
+      track.innerHTML += track.innerHTML;
+    });
+
     // Palaute-karusellin nuolet: vieritä riviä yhden kortin verran
     document.querySelectorAll(".testimonials").forEach(function (sec) {
       var row = sec.querySelector(".testimonials__row");
