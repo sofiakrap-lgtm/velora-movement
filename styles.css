@@ -1411,6 +1411,13 @@ section {
   margin: 0 auto;
   opacity: 0.85;
 }
+.pricelist-head__note {
+  max-width: 48ch;
+  margin: 0.9rem auto 0;
+  font-size: 0.9rem;
+  font-style: italic;
+  opacity: 0.7;
+}
 /* Kategoriapainikkeet (pillit, aktiivinen tumma) */
 .pricecats {
   display: flex;
@@ -2890,6 +2897,7 @@ section {
   display: grid;
   grid-template-columns: 1fr 1fr;
   min-height: 82vh;
+  padding-block: 0;
 }
 
 .contact__info {
@@ -2898,7 +2906,7 @@ section {
   justify-content: center;
   gap: 1.4rem;
   padding: clamp(2.5rem, 6vw, 6rem);
-  background: #ceb8a0;
+  background: #fff8e7;
   color: #3d322c;
 }
 
@@ -2948,7 +2956,7 @@ section {
 }
 
 .contact__info .btn {
-  align-self: flex-start;
+  align-self: center;
   margin-top: 0.4rem;
   padding: 0.9em 1.8em;
   font-size: 0.78rem;
