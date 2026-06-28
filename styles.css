@@ -1509,6 +1509,15 @@ section {
   background-position: center;
 }
 
+.testimonials__heading {
+  text-align: center;
+  font-family: "EB Garamond", Georgia, serif;
+  font-weight: 700;
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  color: #f4f1e2;
+  padding: 0 clamp(1.2rem, 5vw, 4rem) clamp(1.6rem, 3vw, 2.5rem);
+}
+
 .testimonials__row {
   display: flex;
   gap: clamp(1rem, 2vw, 1.6rem);
@@ -1573,7 +1582,7 @@ section {
   background: none;
   border: none;
   cursor: pointer;
-  color: #fff8e7; /* vaaleampi */
+  color: #f4f1e2; /* sama kuin laatikoiden tausta */
   font-size: 3.2rem; /* isommat, paksummat nuolet */
   font-weight: 700;
   line-height: 1;
@@ -1587,7 +1596,7 @@ section {
 }
 
 .home .testimonials__cta {
-  background: #e9e3d6;
+  background: #f4f1e2; /* sama kuin laatikoiden tausta */
   color: #3d322c;
   border: 1px solid #3d322c;
   border-radius: 999px;
@@ -1599,7 +1608,7 @@ section {
 
 .home .testimonials__cta:hover {
   background: #3d322c;
-  color: #e9e3d6;
+  color: #f4f1e2;
 }
 
 /* ---------- Galleria (4 kuvaa, hover-kuvaus) ---------- */
