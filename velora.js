@@ -484,6 +484,14 @@
       document.querySelectorAll(".lang-toggle__btn").forEach(function (b) {
         b.classList.toggle("is-active", b.getAttribute("data-lang") === lang);
       });
+      // Vaihda käsinkirjoitettu hero-teksti kielen mukaan
+      document.querySelectorAll("[data-fi][data-sv]").forEach(function (img) {
+        var src =
+          lang === "sv"
+            ? img.getAttribute("data-sv")
+            : img.getAttribute("data-fi");
+        if (src) img.setAttribute("src", src);
+      });
     }
 
     // Injektoi FI/SV-valitsin jokaiseen yläpalkkiin

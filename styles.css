@@ -695,46 +695,39 @@ section {
 .hero-note {
   display: flex;
   align-items: flex-start;
-  gap: 0.4rem;
-  max-width: 360px;
+  gap: 0.7rem;
   margin-top: 0.6rem;
-  transform: translateX(46px) rotate(-3deg);
+  transform: translateX(40px);
 }
-.hero-note__arrow {
-  width: 52px;
-  height: 56px;
+.hero-note__arrow-img {
+  width: 46px;
+  height: auto;
   flex-shrink: 0;
-  margin-top: -34px;
+  margin-top: -22px;
 }
-.hero-note__text {
-  font-family: "Caveat", cursive;
-  font-weight: 600;
-  font-size: clamp(1.3rem, 2vw, 1.7rem);
-  line-height: 1.15;
-  color: #fff8e7;
-  text-align: left;
+.hero-note__text-img {
+  width: clamp(190px, 24vw, 280px);
+  height: auto;
 }
 @media (max-width: 620px) {
   .hero-note {
-    transform: rotate(-3deg);
-    max-width: 280px;
+    transform: none;
   }
 }
 
-/* Käsinkirjoitettu huomautus vaalealla taustalla (espresso) */
+/* Käsinkirjoitettu huomautus vaalealla taustalla */
 .note-hand {
   display: flex;
-  align-items: flex-start;
-  gap: 0.4rem;
-  max-width: 320px;
+  align-items: center;
+  gap: 0.6rem;
   margin-top: 0.4rem;
-  transform: translateX(40px) rotate(-3deg);
+  transform: translateX(30px);
 }
-.note-hand__arrow {
-  width: 48px;
-  height: 52px;
+.note-hand__arrow-img {
+  width: 42px;
+  height: auto;
   flex-shrink: 0;
-  margin-top: -30px;
+  margin-top: -18px;
 }
 .note-hand__text {
   font-family: "Caveat", cursive;
@@ -1734,6 +1727,11 @@ section {
   border-left: 1px solid #3d322c;
 }
 
+/* Etusivun lajilista ilman kuvaa: yksi palsta (palvelut-sivulla kuvat säilyvät) */
+.statement--flip .laji__panel {
+  grid-template-columns: 1fr;
+}
+
 .laji__panel .service-detail__body {
   justify-content: flex-start;
   gap: 1rem;
@@ -2084,6 +2082,20 @@ section {
 @keyframes emblem-spin {
   to {
     transform: rotate(360deg);
+  }
+}
+
+/* Pyörivä logo (esim. napin alla) */
+.spin-logo {
+  width: clamp(64px, 8vw, 96px);
+  height: auto;
+  margin-top: 1.6rem;
+  align-self: center;
+  animation: emblem-spin 16s linear infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .spin-logo {
+    animation: none;
   }
 }
 
