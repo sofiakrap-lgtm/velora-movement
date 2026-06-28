@@ -1,0 +1,551 @@
+<!doctype html>
+<html lang="fi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Velora Movement · Palvelut</title>
+    <meta
+      name="description"
+      content="Velora Movement · palvelut: jooga, pilates, stretching ja core. Liike, hengitys, läsnäolo."
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="home">
+    <!-- ============ 105 · ALKU / HERO (otsikko + kategoriarivi) ============ -->
+    <section
+      class="hero-page"
+      style="--img: url(&quot;assets/images/kuva-15.jpg&quot;)"
+    >
+      <header class="topbar topbar--page">
+        <a href="index.html" class="topbar__logo">
+          <img
+            class="topbar__logo-img topbar__logo-img--light"
+            src="assets/logos/velora-logo-cream.svg"
+            alt="Velora Movement"
+          />
+          <img
+            class="topbar__logo-img topbar__logo-img--dark"
+            src="assets/logos/velora-logo.svg"
+            alt=""
+            aria-hidden="true"
+          />
+        </a>
+        <div class="topbar__right">
+          <nav class="topbar__nav">
+            <a href="index.html">Etusivu</a>
+            <a href="palvelut.html" class="is-active">Palvelut</a>
+            <a href="hinnasto.html">Hinnasto</a>
+            <a href="kauppa.html">Kauppa</a>
+            <a href="meista.html">Meistä</a>
+            <a href="yhteiso.html">Yhteisö</a>
+            <a href="yhteystiedot.html">Yhteystiedot</a>
+          </nav>
+          <a class="btn btn--member" href="#liity">Liity asiakkaaksi</a>
+        </div>
+      </header>
+
+      <div class="hero-page__title">
+        <h1>Palvelut</h1>
+        <p class="hero-page__sub">
+          Yksittäinen tunti vai kuukausipaketti, valitse niin kuin haluat.
+        </p>
+      </div>
+
+      <nav class="hero-cats">
+        <a href="joogatunnit.html">Joogatunnit</a>
+        <a href="pilates.html">Pilates</a>
+        <a href="stretching.html">Stretching</a>
+        <a href="core.html">Core</a>
+      </nav>
+    </section>
+
+    <main>
+      <!-- ============ 909 · Kaksi tapaa (yksittäinen tunti | kuukausiveloitus) ============ -->
+      <section class="duo">
+        <p class="duo__bar">Valitse oma tapasi liikkua</p>
+        <div class="duo__grid">
+          <article class="duo-card">
+            <h2 class="duo-card__title">Yksittäinen tunti</h2>
+            <span class="duo-card__rule" aria-hidden="true"></span>
+            <p class="duo-card__body">
+              Liity asiakkaaksi ja varaa haluamasi tunti suoraan kalenterista.
+              Maksat vain käymistäsi tunneista, ilman sitoutumista, kun haluat
+              liikkua omaan tahtiisi.
+            </p>
+            <a class="btn duo-card__cta" href="#lajit">Katso eri tunnit →</a>
+          </article>
+          <article class="duo-card">
+            <h2 class="duo-card__title">Kuukausiveloitus</h2>
+            <span class="duo-card__rule" aria-hidden="true"></span>
+            <p class="duo-card__body">
+              Kuukausipaketilla tunnit ovat edullisempia ja jäsenedut tulevat
+              kaupan päälle. Valittavana kolme tasoa aloittelijasta rajattomaan,
+              vaihda tasoa milloin tahansa.
+            </p>
+            <a class="btn duo-card__cta" href="#paketit">Katso paketit →</a>
+          </article>
+        </div>
+      </section>
+
+      <!-- ============ 601 · NAVIGAATIO / Numeroitu lajilista ============ -->
+      <section class="nav-index nav-index--laji" id="lajit">
+        <details class="laji" name="lajit">
+          <summary class="nav-index__row">
+            <span class="nav-index__num">01.</span>
+            <span class="nav-index__title">Joogatunnit</span>
+            <span class="nav-index__arrow" aria-hidden="true">+</span>
+          </summary>
+          <div class="laji__panel">
+            <div class="service-detail__body">
+              <p class="service-detail__lead">
+                Pehmeää, hengityksen tahdittamaa liikettä, joka avaa kehon ja
+                rauhoittaa mielen. Tunneilla on tilaa hidastaa, ei
+                suorittamista, vain läsnäoloa.
+              </p>
+              <div class="faq">
+                <details class="faq__item">
+                  <summary>Mikä kunto pitää olla?</summary>
+                  <p>
+                    Ei ennakkovaatimuksia. Tunnit sopivat kaikentasoisille, ja
+                    liikkeet sovitetaan omaan kehoosi.
+                  </p>
+                </details>
+                <details class="faq__item">
+                  <summary>Mitä otan mukaan?</summary>
+                  <p>
+                    Mukavat vaatteet ja oma juomapullo riittävät. Joogamatot ja
+                    apuvälineet löytyvät studiolta.
+                  </p>
+                </details>
+                <details class="faq__item">
+                  <summary>Kenelle tunti sopii?</summary>
+                  <p>
+                    Niin aloittelijalle kuin kokeneellekin, jokainen liikkuu
+                    omassa tahdissaan.
+                  </p>
+                </details>
+                <details class="faq__item">
+                  <summary>Kuinka kauan tunti kestää?</summary>
+                  <p>Tunti kestää noin 60 minuuttia.</p>
+                </details>
+                <details class="faq__item">
+                  <summary>Tarvitseeko varata etukäteen?</summary>
+                  <p>
+                    Suosittelemme varaamaan paikan etukäteen, sillä ryhmät ovat
+                    pieniä.
+                  </p>
+                </details>
+                <details class="faq__item">
+                  <summary>Voinko tulla rajoitteiden kanssa?</summary>
+                  <p>
+                    Kyllä. Kerro ohjaajalle ennen tuntia, niin sovitamme
+                    liikkeet sinulle turvallisiksi.
+                  </p>
+                </details>
+              </div>
+              <a class="btn service-detail__cta" href="index.html#liity"
+                >Varaa tunti →</a
+              >
+            </div>
+            <div
+              class="laji__media"
+              style="--img: url(&quot;assets/images/kuva-13.jpg&quot;)"
+            ></div>
+          </div>
+        </details>
+
+        <details class="laji" name="lajit">
+          <summary class="nav-index__row">
+            <span class="nav-index__num">02.</span>
+            <span class="nav-index__title">Pilates</span>
+            <span class="nav-index__arrow" aria-hidden="true">+</span>
+          </summary>
+          <div class="laji__panel">
+            <div class="service-detail__body">
+              <p class="service-detail__lead">
+                Hallittua, syvää keskivartalon työtä, joka rakentaa ryhtiä ja
+                voimaa. Pienissä ryhmissä jokainen liike ohjataan tarkasti ja
+                kiireettä.
+              </p>
+              <div class="faq">
+                <details class="faq__item">
+                  <summary>Mikä kunto pitää olla?</summary>
+                  <p>
+                    Pilates sopii kaikille kuntotasoille; liikkeitä kevennetään
+                    tai haastetaan tarpeen mukaan.
+                  </p>
+                </details>
+                <details class="faq__item">
+                  <summary>Mitä otan mukaan?</summary>
+                  <p>
+                    Joustavat vaatteet ja liukuestesukat. Välineet ovat valmiina
+                    studiolla.
+                  </p>
+                </details>
+                <details class="faq__item">
+                  <summary>Onko reformer- vai mattopilatesta?</summary>
+                  <p>
+                    Tarjoamme molempia. Aloittelijalle suosittelemme aloittamaan
+                    mattotunnilla.
+                  </p>
+                </details>
+                <details class="faq__item">
+                  <summary>Kuinka kauan tunti kestää?</summary>
+                  <p>Tunti kestää noin 50 minuuttia.</p>
+                </details>
+                <details class="faq__item">
+                  <summary>Sopiiko selkä- tai niskavaivoihin?</summary>
+                  <p>
+                    Usein kyllä, ja se voi jopa helpottaa oireita. Kerro
+                    vaivoistasi ohjaajalle etukäteen.
+                  </p>
+                </details>
+                <details class="faq__item">
+                  <summary>Tarvitseeko varata etukäteen?</summary>
+                  <p>
+                    Kyllä, paikkoja on rajoitetusti pienen ryhmäkoon vuoksi.
+                  </p>
+                </details>
+              </div>
+              <a class="btn service-detail__cta" href="index.html#liity"
+                >Varaa tunti →</a
+              >
+            </div>
+            <div
+              class="laji__media"
+              style="--img: url(&quot;assets/images/kuva-16.jpg&quot;)"
+            ></div>
+          </div>
+        </details>
+
+        <details class="laji" name="lajit">
+          <summary class="nav-index__row">
+            <span class="nav-index__num">03.</span>
+            <span class="nav-index__title">Stretching</span>
+            <span class="nav-index__arrow" aria-hidden="true">+</span>
+          </summary>
+          <div class="laji__panel">
+            <div class="service-detail__body">
+              <p class="service-detail__lead">
+                Rauhallista, syvää venyttelyä, joka avaa jännitykset ja
+                palauttaa liikkuvuuden. Täydellinen vastapaino kiireiselle
+                viikolle.
+              </p>
+              <div class="faq">
+                <details class="faq__item">
+                  <summary>Mikä kunto pitää olla?</summary>
+                  <p>
+                    Ei mitään, stretching sopii kaikille ja on hellävarainen
+                    keholle.
+                  </p>
+                </details>
+                <details class="faq__item">
+                  <summary>Mitä otan mukaan?</summary>
+                  <p>
+                    Mukavat, joustavat vaatteet ja oma juomapullo. Matot
+                    löytyvät studiolta.
+                  </p>
+                </details>
+                <details class="faq__item">
+                  <summary>Kenelle tunti sopii?</summary>
+                  <p>
+                    Erityisesti heille, jotka istuvat paljon tai kaipaavat
+                    palautumista.
+                  </p>
+                </details>
+                <details class="faq__item">
+                  <summary>Kuinka kauan tunti kestää?</summary>
+                  <p>Tunti kestää noin 45 minuuttia.</p>
+                </details>
+                <details class="faq__item">
+                  <summary>Voiko tulla jäykkänä?</summary>
+                  <p>
+                    Juuri silloin kannattaa tulla, liikkuvuus paranee
+                    vähitellen, omaan tahtiin.
+                  </p>
+                </details>
+                <details class="faq__item">
+                  <summary>Tarvitseeko varata etukäteen?</summary>
+                  <p>
+                    Suosittelemme varausta, mutta paikkoja on usein myös ovelta.
+                  </p>
+                </details>
+              </div>
+              <a class="btn service-detail__cta" href="index.html#liity"
+                >Varaa tunti →</a
+              >
+            </div>
+            <div
+              class="laji__media"
+              style="--img: url(&quot;assets/images/kuva-6.jpg&quot;)"
+            ></div>
+          </div>
+        </details>
+
+        <details class="laji" name="lajit">
+          <summary class="nav-index__row">
+            <span class="nav-index__num">04.</span>
+            <span class="nav-index__title">Core</span>
+            <span class="nav-index__arrow" aria-hidden="true">+</span>
+          </summary>
+          <div class="laji__panel">
+            <div class="service-detail__body">
+              <p class="service-detail__lead">
+                Tehokasta mutta hallittua keskivartalon harjoittelua, joka tukee
+                koko kehon voimaa ja ryhtiä. Lyhyt, tiivis ja energinen.
+              </p>
+              <div class="faq">
+                <details class="faq__item">
+                  <summary>Mikä kunto pitää olla?</summary>
+                  <p>
+                    Peruskunto riittää; liikkeet on helppo skaalata omalle
+                    tasolle.
+                  </p>
+                </details>
+                <details class="faq__item">
+                  <summary>Mitä otan mukaan?</summary>
+                  <p>
+                    Treenivaatteet, juomapullo ja pyyhe. Välineet ovat paikalla.
+                  </p>
+                </details>
+                <details class="faq__item">
+                  <summary>Kenelle tunti sopii?</summary>
+                  <p>
+                    Heille, jotka haluavat vahvistaa keskivartaloa ja lisätä
+                    liikkeen tehoa.
+                  </p>
+                </details>
+                <details class="faq__item">
+                  <summary>Kuinka kauan tunti kestää?</summary>
+                  <p>Tunti kestää noin 30 minuuttia tiivistä työtä.</p>
+                </details>
+                <details class="faq__item">
+                  <summary>Onko tunti rankka?</summary>
+                  <p>
+                    Tehokas mutta hallittu, pidät itse tahdin ja lepäät
+                    tarvittaessa.
+                  </p>
+                </details>
+                <details class="faq__item">
+                  <summary>Tarvitseeko varata etukäteen?</summary>
+                  <p>Kyllä, varaa paikkasi etukäteen ryhmäkoon vuoksi.</p>
+                </details>
+              </div>
+              <a class="btn service-detail__cta" href="index.html#liity"
+                >Varaa tunti →</a
+              >
+            </div>
+            <div
+              class="laji__media"
+              style="--img: url(&quot;assets/images/kuva-8.jpg&quot;)"
+            ></div>
+          </div>
+        </details>
+      </section>
+
+      <!-- ============ 802 · KONVERSIO / CTA (teksti + kuva) ============ -->
+      <section class="cta-split">
+        <div class="cta-split__text">
+          <h2>Yksittäistuntien lisäksi,<br /><em>paketit</em>.</h2>
+          <p>
+            Säännöllinen liike on helpompaa, kun se kuuluu viikkoosi. Kokoa
+            itsellesi sopiva kokonaisuus, kolme tasoa, oma rytmisi, ilman
+            kiirettä.
+          </p>
+          <a class="btn" href="#paketit">Katso paketit →</a>
+        </div>
+        <img
+          class="cta-split__media"
+          src="assets/images/kuva-10.jpg"
+          alt=""
+          loading="lazy"
+        />
+      </section>
+
+      <!-- ============ 403 · KUUKAUSIPAKETIT (sama kuin etusivulla) ============ -->
+      <section class="pricing" id="paketit">
+        <div class="pricing__head">
+          <h2 class="pricing__title">Kuukausipaketit</h2>
+          <p class="pricing__lead">
+            Kolme tasoa, oma rytmisi. Valitse paketti, joka sopii viikkoosi,
+            vaihda tasoa milloin tahansa, ilman kiirettä.
+          </p>
+        </div>
+
+        <div class="pricing__cards">
+          <article class="price-card">
+            <span class="price-card__level">Aloittelija</span>
+            <div class="price-card__price">
+              <span class="amount">49&nbsp;€</span><span class="per">/ kk</span>
+            </div>
+            <ul class="price-card__features">
+              <li>1 joogatunti / vko</li>
+              <li>1 stretching / vko</li>
+              <li>Online-jäsenyys</li>
+            </ul>
+            <a class="btn price-card__cta" href="#paketti-aloittelija"
+              >Liity →</a
+            >
+          </article>
+
+          <article class="price-card price-card--featured">
+            <span class="price-card__badge">Suosituin</span>
+            <span class="price-card__level">Keskitaso</span>
+            <div class="price-card__price">
+              <span class="amount">89&nbsp;€</span><span class="per">/ kk</span>
+            </div>
+            <ul class="price-card__features">
+              <li>2 joogatuntia / vko</li>
+              <li>1 pilates / vko</li>
+              <li>1 core / vko</li>
+              <li>Online-jäsenyys</li>
+            </ul>
+            <a class="btn price-card__cta" href="#paketti-keskitaso">Liity →</a>
+          </article>
+
+          <article class="price-card">
+            <span class="price-card__level">Edistynyt</span>
+            <div class="price-card__price">
+              <span class="amount">129&nbsp;€</span
+              ><span class="per">/ kk</span>
+            </div>
+            <ul class="price-card__features">
+              <li>Rajattomat tunnit / vko</li>
+              <li>Kaikki lajit</li>
+              <li>Online-jäsenyys</li>
+              <li>Prioriteettivaraus</li>
+            </ul>
+            <a class="btn price-card__cta" href="#paketti-edistynyt">Liity →</a>
+          </article>
+        </div>
+      </section>
+
+      <!-- ============ 802 · Pakettien sisältö (vuorottelevat osat) ============ -->
+      <section
+        class="cta-split cta-split--paketti cta-split--stone"
+        id="paketti-aloittelija"
+      >
+        <div class="cta-split__text">
+          <span class="cta-split__price">49 € / kk</span>
+          <h2>Aloittelija,<br /><em>rauhassa</em>.</h2>
+          <p>
+            Täydellinen ensiaskel liikkeen pariin. Pakettiin kuuluu yksi
+            joogatunti ja yksi stretching joka viikko, omaan tahtiisi. Saat
+            online-jäsenyyden harjoitteluvideoineen, voit varata paikkasi
+            etukäteen ja vaihtaa tasoa milloin tahansa. Ei sitoutumista eikä
+            kiirettä, vain lempeä alku uudelle rutiinille.
+          </p>
+          <hr class="cta-split__rule" />
+          <div class="cta-split__who">
+            <span class="cta-split__who-label">Kenelle</span>
+            <p>
+              Sinulle, joka aloitat tai palaat liikkeen pariin pitkän tauon
+              jälkeen ja haluat löytää oman rytmisi täysin paineettomasti.
+            </p>
+          </div>
+          <a class="btn" href="index.html#liity">Liity →</a>
+        </div>
+        <img
+          class="cta-split__media"
+          src="assets/images/kuva-6.jpg"
+          alt=""
+          loading="lazy"
+        />
+      </section>
+
+      <section
+        class="cta-split cta-split--reverse cta-split--paketti cta-split--oat"
+        id="paketti-keskitaso"
+      >
+        <div class="cta-split__text">
+          <span class="cta-split__price">89 € / kk</span>
+          <h2>Keskitaso,<br /><em>monipuolisesti</em>.</h2>
+          <p>
+            Monipuolinen kokonaisuus aktiiviseen viikkoon. Viikkoon mahtuu kaksi
+            joogatuntia, yksi pilates ja yksi core, eli liikettä jokaiselle
+            kehon osa-alueelle. Mukana online-jäsenyys, jäsenhinnat työpajoista
+            ja oikeus ennakkovaraukseen. Suosituin valintamme tasapainoiseen ja
+            säännölliseen rytmiin.
+          </p>
+          <hr class="cta-split__rule" />
+          <div class="cta-split__who">
+            <span class="cta-split__who-label">Kenelle</span>
+            <p>
+              Sinulle, joka liikut jo säännöllisesti ja haluat monipuolisuutta
+              sekä selkeän viikkorytmin ilman, että tunnit loppuvat kesken.
+            </p>
+          </div>
+          <a class="btn" href="index.html#liity">Liity →</a>
+        </div>
+        <img
+          class="cta-split__media"
+          src="assets/images/kuva-7.jpg"
+          alt=""
+          loading="lazy"
+        />
+      </section>
+
+      <section
+        class="cta-split cta-split--paketti cta-split--bronze"
+        id="paketti-edistynyt"
+      >
+        <div class="cta-split__text">
+          <span class="cta-split__price">129 € / kk</span>
+          <h2>Edistynyt,<br /><em>rajattomasti</em>.</h2>
+          <p>
+            Rajaton paketti intohimoiselle liikkujalle. Käytössäsi ovat kaikki
+            tunnit ja lajit, oma rytmisi ilman kattoa. Saat
+            prioriteettivarauksen suosituimmille tunneille ja online-jäsenyyden
+            koko kirjastoon. Liikkeestä tulee luonteva, päivittäinen osa arkea,
+            ilman kompromisseja.
+          </p>
+          <hr class="cta-split__rule" />
+          <div class="cta-split__who">
+            <span class="cta-split__who-label">Kenelle</span>
+            <p>
+              Sinulle, joka liikut usein ja haluat täyden vapauden valita lajisi
+              päivästä toiseen, sekä etusijan suosituimmille tunneille.
+            </p>
+          </div>
+          <a class="btn" href="index.html#liity">Liity →</a>
+        </div>
+        <img
+          class="cta-split__media"
+          src="assets/images/kuva-8.jpg"
+          alt=""
+          loading="lazy"
+        />
+      </section>
+    </main>
+
+    <!-- ============ 304 · FOOTER (kaikilla sivuilla) ============ -->
+    <footer class="footer-wordmark">
+      <div class="footer-wordmark__links">
+        <ul class="footer-col">
+          <li><a href="index.html">Etusivu</a></li>
+          <li><a href="palvelut.html">Palvelut</a></li>
+          <li><a href="kauppa.html">Kauppa</a></li>
+          <li><a href="meista.html">Meistä</a></li>
+          <li><a href="yhteiso.html">Yhteisö</a></li>
+          <li><a href="yhteystiedot.html">Yhteystiedot</a></li>
+          <li>
+            <a href="index.html#liity" class="footer-cta"
+              >Löydä oma rytmisi →</a
+            >
+          </li>
+        </ul>
+        <ul class="footer-col">
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">TikTok</a></li>
+          <li><a href="#">Pinterest</a></li>
+        </ul>
+      </div>
+      <img
+        class="footer-wordmark__mark"
+        src="assets/logos/logo-1-cream.svg"
+        alt="Velora Movement"
+      />
+    </footer>
+    <script src="velora.js" defer></script>
+  </body>
+</html>

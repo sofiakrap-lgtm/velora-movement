@@ -1,142 +1,754 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fi">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Velora Movement — liike · hengitys · läsnäolo</title>
+    <title>Velora Movement · liike · hengitys · läsnäolo</title>
     <meta
       name="description"
-      content="Velora Movement — intiimi premium jooga- ja pilatesstudio. Hidas, maanläheinen, läsnä."
+      content="Velora Movement · intiimi premium jooga- ja pilatesstudio. Hyvinvointi kuuluu kaikille."
     />
     <link rel="stylesheet" href="styles.css" />
   </head>
-  <body>
-    <!-- ============ HEADER ============ -->
-    <header class="site-header">
-      <a href="#" class="brand">
-        <img src="assets/logos/velora-logo.svg" alt="Velora Movement" />
-      </a>
-      <nav>
-        <a href="#studio">Studio</a>
-        <a href="#tunnit">Tunnit</a>
-        <a href="#yhteiso">Yhteisö</a>
-      </nav>
-      <a class="btn" href="#varaa">Varaa</a>
-    </header>
+  <body class="home">
+    <!-- ============ 100 · HERO (full-bleed kuva + yläpalkki) ============ -->
+    <section
+      class="hero-full"
+      style="--img: url(&quot;assets/images/hero-1.jpg&quot;)"
+    >
+      <!-- Yläpalkki: logo vasen · sivunimet keski · nappi oikea -->
+      <header class="topbar">
+        <a href="index.html" class="topbar__logo">
+          <img
+            class="topbar__logo-img topbar__logo-img--light"
+            src="assets/logos/velora-logo-cream.svg"
+            alt="Velora Movement"
+          />
+          <img
+            class="topbar__logo-img topbar__logo-img--dark"
+            src="assets/logos/velora-logo.svg"
+            alt=""
+            aria-hidden="true"
+          />
+        </a>
+        <nav class="topbar__nav">
+          <a href="index.html" class="is-active">Etusivu</a>
+          <a href="palvelut.html">Palvelut</a>
+          <a href="hinnasto.html">Hinnasto</a>
+          <a href="kauppa.html">Kauppa</a>
+          <a href="meista.html">Meistä</a>
+          <a href="yhteiso.html">Yhteisö</a>
+          <a href="yhteystiedot.html">Yhteystiedot</a>
+        </nav>
+        <a class="btn btn--member" href="#liity">Liity asiakkaaksi</a>
+      </header>
+
+      <!-- Hero-kuva täyttää osion; keskellä logo, tunnuslause ja nappi -->
+      <div class="hero-full__inner">
+        <div class="hero-full__center">
+          <img
+            class="hero-full__logo"
+            src="assets/logos/logo-2-cream.svg"
+            alt="Velora Movement"
+          />
+          <h1 class="hero-full__tagline">Treenaa itsestäsi arjen sankariksi</h1>
+          <a class="btn hero-full__cta" href="#liity">Liity asiakkaaksi</a>
+          <div class="hero-note" aria-hidden="true">
+            <svg
+              class="hero-note__arrow"
+              viewBox="0 0 90 96"
+              fill="none"
+              stroke="#fff8e7"
+              stroke-width="3"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M78 90 C 72 54, 58 26, 20 12" />
+              <path d="M11 33 L 17 9 L 40 19" />
+            </svg>
+            <span class="hero-note__text"
+              >Voit ostaa tuntipaketteja sekä yksittäisiä tunteja liittyäksesi
+              asiakkaaksi</span
+            >
+          </div>
+        </div>
+      </div>
+    </section>
 
     <main>
-      <!-- ============ HERO ============ -->
-      <section class="wrap hero">
-        <div class="hero__copy">
-          <span class="label">Jooga · Pilates · Helsinki</span>
-          <h1>Hidasta, hengitä, palaa itseesi.</h1>
-          <p>
-            Velora on intiimi tila liikkeelle ja läsnäololle — luonnonvaloa,
-            lämpimiä sävyjä ja kiireetöntä rytmiä. Ei suorittamista, vain
-            kehon ja hengityksen yhteys.
-          </p>
-          <a class="btn" href="#varaa">Varaa ensimmäinen tunti</a>
-        </div>
-        <div class="hero__media">
-          <!-- Korvaa kuvalla: assets/images/hero.jpg -->
+      <!-- ============ 201 · MARQUEE (liikkuva logo, oikealle) ============ -->
+      <div class="marquee" aria-hidden="true">
+        <div class="marquee__track">
           <img
-            src="assets/images/hero.jpg"
-            alt="Rauhallinen joogahetki luonnonvalossa"
-            onerror="this.style.display='none'"
+            class="marquee__item"
+            src="assets/logos/logo-1-espresso.svg"
+            alt=""
           />
+          <span class="marquee__dot">•</span>
+          <img
+            class="marquee__item"
+            src="assets/logos/logo-1-espresso.svg"
+            alt=""
+          />
+          <span class="marquee__dot">•</span>
+          <img
+            class="marquee__item"
+            src="assets/logos/logo-1-espresso.svg"
+            alt=""
+          />
+          <span class="marquee__dot">•</span>
+          <img
+            class="marquee__item"
+            src="assets/logos/logo-1-espresso.svg"
+            alt=""
+          />
+          <span class="marquee__dot">•</span>
+          <img
+            class="marquee__item"
+            src="assets/logos/logo-1-espresso.svg"
+            alt=""
+          />
+          <span class="marquee__dot">•</span>
+          <img
+            class="marquee__item"
+            src="assets/logos/logo-1-espresso.svg"
+            alt=""
+          />
+          <span class="marquee__dot">•</span>
+          <img
+            class="marquee__item"
+            src="assets/logos/logo-1-espresso.svg"
+            alt=""
+          />
+          <span class="marquee__dot">•</span>
+          <img
+            class="marquee__item"
+            src="assets/logos/logo-1-espresso.svg"
+            alt=""
+          />
+          <span class="marquee__dot">•</span>
+        </div>
+      </div>
+
+      <!-- ============ 204 + 206 · STATEMENT + PALVELUT (kuva | teksti + lajilista) ============ -->
+      <section class="statement" id="hyvinvointi">
+        <img
+          class="statement__media"
+          src="assets/images/kuva-12.jpg"
+          alt=""
+          loading="lazy"
+        />
+        <div class="statement__right">
+          <div class="statement__copy">
+            <h2 class="statement__title">Hyvinvointi kuuluu<br />kaikille.</h2>
+            <p class="statement__lead">
+              Velora on lämmin ja kiireetön studio, jonne jokainen on
+              tervetullut omana itsenään. Täällä ei suoriteta eikä verrata, vaan
+              hengitetään, liikutaan ja hidastetaan yhdessä, omaan tahtiin. Tule
+              mukaan yhteisöön, joka kannustaa ja tekee tilaa juuri sinun
+              hyvinvoinnillesi.
+            </p>
+            <a class="btn statement__cta" href="#liity">Liity asiakkaaksi</a>
+          </div>
+          <div class="member-block">
+            <h3 class="member-block__title">
+              Meidän tiimissä et jää mistään paitsi
+            </h3>
+            <p class="member-block__lead">
+              Jäsenenä saat jäsenhinnat tunneista, ennakkovaraukset, kutsut
+              workshoppeihin ja yhteislenkeille sekä vain jäsenille räätälöidyt
+              tarjoukset.
+            </p>
+            <ul class="event-list">
+              <li class="event-list__item">
+                <span class="event-list__date">3.6.</span>
+                <span>Aamujooga &amp; smoothie</span>
+              </li>
+              <li class="event-list__item">
+                <span class="event-list__date">9.6.</span>
+                <span>Sunnuntain yhteislenkki</span>
+              </li>
+              <li class="event-list__item">
+                <span class="event-list__date">15.6.</span>
+                <span>Hengitys-workshop</span>
+              </li>
+              <li class="event-list__item">
+                <span class="event-list__date">22.6.</span>
+                <span>Kesäkahvit puutarhassa</span>
+              </li>
+              <li class="event-list__item">
+                <span class="event-list__date">29.6.</span>
+                <span>Juhannuksen rauhoittava tunti</span>
+              </li>
+            </ul>
+          </div>
         </div>
       </section>
 
-      <!-- ============ STUDIO / TUNNIT (kortit) ============ -->
-      <section id="tunnit" class="wrap">
-        <div class="section-head">
-          <span class="label">Tunnit</span>
-          <h2>Liikettä, joka kuuntelee kehoa.</h2>
+      <!-- ============ 206 · Lajit (lajilista | kuva) ============ -->
+      <section class="statement statement--flip" id="palvelut">
+        <div class="statement__right">
+          <div class="statement__copy">
+            <h2 class="statement__title">Lajit &amp; tunnit.</h2>
+            <p class="statement__lead">
+              Selkeä valikoima, oma rytmisi. Valitse laji, joka tuntuu sinun
+              keholtasi juuri nyt.
+            </p>
+            <a class="btn statement__cta" href="hinnasto.html">Hinnastoon</a>
+            <div class="note-hand" aria-hidden="true">
+              <svg
+                class="note-hand__arrow"
+                viewBox="0 0 90 96"
+                fill="none"
+                stroke="#3d322c"
+                stroke-width="3"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M78 90 C 72 54, 58 26, 20 12" />
+                <path d="M11 33 L 17 9 L 40 19" />
+              </svg>
+              <span class="note-hand__text">katsele hintoja</span>
+            </div>
+          </div>
+          <div class="nav-index nav-index--laji">
+            <details class="laji" name="lajit">
+              <summary class="nav-index__row">
+                <span class="nav-index__num">01.</span>
+                <span class="nav-index__title">Joogatunnit</span>
+                <span class="nav-index__arrow" aria-hidden="true">+</span>
+              </summary>
+              <div class="laji__panel">
+                <div class="service-detail__body">
+                  <p class="service-detail__lead">
+                    Pehmeää, hengityksen tahdittamaa liikettä, joka avaa kehon
+                    ja rauhoittaa mielen. Tunneilla on tilaa hidastaa, ei
+                    suorittamista, vain läsnäoloa.
+                  </p>
+                  <div class="faq">
+                    <details class="faq__item">
+                      <summary>Mikä kunto pitää olla?</summary>
+                      <p>
+                        Ei ennakkovaatimuksia. Tunnit sopivat kaikentasoisille,
+                        ja liikkeet sovitetaan omaan kehoosi.
+                      </p>
+                    </details>
+                    <details class="faq__item">
+                      <summary>Mitä otan mukaan?</summary>
+                      <p>
+                        Mukavat vaatteet ja oma juomapullo riittävät. Joogamatot
+                        ja apuvälineet löytyvät studiolta.
+                      </p>
+                    </details>
+                    <details class="faq__item">
+                      <summary>Kenelle tunti sopii?</summary>
+                      <p>
+                        Niin aloittelijalle kuin kokeneellekin, jokainen liikkuu
+                        omassa tahdissaan.
+                      </p>
+                    </details>
+                    <details class="faq__item">
+                      <summary>Kuinka kauan tunti kestää?</summary>
+                      <p>Tunti kestää noin 60 minuuttia.</p>
+                    </details>
+                    <details class="faq__item">
+                      <summary>Tarvitseeko varata etukäteen?</summary>
+                      <p>
+                        Suosittelemme varaamaan paikan etukäteen, sillä ryhmät
+                        ovat pieniä.
+                      </p>
+                    </details>
+                    <details class="faq__item">
+                      <summary>Voinko tulla rajoitteiden kanssa?</summary>
+                      <p>
+                        Kyllä. Kerro ohjaajalle ennen tuntia, niin sovitamme
+                        liikkeet sinulle turvallisiksi.
+                      </p>
+                    </details>
+                  </div>
+                  <a class="btn service-detail__cta" href="index.html#liity"
+                    >Varaa tunti →</a
+                  >
+                </div>
+                <div
+                  class="laji__media"
+                  style="--img: url(&quot;assets/images/kuva-13.jpg&quot;)"
+                ></div>
+              </div>
+            </details>
+
+            <details class="laji" name="lajit">
+              <summary class="nav-index__row">
+                <span class="nav-index__num">02.</span>
+                <span class="nav-index__title">Pilates</span>
+                <span class="nav-index__arrow" aria-hidden="true">+</span>
+              </summary>
+              <div class="laji__panel">
+                <div class="service-detail__body">
+                  <p class="service-detail__lead">
+                    Hallittua, syvää keskivartalon työtä, joka rakentaa ryhtiä
+                    ja voimaa. Pienissä ryhmissä jokainen liike ohjataan
+                    tarkasti ja kiireettä.
+                  </p>
+                  <div class="faq">
+                    <details class="faq__item">
+                      <summary>Mikä kunto pitää olla?</summary>
+                      <p>
+                        Pilates sopii kaikille kuntotasoille; liikkeitä
+                        kevennetään tai haastetaan tarpeen mukaan.
+                      </p>
+                    </details>
+                    <details class="faq__item">
+                      <summary>Mitä otan mukaan?</summary>
+                      <p>
+                        Joustavat vaatteet ja liukuestesukat. Välineet ovat
+                        valmiina studiolla.
+                      </p>
+                    </details>
+                    <details class="faq__item">
+                      <summary>Onko reformer- vai mattopilatesta?</summary>
+                      <p>
+                        Tarjoamme molempia. Aloittelijalle suosittelemme
+                        aloittamaan mattotunnilla.
+                      </p>
+                    </details>
+                    <details class="faq__item">
+                      <summary>Kuinka kauan tunti kestää?</summary>
+                      <p>Tunti kestää noin 50 minuuttia.</p>
+                    </details>
+                    <details class="faq__item">
+                      <summary>Sopiiko selkä- tai niskavaivoihin?</summary>
+                      <p>
+                        Usein kyllä, ja se voi jopa helpottaa oireita. Kerro
+                        vaivoistasi ohjaajalle etukäteen.
+                      </p>
+                    </details>
+                    <details class="faq__item">
+                      <summary>Tarvitseeko varata etukäteen?</summary>
+                      <p>
+                        Kyllä, paikkoja on rajoitetusti pienen ryhmäkoon vuoksi.
+                      </p>
+                    </details>
+                  </div>
+                  <a class="btn service-detail__cta" href="index.html#liity"
+                    >Varaa tunti →</a
+                  >
+                </div>
+                <div
+                  class="laji__media"
+                  style="--img: url(&quot;assets/images/kuva-16.jpg&quot;)"
+                ></div>
+              </div>
+            </details>
+
+            <details class="laji" name="lajit">
+              <summary class="nav-index__row">
+                <span class="nav-index__num">03.</span>
+                <span class="nav-index__title">Stretching</span>
+                <span class="nav-index__arrow" aria-hidden="true">+</span>
+              </summary>
+              <div class="laji__panel">
+                <div class="service-detail__body">
+                  <p class="service-detail__lead">
+                    Rauhallista, syvää venyttelyä, joka avaa jännitykset ja
+                    palauttaa liikkuvuuden. Täydellinen vastapaino kiireiselle
+                    viikolle.
+                  </p>
+                  <div class="faq">
+                    <details class="faq__item">
+                      <summary>Mikä kunto pitää olla?</summary>
+                      <p>
+                        Ei mitään, stretching sopii kaikille ja on hellävarainen
+                        keholle.
+                      </p>
+                    </details>
+                    <details class="faq__item">
+                      <summary>Mitä otan mukaan?</summary>
+                      <p>
+                        Mukavat, joustavat vaatteet ja oma juomapullo. Matot
+                        löytyvät studiolta.
+                      </p>
+                    </details>
+                    <details class="faq__item">
+                      <summary>Kenelle tunti sopii?</summary>
+                      <p>
+                        Erityisesti heille, jotka istuvat paljon tai kaipaavat
+                        palautumista.
+                      </p>
+                    </details>
+                    <details class="faq__item">
+                      <summary>Kuinka kauan tunti kestää?</summary>
+                      <p>Tunti kestää noin 45 minuuttia.</p>
+                    </details>
+                    <details class="faq__item">
+                      <summary>Voiko tulla jäykkänä?</summary>
+                      <p>
+                        Juuri silloin kannattaa tulla, liikkuvuus paranee
+                        vähitellen, omaan tahtiin.
+                      </p>
+                    </details>
+                    <details class="faq__item">
+                      <summary>Tarvitseeko varata etukäteen?</summary>
+                      <p>
+                        Suosittelemme varausta, mutta paikkoja on usein myös
+                        ovelta.
+                      </p>
+                    </details>
+                  </div>
+                  <a class="btn service-detail__cta" href="index.html#liity"
+                    >Varaa tunti →</a
+                  >
+                </div>
+                <div
+                  class="laji__media"
+                  style="--img: url(&quot;assets/images/kuva-6.jpg&quot;)"
+                ></div>
+              </div>
+            </details>
+
+            <details class="laji" name="lajit">
+              <summary class="nav-index__row">
+                <span class="nav-index__num">04.</span>
+                <span class="nav-index__title">Core</span>
+                <span class="nav-index__arrow" aria-hidden="true">+</span>
+              </summary>
+              <div class="laji__panel">
+                <div class="service-detail__body">
+                  <p class="service-detail__lead">
+                    Tehokasta mutta hallittua keskivartalon harjoittelua, joka
+                    tukee koko kehon voimaa ja ryhtiä. Lyhyt, tiivis ja
+                    energinen.
+                  </p>
+                  <div class="faq">
+                    <details class="faq__item">
+                      <summary>Mikä kunto pitää olla?</summary>
+                      <p>
+                        Peruskunto riittää; liikkeet on helppo skaalata omalle
+                        tasolle.
+                      </p>
+                    </details>
+                    <details class="faq__item">
+                      <summary>Mitä otan mukaan?</summary>
+                      <p>
+                        Treenivaatteet, juomapullo ja pyyhe. Välineet ovat
+                        paikalla.
+                      </p>
+                    </details>
+                    <details class="faq__item">
+                      <summary>Kenelle tunti sopii?</summary>
+                      <p>
+                        Heille, jotka haluavat vahvistaa keskivartaloa ja lisätä
+                        liikkeen tehoa.
+                      </p>
+                    </details>
+                    <details class="faq__item">
+                      <summary>Kuinka kauan tunti kestää?</summary>
+                      <p>Tunti kestää noin 30 minuuttia tiivistä työtä.</p>
+                    </details>
+                    <details class="faq__item">
+                      <summary>Onko tunti rankka?</summary>
+                      <p>
+                        Tehokas mutta hallittu, pidät itse tahdin ja lepäät
+                        tarvittaessa.
+                      </p>
+                    </details>
+                    <details class="faq__item">
+                      <summary>Tarvitseeko varata etukäteen?</summary>
+                      <p>Kyllä, varaa paikkasi etukäteen ryhmäkoon vuoksi.</p>
+                    </details>
+                  </div>
+                  <a class="btn service-detail__cta" href="index.html#liity"
+                    >Varaa tunti →</a
+                  >
+                </div>
+                <div
+                  class="laji__media"
+                  style="--img: url(&quot;assets/images/kuva-8.jpg&quot;)"
+                ></div>
+              </div>
+            </details>
+          </div>
         </div>
-
-        <div class="cards">
-          <article class="card">
-            <div class="card__media">
-              <img
-                src="assets/images/slow-flow.jpg"
-                alt="Slow Flow -jooga"
-                onerror="this.style.display='none'"
-              />
-            </div>
-            <h3>Slow Flow</h3>
-            <p>Pehmeä, hengityksen tahdittama virtaus aamuun tai iltaan.</p>
-          </article>
-
-          <article class="card">
-            <div class="card__media">
-              <img
-                src="assets/images/reformer.jpg"
-                alt="Reformer Pilates"
-                onerror="this.style.display='none'"
-              />
-            </div>
-            <h3>Reformer Pilates</h3>
-            <p>Hallittua voimaa ja ryhtiä — pienissä, läsnäolevissa ryhmissä.</p>
-          </article>
-
-          <article class="card">
-            <div class="card__media">
-              <img
-                src="assets/images/restore.jpg"
-                alt="Restore-tunti"
-                onerror="this.style.display='none'"
-              />
-            </div>
-            <h3>Restore</h3>
-            <p>Syvä rentoutus ja palautuminen, tuettuna ja peittoihin käärittynä.</p>
-          </article>
-        </div>
+        <img
+          class="statement__media"
+          src="assets/images/kuva-10.jpg"
+          alt=""
+          loading="lazy"
+        />
       </section>
 
-      <!-- ============ MANIFESTI (tumma osio) ============ -->
-      <section id="studio" class="section--dark">
-        <div class="wrap manifesto">
-          <span class="label">Filosofia</span>
-          <blockquote>
-            Liike ei ole suoritus. Se on tapa olla läsnä.
-          </blockquote>
-        </div>
+      <!-- ============ Galleria (5 kuvaa) ============ -->
+      <section class="gallery5" aria-hidden="true">
+        <img src="assets/images/kuva-3.jpg" alt="" loading="lazy" />
+        <img src="assets/images/kuva-5.jpg" alt="" loading="lazy" />
+        <img src="assets/images/kuva-6.jpg" alt="" loading="lazy" />
+        <img src="assets/images/kuva-7.jpg" alt="" loading="lazy" />
+        <img src="assets/images/kuva-8.jpg" alt="" loading="lazy" />
       </section>
 
-      <!-- ============ YHTEISÖ (accent-osio) ============ -->
-      <section id="yhteiso" class="section--sky">
-        <div class="wrap section-head">
-          <span class="label">Yhteisö</span>
-          <h2>Tila, johon on helppo kuulua.</h2>
-          <p style="margin-top: 1.5rem">
-            Pieni studio, tutut kasvot ja kiireetön tunnelma. Velorassa
-            harjoitellaan yhdessä, omaan tahtiin — ilman peilejä, ilman
-            kilpailua.
+      <!-- ============ 208 · INTRO-LAUSE (keskitetty, kursiivikorostus) ============ -->
+      <section class="intro-line" id="meista">
+        <p>
+          Meille ei tarvitse tulla valmiina. Tule sellaisena kuin
+          <em>olet</em>, omaan tahtiisi, <em>omaan kehoosi</em> luottaen.
+        </p>
+      </section>
+
+      <!-- ============ 403 · HINNOITTELU (3 pakettia, keskikortti korostettu) ============ -->
+      <section class="pricing" id="liity">
+        <div class="pricing__head">
+          <h2 class="pricing__title">Paketit &amp; hinnat</h2>
+          <p class="pricing__lead">
+            Kolme tasoa, oma rytmisi. Valitse paketti, joka sopii viikkoosi,
+            vaihda tasoa milloin tahansa, ilman kiirettä.
           </p>
         </div>
+
+        <div class="pricing__cards">
+          <!-- Taso 1 -->
+          <article class="price-card">
+            <span class="price-card__level">Aloittelija</span>
+            <div class="price-card__price">
+              <span class="amount">49&nbsp;€</span><span class="per">/ kk</span>
+            </div>
+            <ul class="price-card__features">
+              <li>1 joogatunti / vko</li>
+              <li>1 stretching / vko</li>
+              <li>Online-jäsenyys</li>
+            </ul>
+            <a class="btn price-card__cta" href="#">Liity →</a>
+          </article>
+
+          <!-- Taso 2 · suositeltu -->
+          <article class="price-card price-card--featured">
+            <span class="price-card__badge">Suosituin</span>
+            <span class="price-card__level">Keskitaso</span>
+            <div class="price-card__price">
+              <span class="amount">89&nbsp;€</span><span class="per">/ kk</span>
+            </div>
+            <ul class="price-card__features">
+              <li>2 joogatuntia / vko</li>
+              <li>1 pilates / vko</li>
+              <li>1 core / vko</li>
+              <li>Online-jäsenyys</li>
+            </ul>
+            <a class="btn price-card__cta" href="#">Liity →</a>
+          </article>
+
+          <!-- Taso 3 -->
+          <article class="price-card">
+            <span class="price-card__level">Edistynyt</span>
+            <div class="price-card__price">
+              <span class="amount">129&nbsp;€</span
+              ><span class="per">/ kk</span>
+            </div>
+            <ul class="price-card__features">
+              <li>Rajattomat tunnit / vko</li>
+              <li>Kaikki lajit</li>
+              <li>Online-jäsenyys</li>
+              <li>Prioriteettivaraus</li>
+            </ul>
+            <a class="btn price-card__cta" href="#">Liity →</a>
+          </article>
+        </div>
       </section>
 
-      <!-- ============ VARAA (CTA, tumma) ============ -->
-      <section id="varaa" class="section--dark">
-        <div class="wrap manifesto">
-          <span class="label">Aloita</span>
-          <h2 style="margin-bottom: 2rem">Ensimmäinen tunti talo tarjoaa.</h2>
-          <a class="btn" href="#">Varaa aikasi</a>
+      <!-- ============ 702 · SOSIAALINEN TODISTE / Testimonial-karuselli ============ -->
+      <section class="testimonials">
+        <h2 class="testimonials__heading">Asiakkaamme puhuvat:</h2>
+        <div class="testimonials__row">
+          <article class="t-card">
+            <h3 class="t-card__quote">Löysin oman rytmini, vihdoin.</h3>
+            <p class="t-card__body">
+              Velorassa sain luvan hidastaa. Enää en suorita, vaan nautin
+              liikkeestä ja hengityksestä. Olo on kevyempi niin matolla kuin sen
+              ulkopuolella.
+            </p>
+            <span class="t-card__author">Sanna R. · jäsen 1 v</span>
+          </article>
+          <article class="t-card">
+            <h3 class="t-card__quote">Pieni studio, iso ero arkeen.</h3>
+            <p class="t-card__body">
+              Lämmin ja kiireetön tunnelma sai minut palaamaan viikoittain. Uni
+              on syventynyt ja stressi helpottanut huomattavasti, ilman
+              suorittamisen tunnetta.
+            </p>
+            <span class="t-card__author">Hanna T. · jäsen 6 kk</span>
+          </article>
+          <article class="t-card">
+            <h3 class="t-card__quote">Tänne on helppo tulla omana itsenään.</h3>
+            <p class="t-card__body">
+              Ei peilejä, ei kilpailua, vain kannustava yhteisö. Tunnen
+              kuuluvani joukkoon ensimmäistä kertaa vuosiin, ja se näkyy koko
+              viikossani.
+            </p>
+            <span class="t-card__author">Leila P. · jäsen 2 v</span>
+          </article>
+          <article class="t-card">
+            <h3 class="t-card__quote">Arjen paras hetki viikossa.</h3>
+            <p class="t-card__body">
+              Tunnin ajan saan olla vain läsnä. Palaan kotiin levollisempana ja
+              läsnäolevampana myös perheelleni, ilman suorittamisen painetta.
+            </p>
+            <span class="t-card__author">Noora V. · jäsen 8 kk</span>
+          </article>
+          <article class="t-card">
+            <h3 class="t-card__quote">Keho ja mieli kiittävät.</h3>
+            <p class="t-card__body">
+              Selkä on kiittänyt ja mieli rauhoittunut. Pieni viikoittainen
+              hetki on muuttunut koko viikkoa kannattelevaksi voimavaraksi.
+            </p>
+            <span class="t-card__author">Riikka M. · jäsen 1,5 v</span>
+          </article>
+          <article class="t-card">
+            <h3 class="t-card__quote">Vihdoin liikuntaa ilman kiirettä.</h3>
+            <p class="t-card__body">
+              Täällä ei kilpailla kelloa vastaan. Opin kuuntelemaan kehoani ja
+              nauttimaan liikkeestä omaan tahtiini, juuri sellaisena kuin olen.
+            </p>
+            <span class="t-card__author">Aino S. · jäsen 4 kk</span>
+          </article>
+          <article class="t-card">
+            <h3 class="t-card__quote">Löysin takaisin kehooni.</h3>
+            <p class="t-card__body">
+              Vuosien jälkeen uskallan taas liikkua ilman pelkoa. Velorassa keho
+              saa olla juuri sellainen kuin se on, ja se tuntuu vapauttavalta.
+            </p>
+            <span class="t-card__author">Tiia H. · jäsen 1 v</span>
+          </article>
+          <article class="t-card">
+            <h3 class="t-card__quote">Pieni studio, suuri sydän.</h3>
+            <p class="t-card__body">
+              Ohjaajat muistavat nimeni ja huomioivat juuri minut. Tällaista
+              lämpöä en ole kokenut missään muualla salilla.
+            </p>
+            <span class="t-card__author">Elina K. · jäsen 7 kk</span>
+          </article>
+          <article class="t-card">
+            <h3 class="t-card__quote">Hengitys kulkee taas vapaasti.</h3>
+            <p class="t-card__body">
+              Opin päästämään irti suorittamisesta. Nyt liike ja hengitys
+              kulkevat yhdessä, ja arki tuntuu kevyemmältä.
+            </p>
+            <span class="t-card__author">Saara L. · jäsen 2,5 v</span>
+          </article>
+          <article class="t-card">
+            <h3 class="t-card__quote">Viikon kohokohta.</h3>
+            <p class="t-card__body">
+              Odotan jokaista tuntia. Se on hetki vain itselleni, ilman kiirettä
+              ja vaatimuksia, ja sen vaikutus kantaa läpi koko viikon.
+            </p>
+            <span class="t-card__author">Petra N. · jäsen 10 kk</span>
+          </article>
+        </div>
+        <div class="testimonials__controls">
+          <button
+            type="button"
+            class="testimonials__arrow testimonials__arrow--prev"
+            data-dir="-1"
+            aria-label="Edellinen"
+          >
+            ←
+          </button>
+          <a class="btn testimonials__cta" href="#liity">Liity asiakkaaksi</a>
+          <button
+            type="button"
+            class="testimonials__arrow testimonials__arrow--next"
+            data-dir="1"
+            aria-label="Seuraava"
+          >
+            →
+          </button>
+        </div>
+      </section>
+      <!-- ============ 208 · KESKI / Asiakassitaatti (pieni logo + iso lainaus) ============ -->
+      <section class="featured-quote">
+        <img
+          class="featured-quote__logo"
+          src="assets/logos/velora-emblem.svg"
+          alt="Velora Movement"
+        />
+        <blockquote>
+          Velora on paikka, jossa saan vihdoin hengittää. En tullut tänne
+          <em>muuttumaan</em>, vaan löytämään takaisin <em>itseeni</em>.
+        </blockquote>
+        <span class="featured-quote__author">Maria K. · jäsen</span>
+      </section>
+
+      <!-- ============ 217 · KESKI / Yksittäiset tunnit (kortti kuvataustalla) ============ -->
+      <section class="join-cta">
+        <div class="join-card">
+          <h2>Yksittäiset tunnit</h2>
+          <p>
+            Jos meidän
+            <a class="join-card__link" href="#liity">paketit</a> eivät tunnu
+            omalta, voit varata yksittäisen tunnin suoraan varauskalenterista.
+            Varaaminen edellyttää sisäänkirjautumista, joten liity ensin
+            asiakkaaksemme.
+          </p>
+          <a class="btn" href="#liity">Liity asiakkaaksi</a>
+        </div>
+      </section>
+
+      <!-- ============ 703 · SOSIAALINEN TODISTE / Stats-rivi (yksi treeni / vko) ============ -->
+      <section class="one-workout">
+        <div class="one-workout__head">
+          <h2 class="one-workout__title">
+            Mitä yksi treeni viikossa voi muuttaa elämässäsi
+          </h2>
+        </div>
+        <div class="ow-card">
+          <div class="ow-stat">
+            <span class="ow-stat__num">+40&nbsp;%</span>
+            <span class="ow-stat__label">Parempi mieliala</span>
+          </div>
+          <div class="ow-stat">
+            <span class="ow-stat__num">1&nbsp;h</span>
+            <span class="ow-stat__label">Enemmän unta viikossa</span>
+          </div>
+          <div class="ow-stat">
+            <span class="ow-stat__num">2×</span>
+            <span class="ow-stat__label">Enemmän energiaa arkeen</span>
+          </div>
+          <div class="ow-text">
+            <p>
+              Jo yksi tunti viikossa riittää käynnistämään muutoksen. Aloita
+              pienestä, keho ja mieli seuraavat perässä.
+            </p>
+            <a href="index.html#liity">Liity jäseneksi →</a>
+          </div>
         </div>
       </section>
     </main>
 
-    <!-- ============ FOOTER ============ -->
-    <footer class="site-footer">
+    <!-- ============ 304 · FOOTER (outline-wordmark, ruskea, kaikilla sivuilla) ============ -->
+    <footer class="footer-wordmark">
+      <div class="footer-wordmark__links">
+        <ul class="footer-col">
+          <li><a href="index.html">Etusivu</a></li>
+          <li><a href="palvelut.html">Palvelut</a></li>
+          <li><a href="kauppa.html">Kauppa</a></li>
+          <li><a href="meista.html">Meistä</a></li>
+          <li><a href="yhteiso.html">Yhteisö</a></li>
+          <li><a href="yhteystiedot.html">Yhteystiedot</a></li>
+          <li>
+            <a href="index.html#liity" class="footer-cta"
+              >Löydä oma rytmisi →</a
+            >
+          </li>
+        </ul>
+        <ul class="footer-col">
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">TikTok</a></li>
+          <li><a href="#">Pinterest</a></li>
+        </ul>
+      </div>
       <img
-        class="footer-logo"
-        src="assets/logos/velora-logo.svg"
+        class="footer-wordmark__mark"
+        src="assets/logos/logo-1-cream.svg"
         alt="Velora Movement"
       />
-      <p style="margin-inline: auto; opacity: 0.8">
-        Liike · hengitys · läsnäolo
-      </p>
-      <span class="label">Demobrändi — Blomman portfoliokonsepti</span>
     </footer>
+    <script src="velora.js" defer></script>
   </body>
 </html>

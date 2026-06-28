@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="fi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Velora Movement · Hinnasto</title>
+    <meta
+      name="description"
+      content="Velora Movement · hinnasto. Yksittäiset tunnit, kortit ja kuukausipaketit."
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="home">
+    <header class="topbar topbar--page topbar--solid">
+      <a href="index.html" class="topbar__logo">
+        <img src="assets/logos/velora-logo.svg" alt="Velora Movement" />
+      </a>
+      <div class="topbar__right">
+        <nav class="topbar__nav">
+          <a href="index.html">Etusivu</a>
+          <a href="palvelut.html" class="is-active">Palvelut</a>
+          <a href="hinnasto.html">Hinnasto</a>
+          <a href="kauppa.html">Kauppa</a>
+          <a href="meista.html">Meistä</a>
+          <a href="yhteiso.html">Yhteisö</a>
+          <a href="yhteystiedot.html">Yhteystiedot</a>
+        </nav>
+        <a class="btn btn--member" href="index.html#liity">Liity asiakkaaksi</a>
+      </div>
+    </header>
+
+    <main>
+      <!-- ============ Hinnasto · otsikko ============ -->
+      <section class="pricelist-head">
+        <h1 class="pricelist-head__title">Hinnasto</h1>
+        <p class="pricelist-head__lead">
+          Maksa yksittäisistä tunneista tai valitse kuukausipaketti, joka sopii
+          viikkoosi.
+        </p>
+      </section>
+
+      <!-- ============ Kategoriapainikkeet ============ -->
+      <div class="pricecats" role="tablist">
+        <button type="button" class="is-active" data-group="tunnit">
+          Yksittäiset tunnit
+        </button>
+        <button type="button" data-group="kortit">Kortit</button>
+        <button type="button" data-group="paketit">Kuukausipaketit</button>
+      </div>
+
+      <!-- ============ Yksittäiset tunnit ============ -->
+      <section class="pricegroup" data-group="tunnit">
+        <h2 class="pricelist-section__title">Yksittäiset tunnit</h2>
+        <div class="pricelist">
+          <details class="price-item">
+            <summary class="price-item__head">
+              <span class="pricelist__name">Joogatunti</span>
+              <span class="pricelist__price">18&nbsp;€</span>
+            </summary>
+            <div class="price-item__panel">
+              <p>
+                Pehmeää, hengityksen tahdittamaa joogaa, joka avaa kehon ja
+                rauhoittaa mielen. Tunti sopii kaikentasoisille, ja liikkeet
+                sovitetaan omaan kehoosi. Mukana on tilaa hidastaa, ei
+                suorittamista. Kesto noin 60 minuuttia.
+              </p>
+            </div>
+          </details>
+          <details class="price-item">
+            <summary class="price-item__head">
+              <span class="pricelist__name">Pilates</span>
+              <span class="pricelist__price">20&nbsp;€</span>
+            </summary>
+            <div class="price-item__panel">
+              <p>
+                Hallittua keskivartalon työtä, joka rakentaa ryhtiä ja voimaa.
+                Pienessä ryhmässä jokainen liike ohjataan tarkasti ja kiireettä.
+                Sopii niin aloittelijalle kuin kokeneellekin, ja liikkeitä
+                kevennetään tai haastetaan tarpeen mukaan. Kesto noin 50
+                minuuttia.
+              </p>
+            </div>
+          </details>
+          <details class="price-item">
+            <summary class="price-item__head">
+              <span class="pricelist__name">Stretching</span>
+              <span class="pricelist__price">16&nbsp;€</span>
+            </summary>
+            <div class="price-item__panel">
+              <p>
+                Rauhallista, syvää venyttelyä, joka avaa jännitykset ja
+                palauttaa liikkuvuuden. Täydellinen vastapaino istumatyölle ja
+                kiireiselle viikolle. Tunti on hellävarainen keholle, eikä
+                notkeutta tarvita. Kesto noin 45 minuuttia.
+              </p>
+            </div>
+          </details>
+          <details class="price-item">
+            <summary class="price-item__head">
+              <span class="pricelist__name">Core</span>
+              <span class="pricelist__price">15&nbsp;€</span>
+            </summary>
+            <div class="price-item__panel">
+              <p>
+                Tehokasta mutta hallittua keskivartalon harjoittelua, joka tukee
+                koko kehon voimaa ja ryhtiä. Lyhyt ja tiivis tunti, jonka tahdin
+                pidät itse. Liikkeet on helppo skaalata omalle tasolle. Kesto
+                noin 30 minuuttia.
+              </p>
+            </div>
+          </details>
+          <details class="price-item">
+            <summary class="price-item__head">
+              <span class="pricelist__name">Tutustumistunti</span>
+              <span class="pricelist__price">10&nbsp;€</span>
+            </summary>
+            <div class="price-item__panel">
+              <p>
+                Ensikäynti, jolla pääset tutustumaan studioon ja valitsemaasi
+                lajiin edullisesti. Ohjaaja neuvoo alkuun ja auttaa löytämään
+                sinulle sopivan tunnin. Hyvä tapa kokeilla ennen jäsenyyttä,
+                kerran mille tahansa lajille.
+              </p>
+            </div>
+          </details>
+        </div>
+      </section>
+
+      <!-- ============ Kortit ============ -->
+      <section class="pricegroup" data-group="kortit" hidden>
+        <h2 class="pricelist-section__title">Kortit</h2>
+        <div class="pricelist">
+          <details class="price-item">
+            <summary class="price-item__head">
+              <span class="pricelist__name">5 kerran kortti</span>
+              <span class="pricelist__price">80&nbsp;€</span>
+            </summary>
+            <div class="price-item__panel">
+              <p>
+                Viiden käynnin kortti, jolla liikut joustavasti omaan tahtiisi.
+                Käy mille tahansa tunnille ilman kuukausisitoumusta. Kortti on
+                voimassa kuusi kuukautta ostosta, ja se on yksittäiskäyntejä
+                edullisempi.
+              </p>
+            </div>
+          </details>
+          <details class="price-item">
+            <summary class="price-item__head">
+              <span class="pricelist__name">10 kerran kortti</span>
+              <span class="pricelist__price">150&nbsp;€</span>
+            </summary>
+            <div class="price-item__panel">
+              <p>
+                Kymmenen käynnin kortti säännöllisempään liikkumiseen ilman
+                jäsenyyttä. Käy vapaasti eri lajeilla, oma rytmisi edellä.
+                Voimassa vuoden ostosta, ja tarjoaa parhaan hinnan
+                yksittäiskäynneille.
+              </p>
+            </div>
+          </details>
+          <details class="price-item">
+            <summary class="price-item__head">
+              <span class="pricelist__name">Lahjakortti</span>
+              <span class="pricelist__price">alk. 30&nbsp;€</span>
+            </summary>
+            <div class="price-item__panel">
+              <p>
+                Anna lahjaksi hetki itselle. Lahjakortin voi käyttää tunteihin,
+                kortteihin tai kaupan tuotteisiin, ja summan saat valita
+                vapaasti. Toimitamme kortin kauniisti pakattuna tai
+                sähköpostiin. Voimassa vuoden ostosta.
+              </p>
+            </div>
+          </details>
+        </div>
+      </section>
+
+      <!-- ============ Kuukausipaketit ============ -->
+      <section class="pricegroup" data-group="paketit" hidden>
+        <h2 class="pricelist-section__title">Kuukausipaketit</h2>
+        <div class="pricelist">
+          <details class="price-item">
+            <summary class="price-item__head">
+              <span class="pricelist__name">Aloittelija</span>
+              <span class="pricelist__price">49&nbsp;€&nbsp;/&nbsp;kk</span>
+            </summary>
+            <div class="price-item__panel">
+              <p>
+                Rauhallinen aloitus omaan tahtiin: yksi joogatunti ja yksi
+                stretching joka viikko. Mukana online-jäsenyys
+                harjoitteluvideoineen ja oikeus ennakkovaraukseen. Ei
+                sitoutumista, voit vaihtaa tasoa milloin tahansa.
+              </p>
+            </div>
+          </details>
+          <details class="price-item">
+            <summary class="price-item__head">
+              <span class="pricelist__name">Keskitaso</span>
+              <span class="pricelist__price">89&nbsp;€&nbsp;/&nbsp;kk</span>
+            </summary>
+            <div class="price-item__panel">
+              <p>
+                Monipuolinen paketti aktiiviseen viikkoon: kaksi joogatuntia,
+                yksi pilates ja yksi core. Saat jäsenhinnat työpajoista,
+                ennakkovarauksen ja online-jäsenyyden. Suosituin valintamme
+                niille, jotka haluavat säännöllisen rytmin.
+              </p>
+            </div>
+          </details>
+          <details class="price-item">
+            <summary class="price-item__head">
+              <span class="pricelist__name">Edistynyt</span>
+              <span class="pricelist__price">129&nbsp;€&nbsp;/&nbsp;kk</span>
+            </summary>
+            <div class="price-item__panel">
+              <p>
+                Rajattomasti tunteja ja kaikki lajit käytössäsi, oma rytmisi
+                ilman kattoa. Saat prioriteettivarauksen suosituimmille
+                tunneille ja online-jäsenyyden koko kirjastoon. Liikkeestä tulee
+                luonteva osa arkea, ilman kompromisseja.
+              </p>
+            </div>
+          </details>
+        </div>
+        <a class="btn pricegroup__cta" href="index.html#liity"
+          >Liity asiakkaaksi →</a
+        >
+      </section>
+    </main>
+
+    <footer class="footer-wordmark">
+      <div class="footer-wordmark__links">
+        <ul class="footer-col">
+          <li><a href="index.html">Etusivu</a></li>
+          <li><a href="palvelut.html">Palvelut</a></li>
+          <li><a href="kauppa.html">Kauppa</a></li>
+          <li><a href="meista.html">Meistä</a></li>
+          <li><a href="yhteiso.html">Yhteisö</a></li>
+          <li><a href="yhteystiedot.html">Yhteystiedot</a></li>
+          <li>
+            <a href="index.html#liity" class="footer-cta"
+              >Löydä oma rytmisi →</a
+            >
+          </li>
+        </ul>
+        <ul class="footer-col">
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">TikTok</a></li>
+          <li><a href="#">Pinterest</a></li>
+        </ul>
+      </div>
+      <img
+        class="footer-wordmark__mark"
+        src="assets/logos/logo-1-cream.svg"
+        alt="Velora Movement"
+      />
+    </footer>
+    <script src="velora.js" defer></script>
+  </body>
+</html>

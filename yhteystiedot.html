@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="fi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Velora Movement · Yhteystiedot</title>
+    <meta
+      name="description"
+      content="Velora Movement · yhteystiedot. Studio Punavuoressa, Helsingissä."
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="home">
+    <header class="topbar topbar--page topbar--solid">
+      <a href="index.html" class="topbar__logo">
+        <img src="assets/logos/velora-logo.svg" alt="Velora Movement" />
+      </a>
+      <div class="topbar__right">
+        <nav class="topbar__nav">
+          <a href="index.html">Etusivu</a>
+          <a href="palvelut.html">Palvelut</a>
+          <a href="hinnasto.html">Hinnasto</a>
+          <a href="kauppa.html">Kauppa</a>
+          <a href="meista.html">Meistä</a>
+          <a href="yhteiso.html">Yhteisö</a>
+          <a href="yhteystiedot.html" class="is-active">Yhteystiedot</a>
+        </nav>
+        <a class="btn btn--member" href="index.html#liity">Liity asiakkaaksi</a>
+      </div>
+    </header>
+
+    <main>
+      <!-- ============ 802 · Yhteystiedot (tiedot + kartta) ============ -->
+      <section class="contact">
+        <div class="contact__info">
+          <span class="eyebrow">Yhteystiedot</span>
+          <h1>Tule käymään Punavuoressa.</h1>
+          <dl class="contact__list">
+            <div>
+              <dt>Osoite</dt>
+              <dd>Kapteeninkatu 11<br />00140 Helsinki</dd>
+            </div>
+            <div>
+              <dt>Sähköposti</dt>
+              <dd><a href="mailto:hei@velora.fi">hei@velora.fi</a></dd>
+            </div>
+            <div>
+              <dt>Puhelin</dt>
+              <dd><a href="tel:+358401234567">+358 40 123 4567</a></dd>
+            </div>
+          </dl>
+          <a class="btn" href="index.html#liity">Varaa aikasi →</a>
+        </div>
+
+        <iframe
+          class="contact__map"
+          title="Velora · Kapteeninkatu 11, Helsinki"
+          src="https://www.google.com/maps?q=Kapteeninkatu%2011,%2000140%20Helsinki&output=embed"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </section>
+
+      <!-- ============ Galleria (4 kuvaa, hover-kuvaus) ============ -->
+      <section class="gallery">
+        <figure
+          class="gallery__item"
+          tabindex="0"
+          style="--img: url(&quot;assets/images/kuva-8.jpg&quot;)"
+        >
+          <figcaption class="gallery__overlay">
+            <h3>Studiosali</h3>
+            <p>Lämmin, luonnonvaloa tulviva tila liikkeelle.</p>
+          </figcaption>
+        </figure>
+        <figure
+          class="gallery__item"
+          tabindex="0"
+          style="--img: url(&quot;assets/images/kuva-7.jpg&quot;)"
+        >
+          <figcaption class="gallery__overlay">
+            <h3>Loungetila</h3>
+            <p>Hetki hengähtää ennen tai jälkeen tunnin.</p>
+          </figcaption>
+        </figure>
+        <figure
+          class="gallery__item"
+          tabindex="0"
+          style="--img: url(&quot;assets/images/kuva-6.jpg&quot;)"
+        >
+          <figcaption class="gallery__overlay">
+            <h3>Pukuhuone</h3>
+            <p>Rauhallinen, huoliteltu ja kodikas.</p>
+          </figcaption>
+        </figure>
+        <figure
+          class="gallery__item"
+          tabindex="0"
+          style="--img: url(&quot;assets/images/kuva-15.jpg&quot;)"
+        >
+          <figcaption class="gallery__overlay">
+            <h3>Punavuoren kulma</h3>
+            <p>Studio sydämessä kaupunkia, omassa rauhassaan.</p>
+          </figcaption>
+        </figure>
+      </section>
+    </main>
+
+    <footer class="footer-wordmark">
+      <div class="footer-wordmark__links">
+        <ul class="footer-col">
+          <li><a href="index.html">Etusivu</a></li>
+          <li><a href="palvelut.html">Palvelut</a></li>
+          <li><a href="kauppa.html">Kauppa</a></li>
+          <li><a href="meista.html">Meistä</a></li>
+          <li><a href="yhteiso.html">Yhteisö</a></li>
+          <li><a href="yhteystiedot.html">Yhteystiedot</a></li>
+          <li>
+            <a href="index.html#liity" class="footer-cta"
+              >Löydä oma rytmisi →</a
+            >
+          </li>
+        </ul>
+        <ul class="footer-col">
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">TikTok</a></li>
+          <li><a href="#">Pinterest</a></li>
+        </ul>
+      </div>
+      <img
+        class="footer-wordmark__mark"
+        src="assets/logos/logo-1-cream.svg"
+        alt="Velora Movement"
+      />
+    </footer>
+    <script src="velora.js" defer></script>
+  </body>
+</html>

@@ -1,0 +1,380 @@
+<!doctype html>
+<html lang="fi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Velora Movement · Yhteisö</title>
+    <meta
+      name="description"
+      content="Velora Movement · tule osaksi yhteisöä. Workshopit, tapahtumat, yhteislenkit ja kahvittelut."
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="home">
+    <header class="topbar topbar--page topbar--solid">
+      <a href="index.html" class="topbar__logo">
+        <img src="assets/logos/velora-logo.svg" alt="Velora Movement" />
+      </a>
+      <div class="topbar__right">
+        <nav class="topbar__nav">
+          <a href="index.html">Etusivu</a>
+          <a href="palvelut.html">Palvelut</a>
+          <a href="hinnasto.html">Hinnasto</a>
+          <a href="kauppa.html">Kauppa</a>
+          <a href="meista.html">Meistä</a>
+          <a href="yhteiso.html" class="is-active">Yhteisö</a>
+          <a href="yhteystiedot.html">Yhteystiedot</a>
+        </nav>
+        <a class="btn btn--member" href="index.html#liity">Liity asiakkaaksi</a>
+      </div>
+    </header>
+
+    <main>
+      <!-- ============ 217 · Brand-statement (tervetuloa-kortti) ============ -->
+      <section class="brand-statement">
+        <img
+          class="brand-statement__envelope"
+          src="assets/images/kirjekuori.svg"
+          alt=""
+          aria-hidden="true"
+        />
+      </section>
+
+      <!-- ============ 219 · Jäsenedut (otsikko-pilleri + 3 korttia) ============ -->
+      <section class="benefits">
+        <div class="benefits__badge">Mitä saat jäsenenä</div>
+        <div class="benefits__grid">
+          <article class="benefit-card">
+            <span class="benefit-card__icon" aria-hidden="true">
+              <img src="assets/graphics/grafiikka-5-espresso.svg" alt="" />
+            </span>
+            <h3>Workshopit &amp; tapahtumat</h3>
+            <p>
+              Jäsenille suunnatut workshopit ja tapahtumat läpi vuoden, oppia,
+              inspiraatiota ja uusia tuttavuuksia.
+            </p>
+          </article>
+          <article class="benefit-card">
+            <span class="benefit-card__icon" aria-hidden="true">
+              <img src="assets/graphics/grafiikka-8-espresso.svg" alt="" />
+            </span>
+            <h3>Yhteislenkit &amp; kahvittelut</h3>
+            <p>
+              Rento yhteisö, joka kokoontuu liikkumaan ja jakamaan hetkiä myös
+              maton ulkopuolella.
+            </p>
+          </article>
+          <article class="benefit-card">
+            <span class="benefit-card__icon" aria-hidden="true">
+              <img src="assets/graphics/grafiikka-10-espresso.svg" alt="" />
+            </span>
+            <h3>Jäsenedut</h3>
+            <p>
+              Jäsenhinnat tunneista, ennakkovaraukset ja vain jäsenille
+              räätälöidyt tarjoukset.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <!-- ============ 601 · Viikon tapahtumat (avautuva accordion) ============ -->
+      <section class="nav-index nav-index--laji" id="tapahtumat">
+        <h2 class="nav-index__heading">Viikon tapahtumat</h2>
+
+        <details class="laji" name="tapahtumat">
+          <summary class="nav-index__row">
+            <span class="nav-index__num">Ma</span>
+            <span class="nav-index__title">Aamujooga &amp; smoothie</span>
+            <span class="nav-index__arrow" aria-hidden="true">+</span>
+          </summary>
+          <div class="laji__panel">
+            <div class="service-detail__body">
+              <p class="service-detail__lead">
+                Aloita viikko pehmeällä aamujoogalla ja yhteisellä hetkellä
+                smoothien äärellä. Tunti rakentuu rauhallisesta liikkeestä ja
+                hengityksestä, jotka herättävät kehon lempeästi. Jäämme tunnin
+                jälkeen juttelemaan ja nauttimaan kausihedelmistä tehdyistä
+                smoothieista. Täydellinen tapa virittäytyä uuteen viikkoon
+                kiireettä.
+              </p>
+              <p class="service-detail__meta">Joka maanantai klo 7.30–8.45</p>
+              <a class="btn service-detail__cta" href="index.html#liity"
+                >Ilmoittaudu →</a
+              >
+            </div>
+            <div
+              class="laji__media"
+              style="--img: url(&quot;assets/images/kuva-13.jpg&quot;)"
+            ></div>
+          </div>
+        </details>
+
+        <details class="laji" name="tapahtumat">
+          <summary class="nav-index__row">
+            <span class="nav-index__num">Ke</span>
+            <span class="nav-index__title">Hengitys &amp; meditaatio</span>
+            <span class="nav-index__arrow" aria-hidden="true">+</span>
+          </summary>
+          <div class="laji__panel">
+            <div class="service-detail__body">
+              <p class="service-detail__lead">
+                Keskelle viikkoa hetki pysähtyä ja hengittää. Ohjattu
+                hengitysharjoitus ja meditaatio rauhoittavat mielen ja
+                helpottavat kehon jännityksiä. Tunti sopii kaikille, eikä
+                aiempaa kokemusta tarvita. Tyynyt, peitot ja hämärä valaistus
+                tekevät hetkestä turvallisen ja levollisen.
+              </p>
+              <p class="service-detail__meta">
+                Joka keskiviikko klo 18.00–19.00
+              </p>
+              <a class="btn service-detail__cta" href="index.html#liity"
+                >Ilmoittaudu →</a
+              >
+            </div>
+            <div
+              class="laji__media"
+              style="--img: url(&quot;assets/images/kuva-5.jpg&quot;)"
+            ></div>
+          </div>
+        </details>
+
+        <details class="laji" name="tapahtumat">
+          <summary class="nav-index__row">
+            <span class="nav-index__num">Pe</span>
+            <span class="nav-index__title">Yhteislenkki</span>
+            <span class="nav-index__arrow" aria-hidden="true">+</span>
+          </summary>
+          <div class="laji__panel">
+            <div class="service-detail__body">
+              <p class="service-detail__lead">
+                Päätä työviikko raikkaaseen ulkoiluun hyvässä seurassa. Lähdemme
+                yhdessä studiolta rauhalliselle lenkille lähimaastoon, oma
+                vauhti edellä. Matkan varrella ehtii jutella ja tuulettaa
+                ajatukset. Lenkki sopii kaikenkuntoisille, ja reitti valitaan
+                porukan mukaan.
+              </p>
+              <p class="service-detail__meta">
+                Joka perjantai klo 17.00, lähtö studiolta
+              </p>
+              <a class="btn service-detail__cta" href="index.html#liity"
+                >Ilmoittaudu →</a
+              >
+            </div>
+            <div
+              class="laji__media"
+              style="--img: url(&quot;assets/images/kuva-9.jpg&quot;)"
+            ></div>
+          </div>
+        </details>
+
+        <details class="laji" name="tapahtumat">
+          <summary class="nav-index__row">
+            <span class="nav-index__num">Su</span>
+            <span class="nav-index__title">Kahvit &amp; keskustelu</span>
+            <span class="nav-index__arrow" aria-hidden="true">+</span>
+          </summary>
+          <div class="laji__panel">
+            <div class="service-detail__body">
+              <p class="service-detail__lead">
+                Rauhallinen sunnuntai yhdessä, maton ulkopuolella. Kokoonnumme
+                studiolle kahvien äärelle jakamaan kuulumisia ja hyviä juttuja
+                kiireettömässä tunnelmassa. Mukaan voi tulla juuri sellaisena
+                kuin on, eikä mitään tarvitse osata. Hetki, joka muistuttaa,
+                että hyvinvointi syntyy myös yhteydestä toisiin.
+              </p>
+              <p class="service-detail__meta">Joka sunnuntai klo 11.00–12.30</p>
+              <a class="btn service-detail__cta" href="index.html#liity"
+                >Ilmoittaudu →</a
+              >
+            </div>
+            <div
+              class="laji__media"
+              style="--img: url(&quot;assets/images/kuva-3.jpg&quot;)"
+            ></div>
+          </div>
+        </details>
+      </section>
+
+      <!-- ============ Galleria (4 kuvaa, hover-kuvaus) ============ -->
+      <section class="gallery">
+        <figure
+          class="gallery__item"
+          tabindex="0"
+          style="--img: url(&quot;assets/images/kuva-13.jpg&quot;)"
+        >
+          <figcaption class="gallery__overlay">
+            <h3>Aamujoogan rauhaa</h3>
+            <p>Yhteinen hetki ennen arjen kiireen alkua.</p>
+          </figcaption>
+        </figure>
+        <figure
+          class="gallery__item"
+          tabindex="0"
+          style="--img: url(&quot;assets/images/kuva-9.jpg&quot;)"
+        >
+          <figcaption class="gallery__overlay">
+            <h3>Yhteislenkillä</h3>
+            <p>Liikettä ja raitista ilmaa luonnossa, hyvässä seurassa.</p>
+          </figcaption>
+        </figure>
+        <figure
+          class="gallery__item"
+          tabindex="0"
+          style="--img: url(&quot;assets/images/kuva-3.jpg&quot;)"
+        >
+          <figcaption class="gallery__overlay">
+            <h3>Kahvit &amp; keskustelu</h3>
+            <p>Lämpöä, hyviä juttuja ja kiireettömiä hetkiä.</p>
+          </figcaption>
+        </figure>
+        <figure
+          class="gallery__item"
+          tabindex="0"
+          style="--img: url(&quot;assets/images/kuva-11.jpg&quot;)"
+        >
+          <figcaption class="gallery__overlay">
+            <h3>Workshop-tunnelmaa</h3>
+            <p>Yhdessä oppimista ja pieniä oivalluksia.</p>
+          </figcaption>
+        </figure>
+      </section>
+
+      <!-- ============ 219 · LIIKUNTALASKURI (laskuri + kortit) ============ -->
+      <section class="stats" id="tutkittua">
+        <div class="stats__head">
+          <h2 class="stats__title">Pieni liike, iso vaikutus.</h2>
+          <p class="stats__lead">
+            Kokeile laskurilla: kuinka paljon liikuntaa lisäät päivääsi?
+          </p>
+        </div>
+
+        <div class="calc">
+          <div class="calc__control">
+            <label class="calc__label" for="calc-min">Liikuntaa päivässä</label>
+            <output class="calc__value" id="calc-out">45 min</output>
+            <input
+              class="calc__slider"
+              type="range"
+              id="calc-min"
+              min="0"
+              max="90"
+              step="5"
+              value="45"
+            />
+          </div>
+
+          <div class="stats__grid">
+            <article class="stat-card">
+              <span class="stat-card__num" data-calc="focus">+23&nbsp;%</span>
+              <p>Parempi keskittymiskyky ja vireystila läpi päivän.</p>
+            </article>
+            <article class="stat-card">
+              <span class="stat-card__num" data-calc="sleep">+36&nbsp;%</span>
+              <p>Enemmän syvää, palauttavaa unta.</p>
+            </article>
+            <article class="stat-card">
+              <span class="stat-card__num" data-calc="energy">+27&nbsp;%</span>
+              <p>Enemmän energiaa ja jaksamista arkeen.</p>
+            </article>
+            <article class="stat-card">
+              <span class="stat-card__num" data-calc="recovery">2,0×</span>
+              <p>Nopeampi palautuminen säännöllisellä liikkeellä.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ 208 · Asiakaslainaus (keskitetty, kursiivikorostus) ============ -->
+      <section class="featured-quote">
+        <blockquote>
+          Löysin vihdoin paikan, jossa saan sekä <em>rentoutua</em> että jakaa
+          <em>liikkumisen ilon</em> toisten kanssa. Velora tuntuu kodilta.
+        </blockquote>
+        <span class="featured-quote__author">Anni M. · jäsen</span>
+      </section>
+
+      <!-- ============ 201 · MARQUEE (liikkuva logo, oikealle) ============ -->
+      <div class="marquee" aria-hidden="true">
+        <div class="marquee__track">
+          <img
+            class="marquee__item"
+            src="assets/logos/logo-1-espresso.svg"
+            alt=""
+          />
+          <span class="marquee__dot">•</span>
+          <img
+            class="marquee__item"
+            src="assets/logos/logo-1-espresso.svg"
+            alt=""
+          />
+          <span class="marquee__dot">•</span>
+          <img
+            class="marquee__item"
+            src="assets/logos/logo-1-espresso.svg"
+            alt=""
+          />
+          <span class="marquee__dot">•</span>
+          <img
+            class="marquee__item"
+            src="assets/logos/logo-1-espresso.svg"
+            alt=""
+          />
+          <span class="marquee__dot">•</span>
+          <img
+            class="marquee__item"
+            src="assets/logos/logo-1-espresso.svg"
+            alt=""
+          />
+          <span class="marquee__dot">•</span>
+          <img
+            class="marquee__item"
+            src="assets/logos/logo-1-espresso.svg"
+            alt=""
+          />
+          <span class="marquee__dot">•</span>
+          <img
+            class="marquee__item"
+            src="assets/logos/logo-1-espresso.svg"
+            alt=""
+          />
+          <span class="marquee__dot">•</span>
+          <img
+            class="marquee__item"
+            src="assets/logos/logo-1-espresso.svg"
+            alt=""
+          />
+          <span class="marquee__dot">•</span>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer-wordmark">
+      <div class="footer-wordmark__links">
+        <ul class="footer-col">
+          <li><a href="index.html">Etusivu</a></li>
+          <li><a href="palvelut.html">Palvelut</a></li>
+          <li><a href="kauppa.html">Kauppa</a></li>
+          <li><a href="meista.html">Meistä</a></li>
+          <li><a href="yhteiso.html">Yhteisö</a></li>
+          <li><a href="yhteystiedot.html">Yhteystiedot</a></li>
+          <li>
+            <a href="index.html#liity" class="footer-cta"
+              >Löydä oma rytmisi →</a
+            >
+          </li>
+        </ul>
+        <ul class="footer-col">
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">TikTok</a></li>
+          <li><a href="#">Pinterest</a></li>
+        </ul>
+      </div>
+      <img
+        class="footer-wordmark__mark"
+        src="assets/logos/logo-1-cream.svg"
+        alt="Velora Movement"
+      />
+    </footer>
+    <script src="velora.js" defer></script>
+  </body>
+</html>

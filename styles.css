@@ -1,15 +1,28 @@
 /* ============================================================
-   Velora Movement — brändityylit
+   Velora Movement · brändityylit
    Demobrändi · premium jooga- ja pilatesstudio
    ============================================================ */
 
-@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500&family=Jost:wght@300;400;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500&family=Jost:wght@300;400;500&family=Montserrat:wght@400;500;600;700&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Caveat:wght@500;600;700&display=swap");
+
+/* HEADING-fontti: Nourd Bold.
+   Kaupallinen fontti · lataa tiedosto assets/fonts/-kansioon, niin tämä aktivoituu.
+   Ilman tiedostoa selain putoaa Montserratiin (geometrinen sans). */
+@font-face {
+  font-family: "Nourd";
+  src:
+    url("assets/fonts/nourd-bold.woff2") format("woff2"),
+    url("assets/fonts/nourd-bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
 
 :root {
   /* Värit (brändin kovat arvot) */
-  --cream: #fff8e7;     /* tausta */
-  --espresso: #341f1a;  /* teksti / tummat osiot */
-  --sky: #cfe1e2;       /* pehmeä accent */
+  --cream: #fff8e7; /* tausta */
+  --espresso: #341f1a; /* teksti / tummat osiot */
+  --sky: #ceb8a0; /* pehmeä accent */
 
   /* Lämpimät neutraalit (kuvamaailma) */
   --taupe: #b8a99a;
@@ -33,6 +46,29 @@
 
 html {
   scroll-behavior: smooth;
+  zoom: 0.8; /* 80 % uusi normi koko sivustolle */
+  interpolate-size: allow-keywords; /* salli korkeuden animointi auto-arvoon */
+}
+
+/* Sujuva accordionien avautuminen (laji, FAQ, hinnaston rivit) */
+@media (prefers-reduced-motion: no-preference) {
+  .laji::details-content,
+  .faq__item::details-content,
+  .price-item::details-content {
+    height: 0;
+    overflow: clip;
+    opacity: 0;
+    transition:
+      height 0.35s ease,
+      opacity 0.35s ease,
+      content-visibility 0.35s allow-discrete;
+  }
+  .laji[open]::details-content,
+  .faq__item[open]::details-content,
+  .price-item[open]::details-content {
+    height: auto;
+    opacity: 1;
+  }
 }
 
 body {
@@ -42,12 +78,32 @@ body {
   font-weight: 300;
   font-size: 1.0625rem;
   line-height: 1.7;
+  text-align: center; /* tekstit oletuksena keskitettyjä kaikkialla */
   -webkit-font-smoothing: antialiased;
+}
+
+/* Tasapainota keskitetyt rivit: ei roikkuvia lyhyitä rivejä eikä "timanttimuotoa" */
+h1,
+h2,
+h3,
+p,
+blockquote,
+li {
+  text-wrap: balance;
+}
+
+/* Otsikot saman kokoisia kaikkialla (n. 30 % pienempiä) */
+.home h1,
+.home h2 {
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  line-height: 1.12;
 }
 
 /* ---------- Typografia ---------- */
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   font-family: var(--font-heading);
   font-weight: 400;
   line-height: 1.1;
@@ -117,7 +173,9 @@ section {
   padding: 0.95em 2.2em;
   border: 1px solid currentColor;
   border-radius: 999px;
-  transition: background 0.3s ease, color 0.3s ease;
+  transition:
+    background 0.3s ease,
+    color 0.3s ease;
 }
 
 .btn:hover {
@@ -287,6 +345,2817 @@ section {
   margin-top: 1.5rem;
 }
 
+/* ---------- Väripaletti: sivukohtaiset värit + fontit ---------- */
+
+/* Värit: tausta = vaalea (#E9E3D6), teksti = tummanruskea (#3D322C) */
+.palette-page {
+  background: #e9e3d6;
+  color: #3d322c;
+  /* BODY-fontti: serif (Lancelot) → väliaikaisesti EB Garamond */
+  font-family: "EB Garamond", Georgia, serif;
+}
+
+.palette-page .site-header {
+  background: color-mix(in srgb, #e9e3d6 88%, transparent);
+}
+
+/* HEADING-fontti: Nourd Bold (fallback Montserrat) · otsikot + isot numerot */
+.palette-page h1,
+.palette-page .swatch__num {
+  font-family: "Nourd", "Montserrat", sans-serif;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+/* SUB-HEADING-fontti: Montserrat · väliotsikot + caps-pikkutekstit */
+.palette-page h2,
+.palette-page h3,
+.palette-page .label,
+.palette-page .swatch__hex {
+  font-family: "Montserrat", sans-serif;
+}
+
+.palette-page h3 {
+  font-weight: 600;
+}
+
+/* Napit: Warm Taupe -täyttö, pyöristetyt kulmat, Montserrat */
+.palette-page .btn {
+  font-family: "Montserrat", sans-serif;
+  background: #ceb8a0;
+  color: #3d322c;
+  border: none;
+  border-radius: 14px;
+}
+
+.palette-page .btn:hover {
+  background: #a99e8c;
+  color: #3d322c;
+}
+
+/* ---------- Väripaletti ---------- */
+
+.palette-intro {
+  padding-top: var(--space);
+  margin-bottom: 3rem;
+  max-width: 52ch;
+}
+
+.palette-intro .label {
+  display: block;
+  margin-bottom: 1.2rem;
+}
+
+.palette-intro h1 {
+  margin-bottom: 1.5rem;
+}
+
+.palette-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+.swatch__chip {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  border-radius: var(--radius-card);
+  border: 1px solid color-mix(in srgb, var(--espresso) 12%, transparent);
+}
+
+.swatch__num {
+  position: absolute;
+  top: 1.1rem;
+  left: 1.3rem;
+  font-family: var(--font-heading);
+  font-weight: 400;
+  font-size: 1.6rem;
+  color: var(--cream);
+  opacity: 0.92;
+}
+
+.swatch__num--light {
+  color: var(--cream);
+}
+
+.swatch__chip--light .swatch__num {
+  color: var(--espresso);
+  opacity: 0.7;
+}
+
+.swatch__meta {
+  padding-top: 1.1rem;
+}
+
+.swatch__meta h3 {
+  margin-bottom: 0.3rem;
+}
+
+.swatch__hex {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  opacity: 0.7;
+  margin-bottom: 0.6rem;
+}
+
+.swatch__meta p {
+  font-size: 0.95rem;
+  opacity: 0.85;
+}
+
+.palette-actions {
+  margin-top: clamp(3rem, 6vw, 5rem);
+}
+
+/* ============================================================
+   ETUSIVU (home) · rakennekirjaston osiot
+   ============================================================ */
+
+/* ---------- Teema (värit + fontit) ---------- */
+/* Poista turhat pikkuotsikot (eyebrow-labelit) koko sivustolta */
+.eyebrow,
+.brand-statement__label {
+  display: none !important;
+}
+
+.home {
+  background: #fff8e7; /* yläpalkin vaalea sävy kaikille sivuille */
+  color: #3d322c; /* väri 4 · Espresso */
+  font-family: "EB Garamond", Georgia, serif; /* fontti 3 · body */
+}
+
+.home h1,
+.home h2,
+.home h3,
+.home .stat-card__num,
+.home .price-card__price .amount {
+  font-family: "Nourd", "Montserrat", sans-serif; /* fontti 1 · heading */
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+.home .eyebrow,
+.home .price-card__level {
+  font-family: "Montserrat", sans-serif; /* fontti 2 · sub */
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  font-size: 0.72rem;
+  opacity: 0.8;
+}
+
+.home .btn {
+  font-family: "Montserrat", sans-serif;
+  background: #3d322c; /* espresso */
+  color: #fff8e7; /* taustan värinen teksti */
+  border: none;
+  border-radius: 14px; /* pyöristetyt kulmat */
+}
+
+.home .btn:hover {
+  background: #2a221d;
+  color: #fff8e7;
+}
+
+/* ---------- 100 · Hero (full-bleed kuva + yläpalkki) ---------- */
+.hero-full {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  color: #e9e3d6; /* yläpalkki taustan värisenä */
+  background-color: #3d322c;
+  /* Paikkamerkkikuva · korvaa: assets/images/hero.jpg */
+  background-image:
+    linear-gradient(180deg, rgba(52, 31, 26, 0.25), rgba(52, 31, 26, 0.55)),
+    linear-gradient(135deg, #8a7563 0%, #3d322c 78%);
+  background-size: cover;
+  background-position: center;
+}
+
+.topbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 0.6rem clamp(1.2rem, 4vw, 3rem);
+  border-bottom: 1px solid currentColor;
+  transition:
+    background-color 0.4s ease,
+    color 0.4s ease;
+}
+
+/* Logo isompana */
+.topbar__logo {
+  display: block;
+  line-height: 0;
+}
+
+.topbar__logo img {
+  height: 34px;
+  width: auto;
+  display: block;
+}
+
+/* Herokuvan päällä: vaalea logo. Skrollatessa vaihtuu tummaan. */
+.topbar .topbar__logo-img--dark {
+  display: none;
+}
+
+.topbar.is-scrolled .topbar__logo-img--light {
+  display: none;
+}
+
+.topbar.is-scrolled .topbar__logo-img--dark {
+  display: block;
+}
+
+.topbar__nav {
+  display: flex;
+  margin-left: auto;
+  gap: clamp(0.8rem, 1.7vw, 1.6rem);
+}
+
+/* Skrollatessa: tausta taustan väriseksi, teksti tekstin väriseksi */
+.topbar.is-scrolled {
+  background: var(--cream);
+  color: var(--espresso);
+}
+
+.topbar.is-scrolled .topbar__nav a {
+  color: var(--espresso);
+}
+
+/* Vaalat sivut ilman herokuvaa: palkki virtaa mukana (sticky), aina vaalea */
+.topbar--solid {
+  position: sticky;
+  background: var(--cream);
+  color: #3d322c;
+}
+
+/* Etusivun tumman heron päällä: vaalea logo, teksti ja nappi (taustan väriset) */
+.hero-full .topbar .btn--member {
+  background: #fff8e7;
+  color: #3d322c;
+}
+
+.hero-full .topbar .btn--member:hover {
+  background: #fff;
+  color: #3d322c;
+}
+
+.topbar--page .topbar__right {
+  margin-left: auto;
+}
+
+.topbar__nav a {
+  color: #e9e3d6;
+  text-decoration: none;
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+}
+
+.topbar__nav a:hover {
+  opacity: 0.6;
+}
+
+.topbar .btn--member {
+  padding: 0.7em 1.4em;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+/* Liity asiakkaaksi -nappi aina vaaleana (kuten etusivun herossa) */
+.home .btn--member {
+  background: #fff8e7;
+  color: #3d322c;
+  border: 1px solid #3d322c;
+}
+
+.home .btn--member:hover {
+  background: #3d322c;
+  color: #fff8e7;
+}
+
+.hero-full__inner {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(2rem, 6vw, 5rem);
+}
+
+.hero-full__center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: clamp(1.4rem, 3vw, 2.2rem);
+}
+
+.hero-full__logo {
+  width: min(440px, 72vw);
+  height: auto;
+  display: block;
+}
+
+.hero-full__tagline {
+  color: #fff8e7; /* taustan värinen vaalealla */
+  font-size: clamp(0.8rem, 1.8vw, 1.35rem); /* hieman pienempi vielä */
+  line-height: 1.15;
+  max-width: 36ch; /* laajempi tekstialue */
+}
+
+/* Hero-napit taustan värisinä (vaalea) tummalla kuvalla */
+.home .hero-full__cta {
+  background: #fff8e7;
+  color: #3d322c;
+  padding: 0.95em 2em;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.home .hero-full__cta:hover {
+  background: #fff;
+  color: #3d322c;
+}
+
+/* Käsinkirjoitettu huomautus + piirretty nuoli kohti nappia */
+.hero-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.4rem;
+  max-width: 360px;
+  margin-top: 0.6rem;
+  transform: translateX(46px) rotate(-3deg);
+}
+.hero-note__arrow {
+  width: 52px;
+  height: 56px;
+  flex-shrink: 0;
+  margin-top: -34px;
+}
+.hero-note__text {
+  font-family: "Caveat", cursive;
+  font-weight: 600;
+  font-size: clamp(1.3rem, 2vw, 1.7rem);
+  line-height: 1.15;
+  color: #fff8e7;
+  text-align: left;
+}
+@media (max-width: 620px) {
+  .hero-note {
+    transform: rotate(-3deg);
+    max-width: 280px;
+  }
+}
+
+/* Käsinkirjoitettu huomautus vaalealla taustalla (espresso) */
+.note-hand {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.4rem;
+  max-width: 320px;
+  margin-top: 0.4rem;
+  transform: translateX(40px) rotate(-3deg);
+}
+.note-hand__arrow {
+  width: 48px;
+  height: 52px;
+  flex-shrink: 0;
+  margin-top: -30px;
+}
+.note-hand__text {
+  font-family: "Caveat", cursive;
+  font-weight: 600;
+  font-size: clamp(1.25rem, 1.8vw, 1.6rem);
+  line-height: 1.15;
+  color: #3d322c;
+  text-align: left;
+}
+
+/* ---------- 204 · Statement (kuvalohko + iso otsikko) ---------- */
+/* Täysleveät jaetut osiot: ei osion pystypaddingia (kuva reunasta reunaan) */
+.statement,
+.services,
+.cta-split,
+.two-images,
+.gallery5 {
+  padding-block: 0;
+}
+
+/* Galleria: viisi kuvaa rivissä, ohuet viivat välissä */
+.gallery5 {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+}
+.gallery5 img {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  display: block;
+}
+.gallery5 > * + * {
+  border-left: 1px solid #3d322c;
+}
+
+.statement {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: stretch;
+}
+
+.statement__media {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background-color: #d8cdba;
+}
+
+.statement__right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Käännetty asettelu: sisältö vasemmalle, kuva oikealle */
+.statement--flip .statement__media {
+  order: 2;
+}
+.statement--flip .statement__right {
+  order: 1;
+}
+
+.statement__copy {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 1.4rem;
+  padding: clamp(2rem, 6vw, 5rem);
+}
+
+.statement__title {
+  font-size: clamp(1.9rem, 4vw, 3.2rem);
+  line-height: 1.05;
+}
+
+.statement__lead {
+  max-width: 56ch; /* leveämpi alue, matalampi teksti */
+  font-size: 0.95rem;
+  line-height: 1.7;
+  opacity: 0.85;
+}
+
+.statement__cta {
+  align-self: center;
+  padding: 0.9em 1.8em;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-top: 0.4rem;
+}
+
+/* ---------- 206 · Palvelut (linkkilista + kuva) ---------- */
+.services {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: stretch;
+}
+
+.service-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-block: clamp(2rem, 5vw, 4.5rem);
+}
+
+/* Viivat reunasta reunaan (tekstin värisinä) */
+.service-list__item {
+  border-top: 1px solid #3d322c;
+}
+
+.service-list__item:last-child {
+  border-bottom: 1px solid #3d322c;
+}
+
+.service-list__item a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem clamp(1.5rem, 5vw, 4.5rem);
+  color: #3d322c;
+  text-decoration: none;
+  font-family: "Montserrat", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: clamp(0.9rem, 1.4vw, 1.05rem);
+}
+
+.service-list__arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: 999px;
+  border: 1px solid color-mix(in srgb, #3d322c 35%, transparent);
+  transition:
+    background 0.3s ease,
+    color 0.3s ease;
+}
+
+.service-list__item a:hover .service-list__arrow {
+  background: #ceb8a0;
+  border-color: #bfb5a4;
+}
+
+.services__media {
+  background-color: #b8a99a;
+}
+
+/* ---------- 208 · Intro-lause (keskitetty, kursiivikorostus) ---------- */
+.intro-line {
+  background: #3d322c;
+  color: #e9e3d6;
+  text-align: center;
+  padding: clamp(4rem, 10vw, 8rem) clamp(1.5rem, 8vw, 10rem);
+}
+
+.intro-line p {
+  font-family: "EB Garamond", Georgia, serif;
+  font-size: clamp(1.6rem, 3.4vw, 2.6rem);
+  line-height: 1.4;
+  max-width: 52ch; /* kaksi riviä */
+  margin: 0 auto;
+}
+
+.intro-line em {
+  font-style: italic;
+}
+
+/* ---------- 403 · Hinnoittelu (3 korttia, keskikortti korostettu) ---------- */
+.pricing {
+  padding: clamp(4rem, 9vw, 8rem) clamp(1.2rem, 5vw, 4rem);
+}
+
+.pricing__head {
+  text-align: center;
+  max-width: 58ch;
+  margin: 0 auto clamp(2.5rem, 5vw, 4rem);
+}
+
+.pricing__title {
+  font-size: clamp(2.2rem, 5vw, 3.6rem);
+  margin-bottom: 1.1rem;
+}
+
+.pricing__lead {
+  opacity: 0.85;
+}
+
+.pricing__cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(1rem, 2vw, 1.8rem);
+  align-items: center;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+.price-card {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  border-radius: 20px;
+  padding: clamp(1.8rem, 2.5vw, 2.6rem);
+  background: #828894; /* laajennettu väri 1 · Stone Blue */
+  color: #fff8e7; /* vaalea teksti */
+}
+
+.pricing__cards .price-card:nth-child(3) {
+  background: #8f734c; /* laajennettu väri 6 · Bronze */
+  color: #fff8e7;
+}
+
+.price-card--featured {
+  position: relative;
+  background: #ceb8a0; /* laajennettu väri 5 · Oat */
+  color: #fff8e7;
+  transform: translateY(-20px);
+  padding-block: clamp(2.4rem, 3.5vw, 3.4rem);
+}
+
+.price-card__badge {
+  position: absolute;
+  top: -0.85rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #3d322c;
+  color: #fff8e7;
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.62rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  padding: 0.45em 1.1em;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.price-card__price {
+  display: flex;
+  align-items: baseline;
+  gap: 0.4rem;
+}
+
+.price-card__price .amount {
+  font-size: clamp(2.4rem, 4vw, 3.2rem);
+  line-height: 1;
+}
+
+.price-card__price .per {
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.85rem;
+  opacity: 0.7;
+}
+
+.price-card__features {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  font-size: 1rem;
+  text-align: left; /* luettelo vasemmalle */
+}
+
+.price-card__features li {
+  position: relative;
+  padding-left: 1.1rem;
+}
+
+.price-card__features li::before {
+  content: "–";
+  position: absolute;
+  left: 0;
+  opacity: 0.7;
+}
+
+.price-card__cta {
+  margin-top: auto;
+  align-self: stretch;
+  text-align: center;
+  padding: 0.9em 1.4em;
+  font-size: 0.74rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+/* Napit värillisten korttien päällä: cream-tausta, tumma teksti */
+.home .price-card__cta {
+  background: #fff8e7;
+  color: #3d322c;
+}
+
+.home .price-card__cta:hover {
+  background: #fff;
+  color: #3d322c;
+}
+
+/* ---------- 219 · Tilastot (2×2, shakkilautarytmi) ---------- */
+.stats {
+  padding: clamp(4rem, 9vw, 8rem) clamp(1.2rem, 5vw, 4rem);
+}
+
+.stats__head {
+  text-align: center;
+  margin-bottom: clamp(2.5rem, 5vw, 4rem);
+}
+
+.stats__head .eyebrow {
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.stats__title {
+  font-size: clamp(2rem, 5vw, 3.4rem);
+}
+
+.stats__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(1rem, 2vw, 1.6rem);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.stat-card {
+  border-radius: 20px;
+  padding: clamp(2rem, 3.5vw, 3.2rem);
+}
+
+/* Sallitut taustat: Espresso, Oat, Lucky Dice, Paper Cream */
+.stats__grid .stat-card:nth-child(1) {
+  background: #3d322c;
+  color: #fff8e7;
+}
+.stats__grid .stat-card:nth-child(2) {
+  background: #ceb8a0;
+  color: #3d322c;
+}
+.stats__grid .stat-card:nth-child(3) {
+  background: #f4f1e2;
+  color: #3d322c;
+}
+.stats__grid .stat-card:nth-child(4) {
+  background: #e9e3d6;
+  color: #3d322c;
+}
+
+/* Liikuntalaskuri */
+.stats__lead {
+  max-width: 48ch;
+  margin: 1rem auto 0;
+  opacity: 0.85;
+}
+.calc {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.calc__control {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  max-width: 560px;
+  margin: 0 auto clamp(2rem, 4vw, 3rem);
+}
+.calc__label {
+  font-family: "Montserrat", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.72rem;
+  opacity: 0.8;
+}
+.calc__value {
+  font-family: "Nourd", "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  color: #3d322c;
+}
+.calc__slider {
+  width: 100%;
+  accent-color: #3d322c;
+  cursor: pointer;
+}
+
+.stat-card__num {
+  display: block;
+  font-size: clamp(2.6rem, 5vw, 4rem);
+  line-height: 1;
+  margin-bottom: 1rem;
+}
+
+.stat-card p {
+  font-size: 1.05rem;
+  max-width: 32ch;
+  opacity: 0.9;
+}
+
+/* ---------- 304 · Footer (outline-wordmark, kaikilla sivuilla) ---------- */
+.footer-wordmark {
+  position: relative;
+  overflow: hidden;
+  background: #3d322c; /* ruskea tausta */
+  color: #e9e3d6;
+  padding: clamp(3rem, 6vw, 5rem) clamp(1.2rem, 5vw, 4rem) 0;
+}
+
+.footer-wordmark__links {
+  display: flex;
+  justify-content: space-between;
+  gap: clamp(2.5rem, 8vw, 7rem);
+  margin-bottom: clamp(2rem, 5vw, 4rem);
+}
+
+.footer-col {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.footer-col a {
+  color: #e9e3d6;
+  text-decoration: none;
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+  opacity: 0.85;
+}
+
+.footer-col a:hover {
+  opacity: 0.55;
+}
+
+.footer-col .footer-cta {
+  font-style: italic;
+  font-family: "EB Garamond", Georgia, serif;
+  font-size: 1rem;
+  opacity: 1;
+  margin-top: 0.4rem;
+}
+
+.footer-wordmark__mark {
+  display: block;
+  width: min(92%, 1200px);
+  height: auto;
+  margin: clamp(1rem, 3vw, 2.5rem) auto 0; /* kokonaan keskellä */
+  user-select: none;
+}
+
+/* ============================================================
+   PALVELUT-sivu
+   ============================================================ */
+
+/* ---------- 105 · Hero (otsikko + kategoriarivi) ---------- */
+.hero-page {
+  position: relative;
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  color: #e9e3d6;
+  background-color: #3d322c;
+  /* Paikkamerkkikuva · korvaa: assets/images/palvelut-hero.jpg */
+  background-image:
+    linear-gradient(180deg, rgba(52, 31, 26, 0.3), rgba(52, 31, 26, 0.5)),
+    linear-gradient(135deg, #9c8773 0%, #4a3a30 80%);
+  background-size: cover;
+  background-position: center;
+}
+
+.topbar--page .topbar__right {
+  display: flex;
+  align-items: center;
+  gap: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+.topbar__nav .is-active {
+  opacity: 1;
+  text-decoration: underline;
+  text-underline-offset: 6px;
+}
+
+/* Vaalealla taustalla (lajisivut): tumma teksti */
+.topbar--solid {
+  color: #3d322c;
+}
+
+.topbar--solid .topbar__nav a {
+  color: #3d322c;
+}
+
+.hero-page__title {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+}
+
+.hero-page__title h1 {
+  font-size: clamp(1.5rem, 5.5vw, 4.25rem); /* puoleen kokoon */
+  text-align: center;
+}
+
+.hero-page__sub {
+  font-family: "EB Garamond", Georgia, serif;
+  font-style: italic;
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  opacity: 0.92;
+}
+
+/* Aikajana: pallot janalla */
+.hero-cats {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 2.4rem clamp(1.2rem, 4vw, 3rem) 1.5rem;
+}
+
+.hero-cats::before {
+  content: "";
+  position: absolute;
+  top: 1.2rem;
+  left: clamp(1.2rem, 4vw, 3rem);
+  right: clamp(1.2rem, 4vw, 3rem);
+  height: 1px;
+  background: color-mix(in srgb, #e9e3d6 40%, transparent);
+}
+
+.hero-cats a,
+.hero-cats span {
+  position: relative;
+  flex: 1;
+  text-align: center;
+  color: #e9e3d6;
+  text-decoration: none;
+  font-family: "Montserrat", sans-serif;
+  font-size: clamp(0.6rem, 1.2vw, 0.8rem);
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  opacity: 0.85;
+}
+
+.hero-cats a::before,
+.hero-cats span::before {
+  content: "";
+  position: absolute;
+  top: -1.2rem;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #e9e3d6;
+}
+
+.hero-cats a:hover {
+  opacity: 0.55;
+}
+
+/* ---------- 802 · Konversio / CTA (teksti + kuva) ---------- */
+.cta-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: stretch;
+}
+
+.cta-split__text {
+  background: #ceb8a0; /* väri · Winter Sky accent */
+  color: #3d322c;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.6rem;
+  padding: clamp(2.5rem, 6vw, 6rem);
+}
+
+.cta-split__text h2 {
+  font-size: clamp(1.8rem, 3.5vw, 2.8rem); /* mahtuu kahdelle riville */
+  line-height: 1.12;
+}
+
+.cta-split__text h2 em {
+  font-style: italic;
+}
+
+.cta-split__text p {
+  max-width: 48ch; /* leveämpi -> kolme riviä, ei liian korkea */
+  margin-inline: auto;
+  opacity: 0.9;
+}
+
+/* Alateksti otsikon levyiseksi (täyttää palstan, kuten otsikko) */
+.cta-split--wide .cta-split__text p {
+  max-width: none;
+}
+
+/* ---------- 909 · Kaksi tapaa -kortit (yksittäinen | kuukausi) ---------- */
+.duo {
+  padding: clamp(2.5rem, 6vw, 5rem) clamp(1.2rem, 5vw, 4rem);
+}
+.duo__bar {
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.24em;
+  font-size: 0.7rem;
+  opacity: 0.55;
+  margin-bottom: clamp(1.6rem, 3vw, 2.6rem);
+}
+.duo__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(1rem, 2.5vw, 2rem);
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.duo-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.1rem;
+  text-align: center;
+  background: #f4f1e2;
+  border: 1px solid #3d322c;
+  border-radius: 18px;
+  padding: clamp(2rem, 4vw, 3.4rem);
+}
+.duo-card__title {
+  font-family: "Nourd", "Montserrat", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  text-align: center;
+  font-size: clamp(1.7rem, 3vw, 2.4rem);
+  line-height: 1.1;
+}
+.duo-card__rule {
+  width: 48px;
+  height: 1px;
+  background: #3d322c;
+  opacity: 0.5;
+}
+.duo-card__body {
+  max-width: 42ch;
+  font-size: 0.98rem;
+  line-height: 1.65;
+  opacity: 0.85;
+}
+.duo-card__cta {
+  margin-top: 0.4rem;
+  padding: 0.8em 1.7em;
+  font-size: 0.74rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+@media (max-width: 720px) {
+  .duo__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---------- Hinnasto-sivu ---------- */
+.pricelist-head {
+  padding: clamp(3rem, 7vw, 6rem) clamp(1.2rem, 5vw, 4rem)
+    clamp(1rem, 3vw, 2rem);
+  text-align: center;
+}
+.pricelist-head__title {
+  font-size: clamp(2.2rem, 5vw, 3.6rem);
+  margin-bottom: 1rem;
+}
+.pricelist-head__lead {
+  max-width: 54ch;
+  margin: 0 auto;
+  opacity: 0.85;
+}
+/* Kategoriapainikkeet (pillit, aktiivinen tumma) */
+.pricecats {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.7rem;
+  margin: 0 auto clamp(2rem, 4vw, 3.2rem);
+  padding: 0 clamp(1.2rem, 5vw, 4rem);
+}
+.pricecats button {
+  font-family: "Montserrat", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.72rem;
+  padding: 0.75em 1.5em;
+  border-radius: 999px;
+  border: 1px solid color-mix(in srgb, #3d322c 35%, transparent);
+  background: transparent;
+  color: #3d322c;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+.pricecats button:hover {
+  border-color: #3d322c;
+}
+.pricecats button.is-active {
+  background: #3d322c;
+  color: #fff8e7;
+  border-color: #3d322c;
+}
+
+/* Hinnaston osioviivat pois */
+.pricelist-head,
+.pricecats,
+.pricegroup {
+  border-bottom: none;
+}
+
+.pricegroup {
+  padding: 0 clamp(1.2rem, 5vw, 4rem) clamp(2.5rem, 6vw, 5rem);
+}
+.pricegroup[hidden] {
+  display: none;
+}
+.pricelist-section__title {
+  text-align: center;
+  font-family: var(--font-heading);
+  font-size: clamp(1.7rem, 3.4vw, 2.6rem);
+  margin-bottom: clamp(1.4rem, 3vw, 2.2rem);
+}
+.pricelist {
+  max-width: 760px;
+  margin: 0 auto;
+}
+/* Avautuva hintarivi (accordion): otsikko + hinta, alla kuvaus */
+.price-item {
+  border-top: 1px solid color-mix(in srgb, #3d322c 18%, transparent);
+}
+.price-item:last-child {
+  border-bottom: 1px solid color-mix(in srgb, #3d322c 18%, transparent);
+}
+.price-item__head {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  padding: 1.2rem 0.2rem;
+}
+.price-item__head::-webkit-details-marker {
+  display: none;
+}
+.pricelist__name {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: clamp(1.05rem, 1.8vw, 1.25rem);
+  text-align: left;
+}
+/* "+" -merkki, joka kääntyy ×:ksi avattaessa */
+.pricelist__name::before {
+  content: "+";
+  font-size: 1rem;
+  opacity: 0.5;
+  transition: transform 0.25s ease;
+}
+.price-item[open] .pricelist__name::before {
+  transform: rotate(45deg);
+}
+.pricelist__price {
+  font-family: var(--font-body);
+  font-size: clamp(1.05rem, 1.8vw, 1.25rem);
+  white-space: nowrap;
+}
+.price-item__panel {
+  padding: 0 0.2rem 1.4rem 1.8rem;
+}
+.price-item__panel p {
+  max-width: 64ch;
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  opacity: 0.82;
+  text-align: left;
+}
+.pricegroup__cta {
+  display: block;
+  width: fit-content;
+  margin: clamp(1.8rem, 4vw, 2.6rem) auto 0;
+  padding: 0.9em 2em;
+  font-size: 0.76rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.cta-split__text .btn {
+  align-self: flex-start;
+  padding: 0.9em 1.8em;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.cta-split__media {
+  background-color: #b8a99a;
+}
+
+/* Vuorotteleva asettelu: kuva vasemmalle, teksti oikealle */
+.cta-split--reverse .cta-split__media {
+  order: 1;
+}
+.cta-split--reverse .cta-split__text {
+  order: 2;
+}
+
+/* ---------- Pakettien sisältöosiot: oma taustaväri + vaalea teksti ---------- */
+.cta-split--paketti .cta-split__text {
+  color: #fff8e7;
+}
+.cta-split--stone .cta-split__text {
+  background: #828894; /* väri 1 · Stone Blue */
+}
+.cta-split--oat .cta-split__text {
+  background: #ceb8a0; /* väri 5 · Oat */
+}
+.cta-split--bronze .cta-split__text {
+  background: #8f734c; /* väri 6 · Bronze */
+}
+
+/* Leveämpi leipäteksti (otsikon levyinen tai leveämpi) */
+.cta-split--paketti .cta-split__text p {
+  max-width: none;
+  margin-inline: 0;
+}
+
+.cta-split__price {
+  font-family: "Nourd", "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: clamp(1.3rem, 2.2vw, 1.8rem);
+  letter-spacing: 0.02em;
+}
+
+.cta-split__rule {
+  display: none; /* viiva pois */
+}
+
+.cta-split__who {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+.cta-split__who-label {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700; /* boldattu */
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  opacity: 0.95;
+}
+
+/* Vaalea nappi värillisellä taustalla */
+.cta-split--paketti .cta-split__text .btn {
+  align-self: center;
+  background: #fff8e7;
+  color: #3d322c;
+  border: 1px solid #fff8e7;
+}
+.cta-split--paketti .cta-split__text .btn:hover {
+  background: transparent;
+  color: #fff8e7;
+}
+
+/* ---------- 601 · Numeroitu lajilista (rivilinkit) ---------- */
+.nav-index {
+  padding-block: clamp(2rem, 5vw, 4rem);
+}
+
+.nav-index__heading {
+  text-align: center;
+  font-size: clamp(1.6rem, 3.5vw, 2.6rem);
+  padding: 0 clamp(1.2rem, 5vw, 4rem) 1.4rem;
+}
+
+.nav-index__row {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: clamp(1.5rem, 3vw, 2.4rem) clamp(1.2rem, 5vw, 4rem);
+  border-top: 1px solid color-mix(in srgb, #3d322c 16%, transparent);
+  color: #3d322c;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+.nav-index__row:last-child {
+  border-bottom: 1px solid color-mix(in srgb, #3d322c 16%, transparent);
+}
+
+.nav-index__row:hover {
+  background: color-mix(in srgb, #bfb5a4 28%, transparent);
+}
+
+.nav-index__num {
+  min-width: 2.5rem;
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  opacity: 0.6;
+}
+
+.nav-index__title {
+  flex: 1;
+  text-align: center;
+  line-height: 1.1;
+}
+
+.nav-index__title {
+  font-family: "Nourd", "Montserrat", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  font-size: clamp(1.2rem, 3vw, 2rem);
+}
+
+.nav-index__arrow {
+  min-width: 2rem;
+  text-align: right;
+  font-size: 1.1rem;
+  opacity: 0.7;
+}
+
+/* ---------- Lajilista-accordion (etusivu): rivi avautuu paneeliksi ---------- */
+.nav-index--laji {
+  padding-block: clamp(2rem, 5vw, 4rem);
+}
+
+.nav-index--laji .laji {
+  border-top: 1px solid color-mix(in srgb, #3d322c 16%, transparent);
+}
+
+.nav-index--laji .laji:last-child {
+  border-bottom: 1px solid color-mix(in srgb, #3d322c 16%, transparent);
+}
+
+.nav-index--laji .nav-index__row {
+  border-top: none;
+  list-style: none;
+  cursor: pointer;
+}
+
+.nav-index--laji .nav-index__row::-webkit-details-marker {
+  display: none;
+}
+
+/* Yhtenäinen fontti kaikille lajeille (kuten Joogatunnit & Stretching) */
+.nav-index--laji .nav-index__title {
+  font-family: "Nourd", "Montserrat", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  font-size: clamp(1.2rem, 3vw, 2rem);
+}
+
+/* "+" kääntyy "×":ksi avattaessa */
+.nav-index--laji .nav-index__arrow {
+  font-size: 1.6rem;
+  line-height: 1;
+  opacity: 0.55;
+  transition: transform 0.25s ease;
+}
+
+.nav-index--laji .laji[open] .nav-index__arrow {
+  transform: rotate(45deg);
+}
+
+/* Avautuva paneeli = lajisivun oikea puolisko */
+.laji__panel {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: stretch;
+  border-top: 1px solid color-mix(in srgb, #3d322c 12%, transparent);
+}
+
+/* Oikealla kuva, vasemmalla info + kysymykset */
+.laji__media {
+  min-height: 100%;
+  background-color: #f4f1e2;
+  border-left: 1px solid #3d322c;
+}
+
+.laji__panel .service-detail__body {
+  justify-content: flex-start;
+  gap: 1rem;
+  padding: clamp(1.4rem, 4vw, 2.4rem) clamp(1.2rem, 5vw, 3rem)
+    clamp(2rem, 5vw, 3rem);
+}
+
+@media (max-width: 760px) {
+  .laji__panel {
+    grid-template-columns: 1fr;
+  }
+  .laji__media {
+    min-height: 56vw;
+    border-left: 0;
+    border-top: 1px solid #3d322c;
+  }
+}
+
+/* Laajempi, keskitetty yläteksti */
+.laji__panel .service-detail__lead {
+  max-width: 60ch;
+  margin-inline: auto;
+}
+
+/* Kysymykset lihavoituna ja vasemmalle, "+" oikeassa reunassa */
+.laji__panel .faq__item summary {
+  justify-content: space-between;
+  font-weight: 700;
+  text-align: left;
+}
+
+/* ---------- 218 · Lajisivu (kuvakollaasi + kuvaus + FAQ) ---------- */
+.service-detail {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 100vh;
+}
+
+.service-detail__media {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(2rem, 5vw, 4rem);
+  /* pystyraidat */
+  background: repeating-linear-gradient(
+    90deg,
+    #d7e4e6 0 20px,
+    #eef0e9 20px 40px
+  );
+}
+
+.collage {
+  position: relative;
+  width: 60%;
+}
+
+.collage__main {
+  aspect-ratio: 3 / 4;
+  border-radius: 6px;
+  background-image: linear-gradient(135deg, #b9c4c8, #8f8073);
+}
+
+.collage__sub {
+  position: absolute;
+  right: -22%;
+  bottom: -14%;
+  width: 48%;
+  aspect-ratio: 3 / 4;
+  border-radius: 6px;
+  border: 6px solid #eef0e9;
+  background-image: linear-gradient(135deg, #cdbfb0, #9a8979);
+}
+
+.service-detail__body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.3rem;
+  padding: clamp(2.5rem, 6vw, 6rem);
+}
+
+.service-detail__body .eyebrow {
+  display: block;
+}
+
+.service-detail__title {
+  font-size: clamp(2.4rem, 5vw, 4rem);
+  line-height: 1.05;
+}
+
+.service-detail__lead {
+  max-width: 42ch;
+  opacity: 0.9;
+}
+
+.faq {
+  margin-top: 0.8rem;
+}
+
+.faq__item {
+  border-top: 1px solid color-mix(in srgb, #3d322c 18%, transparent);
+}
+
+.faq__item:last-of-type {
+  border-bottom: 1px solid color-mix(in srgb, #3d322c 18%, transparent);
+}
+
+.faq__item summary {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.1rem 0;
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.98rem;
+  letter-spacing: 0.02em;
+}
+
+.faq__item summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq__item summary::after {
+  content: "+";
+  font-size: 1.2rem;
+  opacity: 0.7;
+}
+
+.faq__item[open] summary::after {
+  content: "–";
+}
+
+.faq__item p {
+  padding: 0 0 1.2rem;
+  font-size: 1rem;
+  max-width: 50ch;
+  opacity: 0.88;
+}
+
+.service-detail__cta {
+  align-self: center;
+  margin-top: 1.4rem;
+  padding: 0.95em 2em;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.service-detail__meta {
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.74rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  opacity: 0.6;
+}
+
+/* ---------- 702 · Testimonial-karuselli (tummennettu kuvatausta) ---------- */
+.testimonials {
+  padding: clamp(4rem, 8vw, 7rem) 0;
+  color: #e9e3d6;
+  background-color: #2e211c;
+  background-image:
+    linear-gradient(rgba(46, 33, 28, 0.4), rgba(46, 33, 28, 0.4)),
+    url("assets/images/kuva-9.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.testimonials__heading {
+  text-align: center;
+  font-family: "EB Garamond", Georgia, serif;
+  font-weight: 700;
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  color: #f4f1e2;
+  padding: 0 clamp(1.2rem, 5vw, 4rem) clamp(1.6rem, 3vw, 2.5rem);
+}
+
+.testimonials__row {
+  display: flex;
+  gap: clamp(1rem, 2vw, 1.6rem);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding: 0 clamp(1.2rem, 5vw, 4rem) 2.5rem;
+  /* Piilota liukuasia (vierityspalkki), vieritys nuolilla */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.testimonials__row::-webkit-scrollbar {
+  display: none;
+}
+
+.t-card {
+  scroll-snap-align: start;
+  flex: 0 0 clamp(280px, 30vw, 360px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1rem;
+  border-radius: 18px;
+  padding: clamp(1.6rem, 2.2vw, 2.2rem);
+  background: #f4f1e2;
+  color: #3d322c;
+}
+
+.t-card__quote {
+  font-family: "EB Garamond", Georgia, serif;
+  font-weight: 600;
+  font-size: 1.3rem;
+  line-height: 1.2;
+}
+
+.t-card__body {
+  flex: 1;
+  font-size: 0.92rem;
+  line-height: 1.6;
+  opacity: 0.85;
+}
+
+.t-card__author {
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  opacity: 0.7;
+}
+
+.testimonials__controls {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.4rem;
+  padding: 0 clamp(1.2rem, 5vw, 4rem);
+}
+
+.testimonials__arrow {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #f4f1e2; /* sama kuin laatikoiden tausta */
+  font-size: 3.2rem; /* isommat, paksummat nuolet */
+  font-weight: 700;
+  line-height: 1;
+  padding: 0.2rem 0.5rem;
+  opacity: 1;
+  transition: transform 0.2s ease;
+}
+
+.testimonials__arrow:hover {
+  transform: scale(1.15);
+}
+
+.home .testimonials__cta {
+  background: #f4f1e2; /* sama kuin laatikoiden tausta */
+  color: #3d322c;
+  border: 1px solid #3d322c;
+  border-radius: 999px;
+  padding: 0.8em 1.8em;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+}
+
+.home .testimonials__cta:hover {
+  background: #3d322c;
+  color: #f4f1e2;
+}
+
+/* ---------- Galleria (4 kuvaa, hover-kuvaus) ---------- */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.5rem;
+}
+
+.gallery__item {
+  position: relative;
+  margin: 0;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  background-color: #b8a99a;
+}
+
+.gallery__item:nth-child(1) {
+  background-image: linear-gradient(135deg, #cdbfb0, #9a8979);
+}
+.gallery__item:nth-child(2) {
+  background-image: linear-gradient(135deg, #c7d3d4, #8f9b9c);
+}
+.gallery__item:nth-child(3) {
+  background-image: linear-gradient(135deg, #d8ccb8, #a9967f);
+}
+.gallery__item:nth-child(4) {
+  background-image: linear-gradient(135deg, #c2b3a2, #837061);
+}
+
+.gallery__overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 0.3rem;
+  padding: clamp(1rem, 2vw, 1.6rem);
+  color: #e9e3d6;
+  background: linear-gradient(transparent 40%, rgba(46, 33, 28, 0.78));
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.gallery__item:hover .gallery__overlay,
+.gallery__item:focus-within .gallery__overlay,
+.gallery__item:focus .gallery__overlay {
+  opacity: 1;
+}
+
+.gallery__overlay h3 {
+  font-size: clamp(1rem, 1.6vw, 1.25rem);
+  line-height: 1.15;
+}
+
+.gallery__overlay p {
+  font-size: 0.85rem;
+  opacity: 0.9;
+}
+
+/* ---------- 208 · Asiakassitaatti (pieni logo + iso lainaus) ---------- */
+.featured-quote {
+  background: #ceb8a0;
+  color: #3d322c;
+  text-align: center;
+  padding: clamp(4rem, 9vw, 7rem) clamp(1.5rem, 8vw, 10rem);
+}
+
+.featured-quote__logo {
+  height: 204px; /* 2x isompi */
+  width: auto;
+  margin-bottom: 2rem;
+  opacity: 0.85;
+  animation: emblem-spin 16s linear infinite;
+}
+
+@keyframes emblem-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.featured-quote blockquote {
+  font-family: "EB Garamond", Georgia, serif;
+  font-size: clamp(1.6rem, 3.4vw, 2.6rem);
+  line-height: 1.4;
+  max-width: 38ch;
+  margin: 0 auto 1.5rem;
+}
+
+.featured-quote blockquote em {
+  font-style: italic;
+}
+
+.featured-quote__author {
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  opacity: 0.7;
+}
+
+/* ---------- 703 · Stats-rivi (yksi treeni / vko) ---------- */
+.one-workout {
+  padding: clamp(4rem, 8vw, 7rem) clamp(1.2rem, 5vw, 4rem);
+}
+
+.one-workout__head {
+  text-align: center;
+  max-width: min(90vw, 640px);
+  margin: 0 auto clamp(2.5rem, 5vw, 3.5rem);
+}
+
+.one-workout__title {
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  line-height: 1.1;
+}
+
+.ow-card {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr) 1.4fr;
+  gap: clamp(1.5rem, 3vw, 2.5rem);
+  align-items: center;
+  border-radius: 20px;
+  padding: clamp(2rem, 3.5vw, 3rem);
+  background: #f4f1e2;
+}
+
+.ow-stat__num {
+  display: block;
+  font-family: "EB Garamond", Georgia, serif;
+  font-style: italic;
+  font-weight: 600;
+  font-size: clamp(2.2rem, 3.5vw, 3rem);
+  line-height: 1;
+}
+
+.ow-stat__label {
+  display: block;
+  margin-top: 0.4rem;
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.78rem;
+  opacity: 0.7;
+}
+
+.ow-text p {
+  font-size: 0.95rem;
+  opacity: 0.85;
+  margin-bottom: 0.8rem;
+}
+
+.ow-text a {
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.82rem;
+  color: #3d322c;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* ---------- 217 · Liity-kortti kuvataustalla ---------- */
+.join-cta {
+  display: flex;
+  justify-content: center;
+  padding: clamp(4rem, 9vw, 8rem) clamp(1.2rem, 5vw, 4rem);
+  background-color: #2e211c;
+  background-image:
+    linear-gradient(rgba(46, 33, 28, 0.45), rgba(46, 33, 28, 0.45)),
+    url("assets/images/kuva-8.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.join-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.3rem;
+  max-width: 560px;
+  text-align: center;
+  border-radius: 20px;
+  padding: clamp(2.5rem, 5vw, 4rem);
+  background: #f4f1e2;
+  color: #3d322c;
+}
+
+.join-card h2 {
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+}
+
+.join-card p {
+  max-width: 42ch;
+  opacity: 0.9;
+}
+
+.join-card__link {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.join-card .btn {
+  margin-top: 0.4rem;
+  padding: 0.95em 2em;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+/* ---------- 200 · Logo-palkki ("Mistä meidät tunnistaa") ---------- */
+.trust-logos {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.9rem;
+  padding: 1.4rem clamp(1.2rem, 5vw, 4rem);
+  background: #e9ddc7;
+}
+
+.trust-logos__label {
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.66rem;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  opacity: 0.6;
+}
+
+.trust-logos__row {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: clamp(1.5rem, 4vw, 3rem);
+}
+
+.trust-logos__row li {
+  font-family: "EB Garamond", Georgia, serif;
+  font-size: clamp(0.95rem, 1.6vw, 1.2rem);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  opacity: 0.62;
+}
+
+/* ---------- 201 · Marquee (liikkuva logo, oikealle) ---------- */
+.marquee {
+  overflow: hidden;
+  white-space: nowrap;
+  line-height: 0;
+  background: var(--cream);
+  color: #3d322c;
+  padding: 0.65rem 0;
+  border-top: 1px solid #3d322c;
+  border-bottom: 1px solid #3d322c;
+}
+
+.marquee__track {
+  display: inline-flex;
+  align-items: center;
+  gap: 2.4rem;
+  padding-left: 2.4rem;
+  animation: marquee-right 60s linear infinite;
+  will-change: transform;
+}
+
+@keyframes marquee-right {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.marquee__item {
+  display: block;
+  height: 17px;
+  width: auto;
+  flex: none;
+}
+
+.marquee__dot {
+  opacity: 0.55;
+  font-size: 0.8rem;
+  line-height: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee__track {
+    animation: none;
+  }
+}
+
+/* ============================================================
+   VERKKOKAUPPA-sivu
+   ============================================================ */
+
+/* ---------- 503 · Tuotesivu (PDP) ---------- */
+.pdp {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-bottom: 1px solid color-mix(in srgb, #3d322c 14%, transparent);
+}
+
+.pdp__gallery {
+  display: block;
+  padding: 0;
+  background: #f4f1e2;
+  border-right: 1px solid #3d322c;
+}
+
+.pdp__image {
+  width: 100%;
+  aspect-ratio: 3 / 4; /* sama kuin kuva -> koko kuva täyttää puolikkaan */
+  border-radius: 0;
+  /* Ohut ruskea viiva kuvan ylä- ja alapuolelle */
+  border-top: 1px solid #3d322c;
+  border-bottom: 1px solid #3d322c;
+  background: #f4f1e2;
+}
+
+/* Koko tuotekuva näkyviin ja täyttää puolikkaan */
+.pdp__gallery .pdp__image[style*="--img"] {
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+}
+
+.pdp__buy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.1rem;
+  padding: clamp(2rem, 5vw, 5rem);
+}
+
+.pdp__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.pdp__name,
+.pdp__price {
+  font-family: "Nourd", "Montserrat", sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: clamp(1.35rem, 2.4vw, 1.9rem);
+  line-height: 1.15;
+}
+
+.pdp__price {
+  white-space: nowrap;
+}
+
+.pdp__rating {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+}
+
+.pdp__rating .stars {
+  color: #bfa86a;
+  letter-spacing: 0.1em;
+}
+
+.pdp__rating a {
+  color: inherit;
+  opacity: 0.7;
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.72rem;
+}
+
+.pdp__rule {
+  width: 100%;
+  border: none;
+  border-top: 1px solid color-mix(in srgb, #3d322c 16%, transparent);
+  margin: 0.4rem 0;
+}
+
+.pdp__subtitle {
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+}
+
+.pdp__buy p {
+  font-size: 0.95rem;
+  opacity: 0.88;
+  text-align: center; /* kuvaus keskelle */
+}
+
+.pdp__variants {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.6rem;
+  margin-top: 0.3rem;
+}
+
+.pdp__variants label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.5em 1em;
+  border: 1px solid color-mix(in srgb, #3d322c 30%, transparent);
+  border-radius: 999px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+
+/* Valintanappi brändin värillä (ei sinistä) */
+.pdp__variants input[type="radio"] {
+  accent-color: #3d322c;
+}
+
+.pdp__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-top: 0.4rem;
+}
+
+.home .pdp__add {
+  flex: 1;
+  background: #3d322c;
+  color: #e9e3d6;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.76rem;
+  padding: 1em 1.4em;
+}
+
+.home .pdp__add:hover {
+  background: #2a201b;
+  color: #e9e3d6;
+}
+
+.home .pdp__fav {
+  flex: 1;
+  background: transparent;
+  color: #3d322c;
+  border: 1px solid #3d322c;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.76rem;
+  padding: 1em 1.4em;
+}
+
+.home .pdp__fav:hover {
+  background: #3d322c;
+  color: #e9e3d6;
+}
+
+.pdp__ship {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 0.3rem;
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.66rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  opacity: 0.6;
+}
+
+/* Alaosa: ainesosat + käyttö */
+.pdp-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding-block: 0;
+  border-top: 1px solid #3d322c;
+  border-bottom: 1px solid #3d322c;
+}
+
+.pdp-info__col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 0.9rem;
+  padding: clamp(3rem, 6vw, 5rem) clamp(1.5rem, 4vw, 3rem);
+}
+
+.pdp-info__col + .pdp-info__col {
+  border-left: 1px solid #3d322c;
+}
+
+.pdp-info__col h2 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  margin-bottom: 1rem;
+}
+
+.pdp-info__col p {
+  font-size: 0.92rem;
+  opacity: 0.85;
+  margin-bottom: 1rem;
+  max-width: 46ch;
+}
+
+.pdp-info__col a {
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  color: inherit;
+}
+
+.pdp-info__thumbs {
+  display: flex;
+  gap: 0.6rem;
+  margin-top: 1.4rem;
+}
+
+.pdp-info__thumbs div {
+  width: 64px;
+  height: 64px;
+  border-radius: 6px;
+  background: linear-gradient(135deg, #d8ccb8, #a9967f);
+}
+
+.pdp-info__image {
+  margin-top: 1.4rem;
+  aspect-ratio: 3 / 2;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #cdbfb0, #9a8979);
+}
+
+/* ---------- 502 · "Saatat pitää myös" (kaupparivi) ---------- */
+.related {
+  padding-block: clamp(3rem, 6vw, 5rem);
+  padding-inline: 0;
+}
+
+.related__title {
+  text-align: center;
+  font-size: clamp(2rem, 5vw, 3.4rem);
+  padding-inline: clamp(1.2rem, 5vw, 4rem);
+  margin-bottom: clamp(2rem, 4vw, 3rem);
+}
+
+.related__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(1rem, 2vw, 1.6rem);
+}
+
+.rel-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.5rem;
+  padding: clamp(1.5rem, 3vw, 2.5rem);
+  border: 1px solid color-mix(in srgb, #3d322c 12%, transparent);
+  border-radius: 14px;
+}
+
+.rel-card__img {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  border-radius: 8px;
+  background: linear-gradient(160deg, #efe9dc, #d8ccb8);
+  margin-bottom: 0.6rem;
+}
+
+.rel-card__name {
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.74rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.rel-card__price {
+  font-family: "EB Garamond", Georgia, serif;
+  font-size: 1.05rem;
+}
+
+/* ============================================================
+   MEISTÄ-sivu
+   ============================================================ */
+
+/* ---------- 802 ilman tekstiä · Kaksi kuvaa vierekkäin ---------- */
+.two-images {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.two-images__img {
+  background-color: #b8a99a;
+}
+
+/* ---------- 222 · Kolme arvoa (tumma tausta) ---------- */
+.values {
+  background: #3d322c;
+  color: #e9e3d6;
+  padding: clamp(4rem, 8vw, 7rem) clamp(1.2rem, 5vw, 4rem);
+}
+
+.values__title {
+  max-width: 20ch;
+  margin: 0 auto clamp(2.5rem, 5vw, 4rem);
+  text-align: center;
+  font-size: clamp(1.9rem, 4.5vw, 3.2rem);
+  line-height: 1.1;
+}
+
+.values__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(2rem, 4vw, 3.5rem);
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.value {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  text-align: center;
+}
+
+.value__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 999px;
+  border: 1px solid color-mix(in srgb, #e9e3d6 45%, transparent);
+}
+
+.value__icon img {
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+
+.value__title {
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+}
+
+.value p {
+  max-width: 32ch;
+  font-size: 0.95rem;
+  opacity: 0.85;
+}
+
+/* ============================================================
+   YHTEISÖ-sivu
+   ============================================================ */
+
+/* ---------- 217 · Brand-statement (pystyraitatausta + kortti) ---------- */
+.brand-statement {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  min-height: 78vh; /* laajennettu osio */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(3rem, 7vw, 6rem) clamp(1.2rem, 5vw, 4rem);
+  background-color: #2e2118;
+}
+
+/* Taustakuva (kuva 1) käännettynä 90° vasemmalle ja tummennettuna 20 % */
+.brand-statement::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  /* Iso neliö, joka peittää koko osion myös kierron jälkeen */
+  width: 120vmax;
+  height: 120vmax;
+  transform: translate(-50%, -50%) rotate(-90deg);
+  background: url("assets/images/kuva-1.jpg") center / cover no-repeat;
+  filter: brightness(0.8);
+  z-index: -2;
+}
+
+/* Kirjekuori-grafiikka keskellä taustakuvaa */
+.brand-statement__envelope {
+  position: relative;
+  width: min(560px, 72%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.brand-statement__card {
+  max-width: 640px;
+  margin: 0 auto;
+  text-align: center;
+  background: #f4f1e2;
+  border: 1px solid color-mix(in srgb, #3d322c 12%, transparent);
+  padding: clamp(2.5rem, 6vw, 5rem) clamp(1.8rem, 5vw, 4rem);
+}
+
+.brand-statement__label {
+  display: block;
+  margin-bottom: 1.4rem;
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  opacity: 0.7;
+}
+
+.brand-statement__title {
+  margin-bottom: 1.6rem;
+  font-family: "EB Garamond", Georgia, serif;
+  font-style: italic;
+  font-size: clamp(2rem, 4.5vw, 3.2rem);
+  line-height: 1.1;
+}
+
+.brand-statement__body {
+  max-width: 46ch;
+  margin: 0 auto;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  opacity: 0.9;
+}
+
+/* ---------- 219 · Jäsenedut (otsikko-pilleri + 3 korttia) ---------- */
+.benefits {
+  position: relative;
+  background: #ceb8a0;
+  padding: clamp(3.5rem, 6vw, 5rem) clamp(1.2rem, 5vw, 4rem)
+    clamp(3rem, 6vw, 5rem);
+}
+
+.benefits__badge {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #f4f1e2;
+  color: #3d322c;
+  font-family: "Nourd", "Montserrat", sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: clamp(1rem, 2vw, 1.4rem);
+  padding: 0.7em 1.6em;
+  border-radius: 14px;
+  white-space: nowrap;
+}
+
+.benefits__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(1rem, 2vw, 1.6rem);
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+.benefit-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  text-align: center;
+  background: #f4f1e2;
+  border-radius: 18px;
+  padding: clamp(2rem, 3vw, 2.8rem);
+}
+
+.benefit-card__icon {
+  font-size: 1.8rem;
+  line-height: 1;
+  color: #a9856b;
+}
+
+.benefit-card__icon img {
+  width: 40px;
+  height: 40px;
+  display: block;
+}
+
+.benefit-card h3 {
+  font-size: clamp(1.1rem, 1.8vw, 1.35rem);
+  line-height: 1.2;
+}
+
+.benefit-card p {
+  max-width: 30ch;
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+/* ============================================================
+   YHTEYSTIEDOT-sivu
+   ============================================================ */
+
+/* ---------- 802 · Yhteystiedot (tiedot + kartta) ---------- */
+.contact {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 82vh;
+}
+
+.contact__info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.4rem;
+  padding: clamp(2.5rem, 6vw, 6rem);
+  background: #ceb8a0;
+  color: #3d322c;
+}
+
+.contact__info h1 {
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  line-height: 1.1;
+}
+
+.contact__list {
+  margin: 0;
+}
+
+.contact__list > div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  padding: 0.9rem 0;
+  border-top: 1px solid color-mix(in srgb, #3d322c 22%, transparent);
+}
+
+.contact__list > div:last-child {
+  border-bottom: 1px solid color-mix(in srgb, #3d322c 22%, transparent);
+}
+
+.contact__list dt {
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  opacity: 0.65;
+}
+
+.contact__list dd {
+  margin: 0;
+  font-size: 1.05rem;
+  line-height: 1.4;
+}
+
+.contact__list a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.contact__list a:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.contact__info .btn {
+  align-self: flex-start;
+  margin-top: 0.4rem;
+  padding: 0.9em 1.8em;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.contact__map {
+  width: 100%;
+  height: 100%;
+  min-height: 60vh;
+  border: 0;
+  display: block;
+}
+
+.contact__pin {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.contact__pin-dot {
+  width: 16px;
+  height: 16px;
+  border-radius: 999px;
+  background: #3d322c;
+  border: 3px solid #f4f1e2;
+  box-shadow: 0 3px 8px rgba(46, 33, 28, 0.3);
+}
+
+.contact__pin-label {
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  background: #f4f1e2;
+  color: #3d322c;
+  padding: 0.35em 0.8em;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+/* ============================================================
+   Liity-modaali (kanta-asiakkuus)
+   ============================================================ */
+.join-modal {
+  margin: auto; /* keskitä näytölle pysty- ja vaakasuunnassa */
+  width: 92vw;
+  max-width: 880px;
+  padding: 0;
+  border: none;
+  border-radius: 20px;
+  overflow: hidden;
+  background: #f4f1e2;
+  color: #3d322c;
+}
+
+.join-modal::backdrop {
+  background: rgba(46, 33, 28, 0.55);
+  backdrop-filter: blur(2px);
+}
+
+.join-modal[open] {
+  animation: modal-in 0.25s ease;
+}
+
+@keyframes modal-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.join-modal__inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.join-modal__media {
+  min-height: 380px;
+  background-image: linear-gradient(135deg, #cdbfb0, #9a8979);
+}
+
+.join-modal__body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+  padding: clamp(1.8rem, 3vw, 2.8rem);
+}
+
+.join-modal__body h2 {
+  font-size: clamp(1.5rem, 3vw, 2.1rem);
+  line-height: 1.12;
+}
+
+.join-modal__body p {
+  font-size: 0.95rem;
+  opacity: 0.88;
+}
+
+.join-modal__demo {
+  margin-top: 0.4rem;
+  font-size: 0.85rem;
+  font-style: italic;
+  text-align: center;
+  opacity: 0.75;
+}
+
+.join-modal__cta {
+  align-self: center;
+  margin-top: 0.5rem;
+  padding: 0.9em 1.8em;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.join-modal__close {
+  position: absolute;
+  top: 0.6rem;
+  right: 0.9rem;
+  z-index: 2;
+  background: none;
+  border: none;
+  font-size: 1.9rem;
+  line-height: 1;
+  cursor: pointer;
+  color: #3d322c;
+  opacity: 0.6;
+}
+
+.join-modal__close:hover {
+  opacity: 1;
+}
+
+@media (max-width: 640px) {
+  .join-modal__inner {
+    grid-template-columns: 1fr;
+  }
+  .join-modal__media {
+    min-height: 170px;
+  }
+}
+
+/* ---------- Kielivalitsin (FI/SV) ---------- */
+.topbar__cart {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.15rem;
+  color: inherit;
+  margin-left: 0.6rem;
+}
+
+.topbar__cart-count {
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.62rem;
+  letter-spacing: 0.05em;
+}
+
+.lang-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.15rem;
+  margin-left: 1.2rem;
+  font-family: "Montserrat", sans-serif;
+}
+
+.lang-toggle__btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: inherit;
+  font: inherit;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.5;
+  padding: 0.2em 0.3em;
+}
+
+.lang-toggle__btn.is-active {
+  opacity: 1;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.lang-toggle__btn:hover {
+  opacity: 0.85;
+}
+
+/* ---------- Oikeat kuvat placeholderien tilalle (--img) ---------- */
+.hero-page[style*="--img"] {
+  background-image:
+    linear-gradient(180deg, rgba(46, 33, 28, 0.28), rgba(46, 33, 28, 0.55)),
+    var(--img) !important;
+  background-size: cover !important;
+  background-position: center !important;
+}
+
+/* Etusivun hero: vaalea cream-kalvo, jotta tumma sisältö erottuu */
+.hero-full[style*="--img"] {
+  background-image:
+    linear-gradient(rgba(46, 33, 28, 0.3), rgba(46, 33, 28, 0.3)), var(--img) !important;
+  background-size: cover !important;
+  background-position: center !important;
+}
+
+/* ---------- Ohut tekstin värinen viiva kaikkien osien väliin ---------- */
+.hero-full,
+.hero-page,
+main > section,
+main > .marquee,
+main > div {
+  border-bottom: 1px solid #3d322c;
+}
+
+/* Pystyviiva jaettujen osioiden palstojen väliin (kuva | sisältö) */
+.statement > * + *,
+.services > * + *,
+.cta-split > * + *,
+.two-images > * + * {
+  border-left: 1px solid #3d322c;
+}
+
+/* Reunusta kaikki kortit ohuella tekstin värisellä viivalla */
+.benefit-card,
+.price-card,
+.stat-card,
+.t-card,
+.brand-statement__card,
+.gallery__item {
+  border: 1px solid #3d322c;
+}
+
+.statement__media[style*="--img"],
+.services__media[style*="--img"],
+.cta-split__media[style*="--img"],
+.two-images__img[style*="--img"],
+.collage__main[style*="--img"],
+.collage__sub[style*="--img"],
+.pdp__image[style*="--img"],
+.pdp-info__image[style*="--img"],
+.pdp-info__thumbs div[style*="--img"],
+.rel-card__img[style*="--img"],
+.gallery__item[style*="--img"],
+.laji__media[style*="--img"],
+.join-modal__media[style*="--img"] {
+  background-image: var(--img) !important;
+  background-size: cover !important;
+  background-position: center !important;
+}
+
+/* ---------- Puolikas kuva / puolikas sisältö: kuva kokonaisena 3:4 ----------
+   Kuvat ovat 1200 x 1600 px (3:4). object-fit: cover + sama kuvasuhde näyttää
+   kuvan kokonaisena, ja leveys täyttää tasan puolet sivusta (1fr 1fr). */
+.cta-split__media,
+.two-images__img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  align-self: start;
+  min-height: 0;
+}
+
 /* ---------- Responsiivisuus ---------- */
 
 @media (max-width: 820px) {
@@ -302,4 +3171,304 @@ section {
   .site-header nav {
     display: none;
   }
+
+  /* Etusivu */
+  .topbar__nav {
+    display: none;
+  }
+
+  .statement,
+  .services {
+    grid-template-columns: 1fr;
+  }
+
+  .statement__media,
+  .services__media {
+    min-height: 38vh;
+  }
+
+  .pricing__cards {
+    grid-template-columns: 1fr;
+    max-width: 420px;
+  }
+
+  .price-card--featured {
+    transform: none;
+  }
+
+  .stats__grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Palvelut */
+  .topbar--page .topbar__right {
+    gap: 1rem;
+  }
+
+  .hero-cats {
+    flex-wrap: wrap;
+    gap: 0.6rem 1.4rem;
+  }
+
+  .cta-split {
+    grid-template-columns: 1fr;
+  }
+
+  .cta-split__media {
+    min-height: 42vh;
+  }
+
+  .nav-index__title {
+    text-align: left;
+  }
+
+  .service-detail {
+    grid-template-columns: 1fr;
+  }
+
+  .service-detail__media {
+    min-height: 56vh;
+  }
+
+  .ow-card {
+    grid-template-columns: 1fr 1fr;
+    text-align: center;
+  }
+
+  .ow-text {
+    grid-column: 1 / -1;
+  }
+
+  /* Verkkokauppa */
+  .pdp,
+  .pdp-info,
+  .related__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .pdp-info__col + .pdp-info__col {
+    border-left: none;
+    border-top: 1px solid color-mix(in srgb, #3d322c 14%, transparent);
+  }
+
+  /* Meistä */
+  .two-images {
+    grid-template-columns: 1fr;
+  }
+
+  .two-images__img {
+    min-height: 44vh;
+  }
+
+  .values__grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  /* Yhteisö */
+  .benefits__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .benefits__badge {
+    white-space: normal;
+    text-align: center;
+    width: max-content;
+    max-width: 90%;
+  }
+
+  .gallery {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .contact {
+    grid-template-columns: 1fr;
+  }
+
+  .contact__map {
+    min-height: 44vh;
+  }
+}
+
+/* ============================================================
+   KAUPPA · tuoteruudukko (kuvat kokonaisina)
+   ============================================================ */
+.shop {
+  padding-block: clamp(2.5rem, 6vw, 5rem);
+  padding-inline: 0; /* ruudukko reunasta reunaan */
+}
+.shop__head {
+  max-width: 64ch; /* leveämpi -> lead kahdelle riville */
+  margin: 0 auto clamp(2.5rem, 5vw, 4rem);
+  padding-inline: clamp(1.2rem, 5vw, 4rem);
+  text-align: center;
+}
+
+/* Tuotekategoriat */
+.shop__cats {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: clamp(1rem, 3vw, 2.5rem);
+  margin-top: 1.6rem;
+  font-family: "Montserrat", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.74rem;
+}
+.shop__cats a {
+  color: inherit;
+  text-decoration: none;
+  opacity: 0.55;
+}
+.shop__cats a.is-active,
+.shop__cats a:hover {
+  opacity: 1;
+  text-decoration: underline;
+  text-underline-offset: 5px;
+}
+.shop__head .eyebrow {
+  display: block;
+  margin-bottom: 1rem;
+}
+.shop__title {
+  font-size: clamp(2rem, 5vw, 3.4rem);
+  margin-bottom: 1rem;
+}
+.shop__lead {
+  opacity: 0.85;
+}
+.shop__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 tuotetta riviin */
+  gap: 0;
+  max-width: none; /* reunasta reunaan */
+  margin: 0;
+  border-top: 1px solid #3d322c;
+  border-left: 1px solid #3d322c;
+}
+.shop-card {
+  display: flex;
+  flex-direction: column;
+  padding: clamp(1.4rem, 2.5vw, 2.2rem);
+  border-right: 1px solid #3d322c;
+  border-bottom: 1px solid #3d322c;
+}
+.shop-card__img {
+  aspect-ratio: 3 / 4; /* sama kuin kuva -> kokonaisena ja täyttää */
+  margin-bottom: 1rem;
+  border-radius: 0; /* teräväkulmainen (Typology-tyyli) */
+  overflow: hidden;
+  background: #f4f1e2;
+}
+.shop-card__img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* täyttää tilan, kuva kokonaisena (3:4) */
+  filter: brightness(0.9); /* tummennettu 10 % */
+  display: block;
+}
+.shop-card__name {
+  font-size: clamp(1rem, 1.5vw, 1.2rem);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 0.3rem;
+}
+.shop-card__desc {
+  max-width: 34ch;
+  margin: 0 auto 1rem; /* keskelle otsikon alle */
+  font-size: 0.92rem;
+  opacity: 0.8;
+}
+.shop-card__foot {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.shop-card__price {
+  font-family: "EB Garamond", Georgia, serif;
+  font-size: 1.2rem;
+}
+.shop-card__foot .btn {
+  padding: 0.6em 1.1em;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  border-radius: 0; /* teräväkulmainen nappi */
+}
+@media (max-width: 820px) {
+  .shop__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (max-width: 560px) {
+  .shop__grid {
+    grid-template-columns: 1fr;
+    max-width: 420px;
+  }
+}
+
+/* Tuotenimen linkki kauppakortissa */
+.shop-card__link {
+  color: inherit;
+  text-decoration: none;
+}
+.shop-card__link:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* Suosituskorttien linkki: peri väri, ei alleviivausta */
+.rel-card {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Jäsenyys + tapahtumat -lohko (etusivun ensimmäinen osa) */
+.member-block__title {
+  padding-inline: clamp(1.5rem, 5vw, 4.5rem);
+  margin-bottom: 0.9rem;
+}
+.member-block__lead {
+  max-width: 52ch; /* leveämpi -> matalampi, ei liian korkea palsta */
+  margin: 0 auto 1.6rem; /* keskitys suoraan otsikon alle */
+  padding-inline: clamp(1rem, 3vw, 2rem);
+  font-size: 0.95rem;
+  opacity: 0.85;
+}
+.event-list {
+  list-style: none;
+}
+.event-list__item {
+  display: flex;
+  justify-content: center;
+  gap: 0.9rem;
+  padding: 1rem clamp(1.5rem, 5vw, 4.5rem);
+  border-top: 1px solid #3d322c;
+  font-family: "Montserrat", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.82rem;
+}
+.event-list__item:last-child {
+  border-bottom: 1px solid #3d322c;
+}
+.event-list__date {
+  opacity: 0.55;
+}
+
+/* Meistä-tarina keskitetysti */
+.cta-split__text {
+  align-items: center;
+  text-align: center;
+}
+.cta-split__text .btn {
+  align-self: center;
+}
+
+/* Meistä-hero: tarkennus kuvan ylhäältä toiseen neljännekseen */
+.hero-page--focustop[style*="--img"] {
+  background-position: center 25% !important;
 }
