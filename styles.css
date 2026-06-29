@@ -1802,6 +1802,8 @@ section {
 /* Ajankohta keskelle (lead, kuva ja nappi ovat jo keskitettyjä) */
 .laji__panel .service-detail__meta {
   text-align: center;
+  align-self: center;
+  margin-inline: auto;
 }
 
 @media (max-width: 760px) {
