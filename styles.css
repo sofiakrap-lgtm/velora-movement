@@ -1991,7 +1991,7 @@ section {
     linear-gradient(rgba(46, 33, 28, 0.4), rgba(46, 33, 28, 0.4)),
     url("assets/images/kuva-9.jpg");
   background-size: cover;
-  background-position: center;
+  background-position: center 62%;
 }
 
 .testimonials__heading {
@@ -3771,4 +3771,9 @@ main > div {
   .book-row__spots {
     grid-column: 2;
   }
+}
+
+/* Palvelut-hero: rajaus ylhäältä toiseen neljännekseen */
+.hero-page--q2[style*="--img"] {
+  background-position: center 38% !important;
 }
