@@ -183,6 +183,29 @@ section {
   color: var(--cream);
 }
 
+/* ---------- Demo-ilmoitus (sivun ylälaita, yläpalkin yläpuolella) ---------- */
+.demo-banner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 200;
+  background: #cfe1e2;
+  color: #3d322c;
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.55rem 1.2rem;
+  line-height: 1.5;
+}
+
+/* Kun demo-ilmoitus on käytössä, työnnä kiinteä yläpalkki sen alapuolelle */
+.has-demo-banner .topbar {
+  top: var(--demo-banner-h, 2.4rem);
+}
+
 .section--dark .btn:hover {
   background: var(--cream);
   color: var(--espresso);

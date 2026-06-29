@@ -983,6 +983,19 @@
       host.appendChild(wrap);
     });
 
+    // Demo-ilmoituksen korkeus -> yläpalkin yläsijainti (kestää rivinvaihdon)
+    var demoBanner = document.querySelector(".demo-banner");
+    if (demoBanner) {
+      var setDemoH = function () {
+        document.documentElement.style.setProperty(
+          "--demo-banner-h",
+          demoBanner.offsetHeight + "px",
+        );
+      };
+      setDemoH();
+      window.addEventListener("resize", setDemoH);
+    }
+
     // Skrollatessa: läpinäkyvä herokuvan päällä oleva palkki muuttuu
     // taustan väriseksi ja teksti tekstin väriseksi (sijainti ennallaan).
     var floatingBars = document.querySelectorAll(".topbar:not(.topbar--solid)");
