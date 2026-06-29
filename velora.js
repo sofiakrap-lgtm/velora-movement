@@ -911,6 +911,41 @@
       else cartDialog.setAttribute("open", "");
     }
 
+    // Tuote-demomodaali: "Lisää koriin" / "Tallenna suosikki" eivät toimi demossa
+    var productDialog = document.createElement("dialog");
+    productDialog.className =
+      "join-modal join-modal--cart join-modal--productdemo";
+    productDialog.innerHTML =
+      '<button class="join-modal__close" type="button" aria-label="Sulje">×</button>' +
+      '<div class="join-modal__inner"><div class="join-modal__body">' +
+      '<span class="eyebrow">Velora Goods</span>' +
+      "<h2>Tämä on demo</h2>" +
+      "<p>Ostoskori- ja suosikkitoiminnot eivät ole käytössä tällä esittelysivulla. Oikeassa kaupassa tuote lisättäisiin koriin.</p>" +
+      '<button class="btn join-modal__cta" type="button" data-close>Selvä</button>' +
+      "</div></div>";
+    document.body.appendChild(productDialog);
+    productDialog
+      .querySelectorAll(".join-modal__close, [data-close]")
+      .forEach(function (x) {
+        x.addEventListener("click", function () {
+          productDialog.close();
+        });
+      });
+    productDialog.addEventListener("click", function (e) {
+      if (e.target === productDialog) productDialog.close();
+    });
+    function openProductDemo(e) {
+      e.preventDefault();
+      if (typeof productDialog.showModal === "function")
+        productDialog.showModal();
+      else productDialog.setAttribute("open", "");
+    }
+    document.querySelectorAll("a.btn, button.btn").forEach(function (btn) {
+      var t = btn.textContent.trim().toLowerCase();
+      if (t === "lisää koriin" || t === "tallenna suosikki")
+        btn.addEventListener("click", openProductDemo);
+    });
+
     // Injektoi FI/SV-valitsin jokaiseen yläpalkkiin
     document.querySelectorAll(".topbar").forEach(function (tb) {
       var host = tb.querySelector(".topbar__right") || tb;

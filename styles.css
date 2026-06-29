@@ -1344,6 +1344,7 @@ section {
   font-size: 0.7rem;
   font-weight: 700;
   opacity: 0.75;
+  margin-inline: auto;
   margin-bottom: clamp(1.6rem, 3vw, 2.6rem);
 }
 .duo__grid {
@@ -2304,12 +2305,12 @@ section {
 
 .join-card .btn--outline {
   background: transparent;
-  color: #fff8e7;
-  border-color: #fff8e7;
+  color: #3d322c;
+  border-color: #3d322c;
 }
 .join-card .btn--outline:hover {
-  background: #fff8e7;
-  color: #3d322c;
+  background: #3d322c;
+  color: #fff8e7;
 }
 
 /* ---------- 200 · Logo-palkki ("Mistä meidät tunnistaa") ---------- */
