@@ -782,51 +782,193 @@
   };
 
   document.addEventListener("DOMContentLoaded", function () {
-    // ----- Liity-modaali -----
+    // ----- Varausmodaali (demo, saavutettava) -----
+    var BOOK_CLASSES = [
+      {
+        day: "Maanantai",
+        time: "7.30",
+        laji: "Aamujooga",
+        ohjaaja: "Anna",
+        spots: 4,
+      },
+      {
+        day: "Maanantai",
+        time: "18.00",
+        laji: "Pilates",
+        ohjaaja: "Eeva",
+        spots: 2,
+      },
+      {
+        day: "Tiistai",
+        time: "9.00",
+        laji: "Stretching",
+        ohjaaja: "Anna",
+        spots: 6,
+      },
+      {
+        day: "Keskiviikko",
+        time: "18.00",
+        laji: "Hengitys & meditaatio",
+        ohjaaja: "Eeva",
+        spots: 8,
+      },
+      { day: "Torstai", time: "7.30", laji: "Core", ohjaaja: "Anna", spots: 3 },
+      {
+        day: "Perjantai",
+        time: "17.00",
+        laji: "Yhteislenkki",
+        ohjaaja: "Eeva",
+        spots: 10,
+      },
+      {
+        day: "Lauantai",
+        time: "10.00",
+        laji: "Jooga",
+        ohjaaja: "Anna",
+        spots: 5,
+      },
+      {
+        day: "Sunnuntai",
+        time: "11.00",
+        laji: "Pilates",
+        ohjaaja: "Eeva",
+        spots: 0,
+      },
+    ];
     var dialog = document.createElement("dialog");
-    dialog.className = "join-modal";
-    dialog.innerHTML =
-      '<button class="join-modal__close" type="button" aria-label="Sulje">×</button>' +
-      '<div class="join-modal__inner">' +
-      '<div class="join-modal__media" aria-hidden="true" style="--img:url(assets/images/kuva-2.jpg)"></div>' +
-      '<div class="join-modal__body">' +
-      '<span class="eyebrow">Kanta-asiakkuus</span>' +
-      "<h2>Tervetuloa Veloran kanta-asiakkaaksi</h2>" +
-      "<p>Kanta-asiakkuutemme hoituu [järjestelmä]-palvelussa, joka pitää huolta jäsenyydestäsi, varauksistasi ja eduistasi, kaikki helposti yhdessä paikassa.</p>" +
-      "<p>Jäsenenä saat joustavat tunnit, jäsenhinnat ja ennakkovaraukset sekä kutsut workshoppeihin ja tapahtumiin.</p>" +
-      '<a class="btn join-modal__cta" href="index.html#liity">Siirry liittymään →</a>' +
-      '<p class="join-modal__demo" hidden>Tämä on demo. Oikeassa palvelussa siirtyisit liittymis- ja kirjautumissivulle.</p>' +
-      "</div>" +
-      "</div>";
-    document.body.appendChild(dialog);
+    dialog.className = "book-modal";
+    dialog.setAttribute("role", "dialog");
+    dialog.setAttribute("aria-modal", "true");
+    dialog.setAttribute("aria-labelledby", "book-modal-title");
 
-    // Demo: nappi ei vie minnekään, vaan kertoo että kyseessä on demo
-    var joinCta = dialog.querySelector(".join-modal__cta");
-    var joinDemo = dialog.querySelector(".join-modal__demo");
-    joinCta.addEventListener("click", function (e) {
-      e.preventDefault();
-      joinDemo.hidden = false;
-    });
-
-    function openModal(e) {
-      e.preventDefault();
-      if (typeof dialog.showModal === "function") dialog.showModal();
-      else dialog.setAttribute("open", "");
+    function esc(s) {
+      return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;");
     }
-    document.querySelectorAll(".btn--member").forEach(function (b) {
-      b.addEventListener("click", openModal);
-    });
-    document.querySelectorAll("a.btn").forEach(function (a) {
-      if (a.textContent.trim().toLowerCase().indexOf("liity asiakkaaksi") === 0)
-        a.addEventListener("click", openModal);
-    });
-    dialog
-      .querySelector(".join-modal__close")
-      .addEventListener("click", function () {
-        dialog.close();
+    function bookRows() {
+      return BOOK_CLASSES.map(function (c, i) {
+        var full = c.spots <= 0;
+        return (
+          '<label class="book-row' +
+          (full ? " is-full" : "") +
+          '">' +
+          '<input type="radio" name="book-class" value="' +
+          i +
+          '"' +
+          (full ? " disabled" : "") +
+          " />" +
+          '<span class="book-row__when"><strong>' +
+          esc(c.day) +
+          "</strong> klo " +
+          esc(c.time) +
+          "</span>" +
+          '<span class="book-row__laji">' +
+          esc(c.laji) +
+          "</span>" +
+          '<span class="book-row__ohjaaja">' +
+          esc(c.ohjaaja) +
+          "</span>" +
+          '<span class="book-row__spots">' +
+          (full ? "Täynnä" : c.spots + " paikkaa vapaana") +
+          "</span>" +
+          "</label>"
+        );
+      }).join("");
+    }
+    function focusTitle() {
+      var t = dialog.querySelector("#book-modal-title");
+      if (t) {
+        t.setAttribute("tabindex", "-1");
+        t.focus();
+      }
+    }
+    function wireClose() {
+      dialog
+        .querySelector(".book-modal__close")
+        .addEventListener("click", function () {
+          dialog.close();
+        });
+    }
+    function bookSelectView() {
+      dialog.innerHTML =
+        '<button class="book-modal__close" type="button" aria-label="Sulje varaus">×</button>' +
+        '<div class="book-modal__inner">' +
+        '<span class="eyebrow">Varaa tunti</span>' +
+        '<h2 id="book-modal-title">Viikon tunnit</h2>' +
+        '<p class="book-modal__lead">Valitse tunti ja vahvista varaus. Tämä on demo, joten oikeaa paikkaa ei varata.</p>' +
+        '<div class="book-list" role="radiogroup" aria-label="Valitse tunti">' +
+        bookRows() +
+        "</div>" +
+        '<div class="book-modal__actions">' +
+        '<button class="btn book-modal__confirm" type="button" disabled>Vahvista varaus</button>' +
+        "</div></div>";
+      var confirmBtn = dialog.querySelector(".book-modal__confirm");
+      dialog.querySelectorAll('input[name="book-class"]').forEach(function (r) {
+        r.addEventListener("change", function () {
+          confirmBtn.disabled = false;
+        });
       });
+      confirmBtn.addEventListener("click", function () {
+        var sel = dialog.querySelector('input[name="book-class"]:checked');
+        if (sel) bookSuccessView(BOOK_CLASSES[+sel.value]);
+      });
+      wireClose();
+      focusTitle();
+    }
+    function bookSuccessView(c) {
+      dialog.innerHTML =
+        '<button class="book-modal__close" type="button" aria-label="Sulje varaus">×</button>' +
+        '<div class="book-modal__inner book-modal__inner--success">' +
+        '<div class="book-success__check" aria-hidden="true">✓</div>' +
+        '<h2 id="book-modal-title">Kiitos, varauksesi on vastaanotettu</h2>' +
+        '<p class="book-success__detail"><strong>' +
+        esc(c.laji) +
+        "</strong><br />" +
+        esc(c.day) +
+        " klo " +
+        esc(c.time) +
+        " · ohjaaja " +
+        esc(c.ohjaaja) +
+        "</p>" +
+        '<p class="book-modal__demo">Tämä on demo, ei oikeaa varausta. Oikeassa palvelussa saisit vahvistuksen sähköpostiisi.</p>' +
+        '<div class="book-modal__actions">' +
+        '<button class="btn book-modal__again" type="button">Varaa toinen tunti</button>' +
+        '<button class="btn btn--outline book-modal__done" type="button">Sulje</button>' +
+        "</div></div>";
+      dialog
+        .querySelector(".book-modal__again")
+        .addEventListener("click", bookSelectView);
+      dialog
+        .querySelector(".book-modal__done")
+        .addEventListener("click", function () {
+          dialog.close();
+        });
+      wireClose();
+      focusTitle();
+    }
     dialog.addEventListener("click", function (e) {
       if (e.target === dialog) dialog.close();
+    });
+    // Palauta fokus avausnappiin sulkiessa (varmistus natiivin lisäksi)
+    var bookTrigger = null;
+    dialog.addEventListener("close", function () {
+      if (bookTrigger && typeof bookTrigger.focus === "function")
+        bookTrigger.focus();
+    });
+    document.body.appendChild(dialog);
+
+    function openBooking(e) {
+      if (e) {
+        e.preventDefault();
+        bookTrigger = e.currentTarget;
+      }
+      bookSelectView();
+      if (typeof dialog.showModal === "function") dialog.showModal();
+      else dialog.setAttribute("open", "");
+      focusTitle();
+    }
+    // Kaikki #liity-CTA:t (Liity, Ilmoittaudu, Varaa…) avaavat varausmodaalin
+    document.querySelectorAll('a[href$="#liity"]').forEach(function (el) {
+      el.addEventListener("click", openBooking);
     });
 
     // ----- Kielenvaihto -----
