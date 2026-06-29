@@ -2819,11 +2819,11 @@ section {
   top: 50%;
   left: 50%;
   /* Iso neliö, joka peittää koko osion myös kierron jälkeen */
-  width: 120vmax;
-  height: 120vmax;
+  width: 175vmax;
+  height: 175vmax;
   transform: translate(-50%, -50%) rotate(-90deg);
   background: url("assets/images/kuva-1.jpg") center / cover no-repeat;
-  filter: brightness(0.8);
+  filter: brightness(0.6);
   z-index: -2;
 }
 
