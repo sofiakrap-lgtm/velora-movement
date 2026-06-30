@@ -966,9 +966,70 @@
       else dialog.setAttribute("open", "");
       focusTitle();
     }
-    // Kaikki #liity-CTA:t (Liity, Ilmoittaudu, Varaa…) avaavat varausmodaalin
+    // ----- Jäsenyys-/liity-modaali: esittelee asiakkaaksi liittymisen -----
+    var joinDialog = document.createElement("dialog");
+    joinDialog.className = "join-modal";
+    joinDialog.setAttribute("role", "dialog");
+    joinDialog.setAttribute("aria-modal", "true");
+    joinDialog.setAttribute("aria-labelledby", "join-modal-title");
+    joinDialog.innerHTML =
+      '<button class="join-modal__close" type="button" aria-label="Sulje">×</button>' +
+      '<div class="join-modal__inner">' +
+      '<div class="join-modal__media" aria-hidden="true" style="--img:url(assets/images/kuva-2.jpg)"></div>' +
+      '<div class="join-modal__body">' +
+      '<span class="eyebrow">Kanta-asiakkuus</span>' +
+      '<h2 id="join-modal-title">Tervetuloa Veloran kanta-asiakkaaksi</h2>' +
+      "<p>Kanta-asiakkuutesi hoituu yhdessä palvelussa, joka pitää huolta jäsenyydestäsi, varauksistasi ja eduistasi, kaikki helposti samassa paikassa.</p>" +
+      "<p>Jäsenenä saat joustavat tunnit, jäsenhinnat ja ennakkovaraukset sekä kutsut workshoppeihin ja tapahtumiin.</p>" +
+      '<button class="btn join-modal__cta" type="button">Varaa ensimmäinen tunti →</button>' +
+      '<p class="join-modal__demo">Tämä on demo. Oikeassa palvelussa siirtyisit liittymis- ja kirjautumissivulle.</p>' +
+      "</div></div>";
+    document.body.appendChild(joinDialog);
+    joinDialog
+      .querySelector(".join-modal__close")
+      .addEventListener("click", function () {
+        joinDialog.close();
+      });
+    joinDialog.addEventListener("click", function (e) {
+      if (e.target === joinDialog) joinDialog.close();
+    });
+    var joinTrigger = null;
+    joinDialog.addEventListener("close", function () {
+      if (joinTrigger && typeof joinTrigger.focus === "function")
+        joinTrigger.focus();
+    });
+    // Modaalin CTA avaa varausmodaalin
+    joinDialog
+      .querySelector(".join-modal__cta")
+      .addEventListener("click", function () {
+        bookTrigger = joinTrigger;
+        joinDialog.close();
+        bookSelectView();
+        if (typeof dialog.showModal === "function") dialog.showModal();
+        else dialog.setAttribute("open", "");
+        focusTitle();
+      });
+    function openJoin(e) {
+      if (e) {
+        e.preventDefault();
+        joinTrigger = e.currentTarget;
+      }
+      if (typeof joinDialog.showModal === "function") joinDialog.showModal();
+      else joinDialog.setAttribute("open", "");
+      var t = joinDialog.querySelector("#join-modal-title");
+      if (t) {
+        t.setAttribute("tabindex", "-1");
+        t.focus();
+      }
+    }
+
+    // Reititys: "Liity…" -> jäsenyysmodaali; "Ilmoittaudu/Varaa…" -> varausmodaali
     document.querySelectorAll('a[href$="#liity"]').forEach(function (el) {
-      el.addEventListener("click", openBooking);
+      var t = el.textContent.trim().toLowerCase();
+      el.addEventListener(
+        "click",
+        t.indexOf("liity") === 0 ? openJoin : openBooking,
+      );
     });
 
     // ----- Kielenvaihto -----

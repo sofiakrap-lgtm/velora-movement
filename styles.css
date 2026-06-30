@@ -3222,7 +3222,7 @@ section {
 /* ---------- Oikeat kuvat placeholderien tilalle (--img) ---------- */
 .hero-page[style*="--img"] {
   background-image:
-    linear-gradient(180deg, rgba(46, 33, 28, 0.28), rgba(46, 33, 28, 0.55)),
+    linear-gradient(180deg, rgba(46, 33, 28, 0.46), rgba(46, 33, 28, 0.66)),
     var(--img) !important;
   background-size: cover !important;
   background-position: center !important;
@@ -3776,4 +3776,25 @@ main > div {
 /* Palvelut-hero: rajaus ylhäältä toiseen neljännekseen */
 .hero-page--q2[style*="--img"] {
   background-position: center 38% !important;
+}
+
+/* Koko tuotekortti klikattavissa tuotesivulle (Lisää koriin -nappi pysyy toimivana) */
+.shop-card {
+  position: relative;
+}
+.shop-card__link::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+.shop-card__foot .btn {
+  position: relative;
+  z-index: 2;
+}
+.shop-card:hover .shop-card__img img {
+  transform: scale(1.03);
+}
+.shop-card__img img {
+  transition: transform 0.4s ease;
 }
