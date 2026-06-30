@@ -3231,7 +3231,7 @@ section {
 /* Etusivun hero: vaalea cream-kalvo, jotta tumma sisältö erottuu */
 .hero-full[style*="--img"] {
   background-image:
-    linear-gradient(rgba(46, 33, 28, 0.3), rgba(46, 33, 28, 0.3)), var(--img) !important;
+    linear-gradient(rgba(46, 33, 28, 0.45), rgba(46, 33, 28, 0.45)), var(--img) !important;
   background-size: cover !important;
   background-position: center !important;
 }
