@@ -1149,6 +1149,40 @@
         btn.addEventListener("click", openProductDemo);
     });
 
+    // Some-linkit (demo): kertoo että kyseessä on demobrändi
+    var socialDialog = document.createElement("dialog");
+    socialDialog.className =
+      "join-modal join-modal--cart join-modal--productdemo";
+    socialDialog.innerHTML =
+      '<button class="join-modal__close" type="button" aria-label="Sulje">×</button>' +
+      '<div class="join-modal__inner"><div class="join-modal__body">' +
+      '<span class="eyebrow">Some</span>' +
+      "<h2>Tämä on demo</h2>" +
+      "<p>Velora Movement on demobrändi, eikä sillä ole sosiaalisen median tilejä. Oikeassa sivustossa tästä pääsisi studion someen.</p>" +
+      '<button class="btn join-modal__cta" type="button" data-close>Selvä</button>' +
+      "</div></div>";
+    document.body.appendChild(socialDialog);
+    socialDialog
+      .querySelectorAll(".join-modal__close, [data-close]")
+      .forEach(function (x) {
+        x.addEventListener("click", function () {
+          socialDialog.close();
+        });
+      });
+    socialDialog.addEventListener("click", function (e) {
+      if (e.target === socialDialog) socialDialog.close();
+    });
+    document
+      .querySelectorAll(".footer-wordmark a[href='#']")
+      .forEach(function (a) {
+        a.addEventListener("click", function (e) {
+          e.preventDefault();
+          if (typeof socialDialog.showModal === "function")
+            socialDialog.showModal();
+          else socialDialog.setAttribute("open", "");
+        });
+      });
+
     // Injektoi FI/SV-valitsin jokaiseen yläpalkkiin
     document.querySelectorAll(".topbar").forEach(function (tb) {
       var host = tb.querySelector(".topbar__right") || tb;
