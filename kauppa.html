@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="fi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kauppa — Velora Movement</title>
+    <meta name="description" content="Velora Movement -verkkokauppa. Kotiharjoitteluun ja hyvinvointiin — joogasetit, luonnonkosmetiikka ja tekstiilit." />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a href="index.html" class="brand">
+        <img src="assets/logos/velora-logo.svg" alt="Velora Movement" />
+      </a>
+      <button class="nav-toggle" aria-label="Avaa valikko" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <nav>
+        <a href="index.html">Etusivu</a>
+        <a href="hinnasto.html">Hinnasto</a>
+        <a href="kauppa.html" class="active">Kauppa</a>
+        <a href="yhteystiedot.html">Yhteystiedot</a>
+      </nav>
+      <a class="btn" href="#" data-demo="Tämä on demosivu — ostotoiminto ei ole käytössä.">Varaa</a>
+    </header>
+
+    <main>
+      <section class="wrap page-hero">
+        <span class="label">Kauppa</span>
+        <h1>Kotiin, harjoitteluun, hetkeen.</h1>
+        <p>Pieni, harkittu valikoima kotiharjoitteluun ja rauhoittumiseen. Luonnonmateriaaleja ja lämpimiä sävyjä.</p>
+      </section>
+
+      <section class="wrap">
+        <div class="shop-grid">
+          <article class="product">
+            <div class="product__media">
+              <img src="assets/images/shop-joogasetti.jpg" alt="Joogasetti kotiin" onerror="this.style.display='none'" />
+            </div>
+            <h3>Joogasetti kotiin</h3>
+            <div class="price">89€</div>
+            <p>Matto, vyö ja kaksi palikkaa — lämpimissä neutraaleissa sävyissä.</p>
+            <a class="btn" href="#" data-demo="Tämä on demosivu — ostotoiminto ei ole käytössä.">Lisää koriin</a>
+          </article>
+
+          <article class="product">
+            <div class="product__media">
+              <img src="assets/images/shop-pilatessetti.jpg" alt="Pilatessetti kotiin" onerror="this.style.display='none'" />
+            </div>
+            <h3>Pilatessetti kotiin</h3>
+            <div class="price">69€</div>
+            <p>Vastuskuminauhat, pehmeä pallo ja liukumaton matto.</p>
+            <a class="btn" href="#" data-demo="Tämä on demosivu — ostotoiminto ei ole käytössä.">Lisää koriin</a>
+          </article>
+
+          <article class="product">
+            <div class="product__media">
+              <img src="assets/images/shop-saippua.jpg" alt="Luonnonsaippua" onerror="this.style.display='none'" />
+            </div>
+            <h3>Luonnonsaippua</h3>
+            <div class="price">12€</div>
+            <p>Kylmäprosessoitu, tuoksuton — herkällekin iholle.</p>
+            <a class="btn" href="#" data-demo="Tämä on demosivu — ostotoiminto ei ole käytössä.">Lisää koriin</a>
+          </article>
+
+          <article class="product">
+            <div class="product__media">
+              <img src="assets/images/shop-kylpytakki.jpg" alt="Kylpytakki, vaalea" onerror="this.style.display='none'" />
+            </div>
+            <h3>Kylpytakki</h3>
+            <div class="price">79€</div>
+            <p>Pehmeä puuvillafrotee, luonnonvalkoinen. Rentoutumiseen tunnin jälkeen.</p>
+            <a class="btn" href="#" data-demo="Tämä on demosivu — ostotoiminto ei ole käytössä.">Lisää koriin</a>
+          </article>
+
+          <article class="product">
+            <div class="product__media">
+              <img src="assets/images/shop-pyyhkeet.jpg" alt="Kolmen pyyhkeen setti" onerror="this.style.display='none'" />
+            </div>
+            <h3>Pyyheliinasetti</h3>
+            <div class="price">45€</div>
+            <p>Kolme vaaleaa puuvillapyyhettä — arkeen ja studioon.</p>
+            <a class="btn" href="#" data-demo="Tämä on demosivu — ostotoiminto ei ole käytössä.">Lisää koriin</a>
+          </article>
+
+          <article class="product">
+            <div class="product__media">
+              <img src="assets/images/shop-juomapullo.jpg" alt="Metallinen juomapullo" onerror="this.style.display='none'" />
+            </div>
+            <h3>Juomapullo</h3>
+            <div class="price">29€</div>
+            <p>Ruostumaton teräs, pitää kylmänä. Velora-kaiverruksella.</p>
+            <a class="btn" href="#" data-demo="Tämä on demosivu — ostotoiminto ei ole käytössä.">Lisää koriin</a>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <img class="footer-logo" src="assets/logos/velora-logo.svg" alt="Velora Movement" />
+      <p style="margin-inline: auto; opacity: 0.8">Liike · hengitys · läsnäolo</p>
+      <nav class="footer-nav">
+        <a href="index.html">Etusivu</a>
+        <a href="hinnasto.html">Hinnasto</a>
+        <a href="kauppa.html">Kauppa</a>
+        <a href="yhteystiedot.html">Yhteystiedot</a>
+      </nav>
+      <span class="label">Demobrändi — Blomman portfoliokonsepti</span>
+    </footer>
+
+    <div id="demo-toast" class="demo-toast" role="status" aria-live="polite"></div>
+    <script src="script.js"></script>
+  </body>
+</html>

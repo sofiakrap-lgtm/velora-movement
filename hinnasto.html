@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="fi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hinnasto — Velora Movement</title>
+    <meta name="description" content="Velora Movement — hinnasto ja viikkoaikataulu. Yksittäiset tunnit, kortit ja kuukausipaketit." />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a href="index.html" class="brand">
+        <img src="assets/logos/velora-logo.svg" alt="Velora Movement" />
+      </a>
+      <button class="nav-toggle" aria-label="Avaa valikko" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <nav>
+        <a href="index.html">Etusivu</a>
+        <a href="hinnasto.html" class="active">Hinnasto</a>
+        <a href="kauppa.html">Kauppa</a>
+        <a href="yhteystiedot.html">Yhteystiedot</a>
+      </nav>
+      <a class="btn" href="#" data-demo="Tämä on demosivu — varaustoiminto ei ole käytössä.">Varaa</a>
+    </header>
+
+    <main>
+      <section class="wrap page-hero">
+        <span class="label">Hinnasto</span>
+        <h1>Selkeät hinnat, ei sidonnaisuuksia.</h1>
+        <p>Valitse yksittäinen tunti, kortti tai kuukausipaketti. Ensimmäinen tunti on aina talon tarjoama.</p>
+      </section>
+
+      <!-- Paketit -->
+      <section class="wrap">
+        <div class="price-grid">
+          <div class="price-card">
+            <span class="tier">Yksittäinen</span>
+            <span class="label">Kertakäynti</span>
+            <div class="amount">22€ <span>/ tunti</span></div>
+            <ul>
+              <li>Yksi tunti, vapaa laji</li>
+              <li>Sopii kokeiluun</li>
+              <li>Ei sitoutumista</li>
+            </ul>
+            <a class="btn" href="#" data-demo="Tämä on demosivu — varaustoiminto ei ole käytössä.">Varaa</a>
+          </div>
+
+          <div class="price-card featured">
+            <span class="tier">10× kortti</span>
+            <span class="label">Suosituin</span>
+            <div class="amount">190€ <span>/ 10 kertaa</span></div>
+            <ul>
+              <li>10 tuntia, vapaa laji</li>
+              <li>Voimassa 4 kk</li>
+              <li>19€ / tunti</li>
+            </ul>
+            <a class="btn" href="#" data-demo="Tämä on demosivu — varaustoiminto ei ole käytössä.">Osta kortti</a>
+          </div>
+
+          <div class="price-card">
+            <span class="tier">Kuukausi</span>
+            <span class="label">Rajaton</span>
+            <div class="amount">129€ <span>/ kk</span></div>
+            <ul>
+              <li>Rajaton määrä tunteja</li>
+              <li>-10% verkkokaupasta</li>
+              <li>Peruutus milloin vain</li>
+            </ul>
+            <a class="btn" href="#" data-demo="Tämä on demosivu — varaustoiminto ei ole käytössä.">Aloita jäsenyys</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Aikataulu -->
+      <section class="wrap">
+        <div class="section-head">
+          <span class="label">Viikko-ohjelma</span>
+          <h2>Tunnit viikoittain.</h2>
+        </div>
+
+        <div class="schedule">
+          <div class="schedule-row">
+            <span class="day">Maanantai</span>
+            <span class="class-name">Slow Flow</span>
+            <span class="time">8:00 · 18:30</span>
+          </div>
+          <div class="schedule-row">
+            <span class="day">Tiistai</span>
+            <span class="class-name">Reformer Pilates</span>
+            <span class="time">7:30 · 17:00 · 18:30</span>
+          </div>
+          <div class="schedule-row">
+            <span class="day">Keskiviikko</span>
+            <span class="class-name">Slow Flow</span>
+            <span class="time">9:00 · 19:00</span>
+          </div>
+          <div class="schedule-row">
+            <span class="day">Torstai</span>
+            <span class="class-name">Reformer Pilates</span>
+            <span class="time">7:30 · 17:00</span>
+          </div>
+          <div class="schedule-row">
+            <span class="day">Perjantai</span>
+            <span class="class-name">Restore</span>
+            <span class="time">17:30 · 19:00</span>
+          </div>
+          <div class="schedule-row">
+            <span class="day">Lauantai</span>
+            <span class="class-name">Slow Flow + Restore</span>
+            <span class="time">10:00 · 11:30</span>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <img class="footer-logo" src="assets/logos/velora-logo.svg" alt="Velora Movement" />
+      <p style="margin-inline: auto; opacity: 0.8">Liike · hengitys · läsnäolo</p>
+      <nav class="footer-nav">
+        <a href="index.html">Etusivu</a>
+        <a href="hinnasto.html">Hinnasto</a>
+        <a href="kauppa.html">Kauppa</a>
+        <a href="yhteystiedot.html">Yhteystiedot</a>
+      </nav>
+      <span class="label">Demobrändi — Blomman portfoliokonsepti</span>
+    </footer>
+
+    <div id="demo-toast" class="demo-toast" role="status" aria-live="polite"></div>
+    <script src="script.js"></script>
+  </body>
+</html>
